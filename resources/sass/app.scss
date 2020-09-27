@@ -1,0 +1,15 @@
+// Custom variables and variable overwrites.
+$card-default-color: #ffffff;
+
+// Import default variables and available mixins.
+@import "~uikit/src/scss/variables-theme";
+@import "~uikit/src/scss/mixins-theme";
+
+// Custom mixin overwrites.
+@import 'components/modules';
+
+// Import UIKit.
+@import "~uikit/src/scss/uikit-theme";
+
+// Font Awesome.
+// @import '~@fortawesome/fontawesome-free/css/all.min.css';
