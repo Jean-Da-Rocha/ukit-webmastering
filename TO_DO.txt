@@ -1,0 +1,7 @@
+# IMPORTANT
+
+- Repository pattern.
+
+# OPTIONAL
+
+# BUGS

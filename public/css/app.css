@@ -1,22 +1,6 @@
 @charset "UTF-8";
 
-/* -- Top navigation -- */
-
-/* Smaller Header */
-
-/* Left bar */
-
-/* Left bar links */
-
-/* Drop arrow */
-
-/* Search nav */
-
-/* Smooth shadow transition */
-
-/* Progress */
-
-/* Charts */
+/* -- Sidebar -- */
 
 #top-head {
   z-index: 9;
@@ -58,7 +42,7 @@
   top: 0;
   bottom: 0;
   background-color: #222A30;
-  width: 240px;
+  width: 250px;
   z-index: 2;
   transition: height 0.3s ease-out;
 }
@@ -177,34 +161,9 @@
   transition: margin 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.search-field {
-  width: 140px;
-  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.search-field:focus {
-  width: 200px;
-  border-color: #fff !important;
-}
-
-.uk-card {
-  box-shadow: none;
-  transition: box-shadow 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.uk-heading-primary {
-  letter-spacing: -0.032em;
-  font-weight: 300;
-}
-
-.uk-progress {
-  height: 3px;
-  margin-bottom: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.23);
-}
-
 * + .uk-progress {
-  margin-top: 0.15rem;
+  margin-top: 0.25rem;
+  height: 5px !important;
 }
 
 .uk-progress.warning::-webkit-progress-value {
@@ -229,16 +188,6 @@
 
 .uk-progress.success::-ms-fill {
   background-color: #32d296;
-}
-
-@media screen and (min-width: 960px) {
-  #content {
-    margin-left: 240px;
-  }
-
-  #top-head {
-    left: 240px;
-  }
 }
 
 form [uk-icon],

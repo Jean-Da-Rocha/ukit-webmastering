@@ -1,8 +1,4 @@
 import 'alpinejs';
-import UIkit from 'uikit';
-import Icons from 'uikit/dist/js/uikit-icons';
-
-UIkit.use(Icons);
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

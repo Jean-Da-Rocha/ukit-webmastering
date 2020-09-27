@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
-
 Route::middleware('guest')->group(function () {
     Route::view('/', 'auth.login');
     Route::get('login', Login::class)->name('login');
@@ -25,6 +23,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::view('/', 'welcome')->name('home');
+    Route::view('/', 'home')->name('home');
     Route::post('logout', LogoutController::class)->name('logout');
 });
