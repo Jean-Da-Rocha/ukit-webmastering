@@ -1,7 +1,7 @@
 <!-- LEFT BAR -->
 <aside id="left-col" class="uk-light uk-visible@m">
     <div class="left-logo uk-flex uk-flex-middle">
-        <img class="custom-logo" src="{{ asset('images/dashboard-logo.svg') }}" alt="">
+        <img class="custom-logo" src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/dashboard-logo.svg" alt="">
     </div>
     @guest
         <div class="left-nav-wrap">
@@ -22,8 +22,8 @@
     @endguest
     <div class="left-content-box content-box-dark {{ ! auth()->check() ? 'uk-hidden' : '' }}">
         @auth
-            <img src="{{ asset('images/avatar.svg') }}" alt="" class="uk-border-circle profile-img">
-            <h4 class="uk-text-center uk-margin-remove-vertical text-light">
+            <img src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/avatar.svg" alt="" class="uk-border-circle profile-img">
+            <h4 class="uk-text-center uk-margin-remove-vertical">
                 {{ auth()->user()->username }}
             </h4>
             <div class="uk-position-relative uk-text-center uk-display-block">
@@ -32,7 +32,7 @@
                     class="uk-text-small uk-display-block uk-text-center {{ getRoleColor(auth()->user()->role_id) }}"
                     data-uk-icon="icon: triangle-down; ratio: 0.7"
                 >
-                    {{ auth()->user()->role->role_name }}
+                    {{ Str::ucfirst(auth()->user()->role->role_name) }}
                 </a>
                 <!-- user dropdown -->
                 <div

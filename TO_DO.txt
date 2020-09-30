@@ -1,7 +1,11 @@
 # IMPORTANT
 
 - Repository pattern.
+- Uninstall Font Awesome.
+- Remove style="color: #fff" in home.blade.php + rework home page.
 
 # OPTIONAL
+
+- Clean _navbar.scss
 
 # BUGS

@@ -1,29 +1,35 @@
 <x-layouts.app>
-    <p>Logged in as {{ auth()->user()->username }}</p>
-
     <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
         <div>
-            <div class="uk-card uk-card-hover uk-card-body">
-                <h3 class="uk-card-title">Hover</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <div class="uk-card uk-card-primary uk-card-hover uk-card-body">
+                <h3 class="uk-card-title">Number of projects</h3>
+                <p class="uk-text-lead" style="color: #fff;">
+                    <span data-uk-icon="git-branch"></span> {{ $totalProjects }}
+                </p>
             </div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title">Default</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                <h3 class="uk-card-title">Primary</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <div class="uk-card uk-card-primary uk-card-hover uk-card-body">
+                <h3 class="uk-card-title">Number of tasks</h3>
+                <p class="uk-text-lead" style="color: #fff;">
+                    <span data-uk-icon="file-text"></span> {{ $totalTasks }}
+                </p>
             </div>
         </div>
         <div>
             <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light">
-                <h3 class="uk-card-title">Secondary</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <h3 class="uk-card-title">Number of customers</h3>
+                <p class="uk-text-lead" style="color: #fff;">
+                    <span data-uk-icon="users"></span> {{ $totalCustomers }}
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light">
+                <h3 class="uk-card-title">Number of users</h3>
+                <p class="uk-text-lead" style="color: #fff;">
+                    <span data-uk-icon="user"></span> {{ $totalUsers }}
+                </p>
             </div>
         </div>
     </div>

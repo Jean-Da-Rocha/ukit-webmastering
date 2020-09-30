@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Auth\{Login, Register};
 
 use Illuminate\Support\Facades\Route;
@@ -17,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('guest')->group(function () {
-    Route::view('/', 'auth.login');
+    Route::get('/', fn () => redirect(route('login')));
     Route::get('login', Login::class)->name('login');
     Route::get('register', Register::class)->name('register');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::view('/', 'home')->name('home');
+    Route::get('home', HomeController::class)->name('home');
     Route::post('logout', LogoutController::class)->name('logout');
 });
