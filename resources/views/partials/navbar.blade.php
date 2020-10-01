@@ -85,7 +85,7 @@
                             <a href="#">Create a new project</a>
                         </li>
                         <li>
-                            <a href="#">See all projects</a>
+                            <a href="{{ route('projects.index') }}">See all projects</a>
                         </li>
                     </ul>
                 </li>
