@@ -1,10 +1,12 @@
 # IMPORTANT
 
+- Dynamic datatable component.
 - Repository pattern.
-- Remove style="color: #fff" in home.blade.php + rework home page.
 
 # OPTIONAL
 
+- Create a package for the datatable + comment functions and variables.
+- Remove style="color: #fff" in home.blade.php + rework home page.
 - Clean _navbar.scss (done 75 %)
 
 # BUGS
