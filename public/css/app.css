@@ -150,6 +150,13 @@ form [data-uk-icon] {
   max-height: 40px;
 }
 
+.uk-pagination > .uk-active > * {
+  color: #fff !important;
+  background-color: #1e87f0;
+  border-radius: 50%;
+  padding: 0 7px;
+}
+
 /* ========================================================================
    Component: Base
  ========================================================================== */

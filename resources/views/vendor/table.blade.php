@@ -1,5 +1,4 @@
 <div>
-
     <div class="uk-margin">
         <form class="uk-search uk-search-default">
             <span class="uk-search-icon-flip" data-uk-search-icon wire:ignore></span>
@@ -13,6 +12,19 @@
                 @if ($searchUpdateMethod === 'lazy') wire:model.lazy="search" @endif
             />
         </form>
+
+        <div class="uk-align-right">
+            <label for="perPage"></label>
+            <select name="perPage" id="perPage" class="uk-select uk-width-small" wire:model="perPage">
+                @foreach ($perPageOptions as $option)
+                    <option value="{{ $option }}">{{ $option }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+
+    <div class="uk-text-primary">
+        Results: {{ $models->count() }} / {{ $models->total() }}
     </div>
 
     <table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">
@@ -25,9 +37,13 @@
                                 <span style="cursor: pointer;" wire:click="sort('{{ $column->getAttribute() }}')">
                                     {{ $column->getText() }}
                                     @if ($sortField === $column->getAttribute())
-                                        <span data-uk-icon="arrow-{{ $sortDirection === 'asc' ? 'up' : 'down' }}"></span>
+                                        @if ($sortDirection === 'asc')
+                                            <span>&#8648;</span>
+                                        @else
+                                            <span>&#8650;</span>
+                                        @endif
                                     @else
-                                        <span data-uk-icon="arrow-up"></span>
+                                        <span>&#8645;</span>
                                     @endif
                                 </span>
                             </th>
@@ -62,6 +78,5 @@
             @endforelse
         </tbody>
     </table>
-
-    {{ $models->links() }}
+    {{ $models->links('vendor.pagination') }}
 </div>
