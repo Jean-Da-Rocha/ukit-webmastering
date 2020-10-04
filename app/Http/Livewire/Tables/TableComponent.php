@@ -12,10 +12,10 @@ use Illuminate\Support\Str;
 abstract class TableComponent extends Component
 {
     use Paginating,
-        Searching,
-        Sorting,
-        WithPagination,
-        Yajra;
+    Searching,
+    Sorting,
+    WithPagination,
+    Yajra;
 
      /**
      * TableComponent constructor.
