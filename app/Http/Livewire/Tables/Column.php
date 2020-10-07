@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Tables;
 
-use Illuminate\View\View;
+use App\Traits\Livewire\Tables\Hiddenable;
 
 use Illuminate\Support\Str;
-use App\Traits\Livewire\Tables\Hiddenable;
 
 class Column
 {
@@ -14,37 +13,47 @@ class Column
     /**
      * @var string
      */
-    protected $text;
+    private string $text;
+
+    /**
+     * @var string
+     */
+    private string $attribute;
+
+    /**
+     * @var bool
+     */
+    private bool $sortable = false;
+
+    /**
+     * @var bool
+     */
+    private bool $searchable = false;
 
     /**
      * @var string|null
      */
-    protected $attribute;
+    private $viewName;
 
     /**
      * @var bool
      */
-    protected $sortable = false;
+    private bool $raw = false;
 
     /**
-     * @var bool
+     * @var string
      */
-    protected $searchable = false;
-
-    /**
-     * @var View
-     */
-    protected $view;
+    private string $htmlContent = '';
 
     /**
      * @var callable|null
      */
-    protected $sortCallback;
+    private $sortCallback;
 
     /**
      * @var callable|null
      */
-    protected $searchCallback;
+    private $searchCallback;
 
     /**
      * Column constructor.
@@ -59,17 +68,21 @@ class Column
     }
 
     /**
+     * Create a new column object with its name and attribute.
+     *
      * @param  string  $text
      * @param  string|null  $attribute
      *
      * @return Column
      */
-    public static function make(string $text, ?string $attribute = null): Column
+    public static function make(string $text, ?string $attribute = null)
     {
         return new static($text, $attribute);
     }
 
     /**
+     * Get the text content.
+     *
      * @return string
      */
     public function getText()
@@ -78,6 +91,8 @@ class Column
     }
 
     /**
+     * Get the attribute content.
+     *
      * @return string
      */
     public function getAttribute()
@@ -86,7 +101,9 @@ class Column
     }
 
     /**
-     * @return mixed
+     * Get the sort callback if there is any.
+     *
+     * @return callable|null
      */
     public function getSortCallback()
     {
@@ -94,7 +111,9 @@ class Column
     }
 
     /**
-     * @return mixed
+     * Get the search callback if there is any.
+     *
+     * @return callable|null
      */
     public function getSearchCallback()
     {
@@ -102,6 +121,8 @@ class Column
     }
 
     /**
+     * Check whether the column is sortable or not.
+     *
      * @return bool
      */
     public function isSortable()
@@ -110,6 +131,8 @@ class Column
     }
 
     /**
+     * Check whether the column is searchable or not.
+     *
      * @return bool
      */
     public function isSearchable()
@@ -118,6 +141,8 @@ class Column
     }
 
     /**
+     * Make the column sortable with an optional callback.
+     *
      * @param  callable|null  $callable
      * @return $this
      */
@@ -130,6 +155,8 @@ class Column
     }
 
     /**
+     * Make the column searchable with an optional callback.
+     *
      * @param  callable|null  $callable
      * @return $this
      */
@@ -142,14 +169,14 @@ class Column
     }
 
     /**
-     * Pass a view element to display in the table column.
+     * Show a view element in the column.
      *
-     * @param  View  $view
-     * @return void
+     * @param  string  $view
+     * @return $this
      */
-    public function view(View $view)
+    public function view(string $viewName)
     {
-        $this->view = $view;
+        $this->viewName = $viewName;
 
         return $this;
     }
@@ -157,10 +184,46 @@ class Column
     /**
      * Get the view element.
      *
-     * @return View
+     * @return string
      */
-    public function getView()
+    public function getViewName()
     {
-        return $this->view;
+        return $this->viewName;
+    }
+
+    /**
+     * Display the column format using `{!!  !!}`
+     * rather than `{{  }}`.
+     *
+     * @param  string  $htmlContent
+     * @return $this
+     */
+    public function raw(string $htmlContent)
+    {
+        $this->htmlContent = $htmlContent;
+        $this->raw = true;
+
+        return $this;
+    }
+
+    /**
+     * Check if the column needs to be output
+     * in a raw format.
+     *
+     * @return bool
+     */
+    public function isRaw()
+    {
+        return $this->raw === true;
+    }
+
+    /**
+     * Get the HTML content that needs to be output.
+     *
+     * @return string
+     */
+    public function getHtmlContent()
+    {
+        return $this->htmlContent;
     }
 }

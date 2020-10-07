@@ -7,42 +7,69 @@ trait Hiddenable
     /**
      * @var bool
      */
-    protected $hidden = false;
+    private bool $columnHidden = false;
 
     /**
-     * @param  boolean  $condition
+     * @var bool
+     */
+    private bool $rowHidden = false;
+
+    /**
+     * Hide the column depending on the given condition.
+     *
+     * @param  bool  $condition
      * @return $this
      */
-    public function hideIf($condition)
+    public function hideColumnIf($condition)
     {
-        $this->hidden = $condition;
+        $this->columnHidden = $condition;
 
         return $this;
     }
 
     /**
+     * Hide the row depending on the given condition.
+     *
+     * @param  bool  $condition
+     * @return $this
+     */
+    public function hideRowIf($condition)
+    {
+        $this->rowHidden = $condition;
+
+        return $this;
+    }
+
+    /**
+     * Force the column and the row to be hidden.
+     *
      * @return $this
      */
     public function hide()
     {
-        $this->hidden = true;
+        $this->columnHidden = true;
+        $this->rowHidden = true;
 
         return $this;
     }
 
     /**
+     * Check if the column is visible.
+     *
      * @return bool
      */
-    public function isVisible()
+    public function hasVisibleColumn()
     {
-        return $this->hidden !== true;
+        return $this->columnHidden !== true;
     }
 
     /**
+     * Check if the row is visible.
+     *
      * @return bool
      */
-    public function isHidden()
+    public function hasVisibleRow()
     {
-        return ! $this->isVisible();
+        return $this->rowHidden !== true;
     }
 }

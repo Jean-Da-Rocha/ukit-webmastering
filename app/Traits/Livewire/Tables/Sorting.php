@@ -12,14 +12,14 @@ trait Sorting
      *
      * @var string
      */
-    public $sortField = 'id';
+    public string $sortField = 'id';
 
     /**
      * The initial direction to sort.
      *
-     * @var bool
+     * @var string
      */
-    public $sortDirection = 'asc';
+    public string $sortDirection = 'asc';
 
     /**
      * Sort the direction by ascending or descending order.

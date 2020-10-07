@@ -9,18 +9,17 @@ trait Paginating
      *
      * @var array
      */
-    public $perPageOptions = [10, 25, 50, 100];
+    public array $perPageOptions = [10, 25, 50, 100];
 
     /**
      * Amount of items to show per page.
      *
      * @var int
      */
-    public $perPage = 10;
+    public int $perPage = 10;
 
     /**
-     * Resetting Pagination After Filtering Data.
-     * https://laravel-livewire.com/docs/pagination
+     * Resetting Pagination after filtering data.
      *
      * @return void
      */
@@ -31,7 +30,6 @@ trait Paginating
 
     /**
      * Resetting Pagination After Changing the perPage.
-     * https://laravel-livewire.com/docs/pagination
      *
      * @return void
      */

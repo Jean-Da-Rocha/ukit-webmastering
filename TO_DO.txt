@@ -1,12 +1,11 @@
 # IMPORTANT
 
-- Dynamic datatable component.
-- Repository pattern.
+- Color for thead + trait to handle custom classes (#373c40).
 
 # OPTIONAL
 
 - Create a package for the datatable + comment functions and variables.
-- Remove style="color: #fff" in home.blade.php + rework home page.
-- Clean _navbar.scss (done 75 %)
+- Remove style="color: #fff" in home.blade.php + rework home page (with graphs).
+- Clean _navbar.scss (done 75 %).
 
 # BUGS

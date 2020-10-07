@@ -28,12 +28,12 @@
     </div>
 
     <table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">
-        <thead>
+        <thead style="background-color: #373c40;">
             <tr>
                 @foreach ($columns as $column)
-                    @if ($column->isVisible())
+                    @if ($column->hasVisibleColumn())
                         @if ($column->isSortable())
-                            <th>
+                            <th style="color: #fff;">
                                 <span style="cursor: pointer;" wire:click="sort('{{ $column->getAttribute() }}')">
                                     {{ $column->getText() }}
                                     @if ($sortField === $column->getAttribute())
@@ -48,7 +48,7 @@
                                 </span>
                             </th>
                         @else
-                            <th>
+                            <th style="color: #fff;">
                                 {{ $column->getText() }}
                             </th>
                         @endif
@@ -60,12 +60,14 @@
             @forelse ($models as $model)
                 <tr>
                     @foreach ($columns as $column)
-                        @if ($column->isVisible())
+                        @if ($column->hasVisibleRow())
                             <td>
-                                @if ($column->getView())
-                                    @include($column->getView())
+                                @if ($column->getViewName())
+                                    @include($column->getViewName())
+                                @elseif ($column->isRaw())
+                                    {!! $column->getHtmlContent() !!}
                                 @else
-                                    {{ Arr::get($model->toArray(), $column->getAttribute()) }}
+                                    {{ data_get($model, $column->getAttribute()) }}
                                 @endif
                             </td>
                         @endif

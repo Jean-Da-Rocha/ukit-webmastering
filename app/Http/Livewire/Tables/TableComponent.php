@@ -12,10 +12,10 @@ use Illuminate\Support\Str;
 abstract class TableComponent extends Component
 {
     use Paginating,
-    Searching,
-    Sorting,
-    WithPagination,
-    Yajra;
+        Searching,
+        Sorting,
+        WithPagination,
+        Yajra;
 
      /**
      * TableComponent constructor.
@@ -38,6 +38,8 @@ abstract class TableComponent extends Component
     abstract public function columns(): array;
 
     /**
+     * Render the Livewire component with the columns and models.
+     *
      * @return \Illuminate\View\View
      */
     public function render()
@@ -48,6 +50,12 @@ abstract class TableComponent extends Component
         ]);
     }
 
+    /**
+     * Build the models depending on
+     * the initial query and columns.
+     *
+     * @return Builder
+     */
     public function models()
     {
         $builder = $this->query();

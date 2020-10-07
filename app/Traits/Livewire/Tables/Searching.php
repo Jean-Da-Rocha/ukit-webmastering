@@ -9,14 +9,14 @@ trait Searching
      *
      * @var string
      */
-    public $search = '';
+    public string $search = '';
 
     /**
      * Method to search by: debounce or lazy.
      *
      * @var string
      */
-    public $searchUpdateMethod = 'debounce';
+    public string $searchUpdateMethod = 'debounce';
 
     /**
      * false = disabled
@@ -24,14 +24,7 @@ trait Searching
      *
      * @var int
      */
-    public $searchDebounce = 350;
-
-    /**
-     * A button to clear the search box.
-     *
-     * @var bool
-     */
-    public $clearSearchButton = false;
+    public int $searchDebounce = 350;
 
     /**
      * Resets the search string.

@@ -7,23 +7,38 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, BelongsToMany, HasOneOrMa
 
 trait Yajra
 {
-    public function relationship($attribute)
+    /**
+     * Get the parts and name of the relationship
+     * withing the attribute, if there is any.
+     *
+     * @param  string  $attribute
+     * @return object
+     */
+    public function relationship(string $attribute)
     {
         $parts = explode('.', $attribute);
 
-        return (object)[
+        return (object) [
             'attribute' => array_pop($parts),
             'name' => implode('.', $parts),
         ];
     }
 
-    public function attribute(Builder $query, $relationships, $attribute)
+    /**
+     * Get the column's attribute whether there is a relationship or not.
+     *
+     * @param  Builder  $query
+     * @param  string  $relationships
+     * @param  string  $attribute
+     * @return mixed
+     */
+    public function attribute(Builder $query, string $relationships, string $attribute)
     {
         $table = '';
         $lastQuery = $query;
 
-        foreach (explode('.', $relationships) as $each_relationship) {
-            $model = $lastQuery->getRelation($each_relationship);
+        foreach (explode('.', $relationships) as $eachRelationship) {
+            $model = $lastQuery->getRelation($eachRelationship);
 
             switch (true) {
                 case $model instanceof BelongsToMany:
@@ -65,7 +80,13 @@ trait Yajra
         return $table . '.' . $attribute;
     }
 
-    protected function getColumnByAttribute($attribute)
+    /**
+     * Get the column by its attribute.
+     *
+     * @param  string  $attribute
+     * @return mixed
+     */
+    protected function getColumnByAttribute(string $attribute)
     {
         foreach ($this->columns() as $column) {
             if ($column->getAttribute() === $attribute) {
