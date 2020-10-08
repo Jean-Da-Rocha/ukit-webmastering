@@ -145,6 +145,12 @@
   background-color: #faa05a;
 }
 
+svg {
+  max-width: 20px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
 form [uk-icon],
 form [data-uk-icon] {
   max-height: 40px;

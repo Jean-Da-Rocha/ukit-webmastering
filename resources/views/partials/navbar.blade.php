@@ -30,9 +30,8 @@
                 <a
                     href="#"
                     class="uk-text-small uk-display-block uk-text-center {{ getRoleColor(auth()->user()->role_id) }}"
-                    data-uk-icon="icon: triangle-down; ratio: 0.7"
                 >
-                    {{ Str::ucfirst(auth()->user()->role->role_name) }}
+                    {{ Str::ucfirst(auth()->user()->role->role_name) }} <x-heroicon-s-chevron-down />
                 </a>
                 <!-- user dropdown -->
                 <div
@@ -42,29 +41,18 @@
                     <ul class="uk-nav uk-dropdown-nav uk-text-left">
                         <li>
                             <a href="#">
-                                <span data-uk-icon="info"></span> Summary
+                                <x-heroicon-o-information-circle /> Summary
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <span data-uk-icon="refresh"></span> Edit
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span data-uk-icon="settings"></span> Configuration
+                                <x-heroicon-o-pencil-alt /> Edit
                             </a>
                         </li>
                         <li class="uk-nav-divider"></li>
                         <li>
                             <a href="#">
-                                <span data-uk-icon="image"></span> Your Data
-                            </a>
-                        </li>
-                        <li class="uk-nav-divider"></li>
-                        <li>
-                            <a href="#">
-                                <span data-uk-icon="sign-out"></span> Sign Out
+                                <x-heroicon-o-logout /> Sign Out
                             </a>
                         </li>
                     </ul>
@@ -77,7 +65,7 @@
                 <li class="uk-nav-header uk-text-uppercase">Actions</li>
                 <li class="uk-parent">
                     <a href="#">
-                        <span data-uk-icon="git-branch" class="uk-margin-small-right"></span>
+                        <x-heroicon-o-view-grid class="uk-margin-small-right" />
                         Projects
                     </a>
                     <ul class="uk-nav-sub">
@@ -91,7 +79,7 @@
                 </li>
                 <li class="uk-parent">
                     <a href="#">
-                        <span data-uk-icon="file-text" class="uk-margin-small-right"></span>
+                        <x-heroicon-o-clipboard-list class="uk-margin-small-right" />
                         Tasks
                     </a>
                     <ul class="uk-nav-sub">
@@ -105,7 +93,7 @@
                 </li>
                 <li class="uk-parent">
                     <a href="#">
-                        <span data-uk-icon="user" class="uk-margin-small-right"></span>
+                        <x-heroicon-o-user class="uk-margin-small-right" />
                         Users
                     </a>
                     <ul class="uk-nav-sub">
@@ -119,7 +107,7 @@
                 </li>
                 <li class="uk-parent">
                     <a href="#">
-                        <span data-uk-icon="users" class="uk-margin-small-right"></span>
+                        <x-heroicon-o-user-group class="uk-margin-small-right" />
                         Customers
                     </a>
                     <ul class="uk-nav-sub">
@@ -133,7 +121,7 @@
                 </li>
                 <li class="uk-parent">
                     <a href="#">
-                        <span data-uk-icon="cloud-upload" class="uk-margin-small-right"></span>
+                        <x-heroicon-o-cloud-upload class="uk-margin-small-right" />
                         Hostings
                     </a>
                     <ul class="uk-nav-sub">
@@ -147,7 +135,7 @@
                 </li>
                 <li class="uk-parent">
                     <a href="#">
-                        <span data-uk-icon="server" class="uk-margin-small-right"></span>
+                        <x-heroicon-o-server class="uk-margin-small-right" />
                         Servers
                     </a>
                     <ul class="uk-nav-sub">
@@ -185,22 +173,27 @@
         <div class="bar-bottom">
             <ul class="uk-subnav uk-flex uk-flex-center uk-child-width-1-5" data-uk-grid>
                 <li>
-                    <a href="{{ route('home') }}" class="uk-icon-link" data-uk-icon="home" title="Home" data-uk-tooltip></a>
+                    <a href="{{ route('home') }}" title="Home" data-uk-tooltip>
+                        <x-heroicon-o-home />
+                    </a>
                 </li>
                 <li>
-                    <a href="#" class="uk-icon-link" data-uk-icon="settings" title="Settings" data-uk-tooltip></a>
+                    <a href="#" title="Settings" data-uk-tooltip>
+                        <x-heroicon-o-cog />
+                    </a>
                 </li>
                 <li>
-                    <a href="#" class="uk-icon-link" data-uk-icon="bell" title="Notifications" data-uk-tooltip></a>
+                    <a href="#" title="Notifications" data-uk-tooltip>
+                        <x-heroicon-o-bell />
+                    </a>
                 </li>
                 <li>
                     <a
                         href="{{ route('logout') }}"
-                        class="uk-icon-link"
                         data-uk-tooltip="Sign out"
-                        data-uk-icon="sign-out"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                     >
+                        <x-heroicon-o-logout />
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="uk-hidden">
                         @csrf

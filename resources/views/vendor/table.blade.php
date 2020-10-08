@@ -23,8 +23,10 @@
         </div>
     </div>
 
-    <div class="uk-text-primary">
-        Results: {{ $models->count() }} / {{ $models->total() }}
+    <div class="uk-margin">
+        <p class="uk-text-primary ukt-align-left">
+            Results: {{ $models->count() }} / {{ $models->total() }}
+        </p>
     </div>
 
     <table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">
@@ -38,12 +40,12 @@
                                     {{ $column->getText() }}
                                     @if ($sortField === $column->getAttribute())
                                         @if ($sortDirection === 'asc')
-                                            <span>&#8648;</span>
+                                            <x-heroicon-s-arrow-narrow-up />
                                         @else
-                                            <span>&#8650;</span>
+                                            <x-heroicon-s-arrow-narrow-down />
                                         @endif
                                     @else
-                                        <span>&#8645;</span>
+                                        <x-heroicon-o-switch-vertical />
                                     @endif
                                 </span>
                             </th>
