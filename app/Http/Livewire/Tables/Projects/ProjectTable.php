@@ -31,6 +31,8 @@ class ProjectTable extends TableComponent
             Column::make('Project name', 'project_name')->searchable()->sortable(),
             Column::make('Starting date', 'project_starting_date')->searchable()->sortable(),
             Column::make('Customer', 'customer.designation')->searchable()->sortable(),
+            Column::make('Total tasks time')->view('vendor.includes.projects.total_tasks_time'),
+            Column::make('Authorizations')->view('vendor.includes.projects.authorizations'),
             Column::make('Actions')->view('vendor.includes.actions_buttons'),
         ];
     }

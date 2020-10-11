@@ -30,12 +30,12 @@
     </div>
 
     <table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">
-        <thead style="background-color: #373c40;">
+        <thead class="uk-darken">
             <tr>
                 @foreach ($columns as $column)
                     @if ($column->hasVisibleColumn())
                         @if ($column->isSortable())
-                            <th style="color: #fff;">
+                            <th class="uk-text-white">
                                 <span style="cursor: pointer;" wire:click="sort('{{ $column->getAttribute() }}')">
                                     {{ $column->getText() }}
                                     @if ($sortField === $column->getAttribute())
@@ -50,7 +50,7 @@
                                 </span>
                             </th>
                         @else
-                            <th style="color: #fff;">
+                            <th class="uk-text-white">
                                 {{ $column->getText() }}
                             </th>
                         @endif

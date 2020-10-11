@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
+use App\Repositories\Contracts\ProjectRepositoryInterface;
+
 use Illuminate\Http\Request;
-use App\Repositories\BaseRepository;
-use Illuminate\Database\Eloquent\Model;
 
 class ProjectController extends Controller
 {
-    /**
-     * @var Model
-     */
-    private Model $model;
+    private $projectRepository;
 
-    public function __construct(Project $project)
+    public function __construct(ProjectRepositoryInterface $projectRepository)
     {
-        $this->model = new BaseRepository($project);
+        $this->projectRepository = $projectRepository;
     }
 
     /**
@@ -26,7 +22,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // return view();
+        return view('projects.index');
     }
 
     /**

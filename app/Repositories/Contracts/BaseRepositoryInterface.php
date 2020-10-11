@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Contracts;
 
 interface BaseRepositoryInterface
 {
@@ -15,4 +15,6 @@ interface BaseRepositoryInterface
     public function delete(int $id);
 
     public function find(int $id);
+
+    public function with($relation);
 }

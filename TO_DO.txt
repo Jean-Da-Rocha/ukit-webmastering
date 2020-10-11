@@ -1,11 +1,12 @@
 # IMPORTANT
 
-- Color for thead + trait to handle custom classes (#373c40).
+- View share connected user + in controllers.
+- Add button in the table component.
+- https://laravel.com/docs/8.x/mix#vendor-extraction + check alpinejs performance with cdn + uikit.
 
 # OPTIONAL
 
-- Create a package for the datatable + comment functions and variables.
-- Remove style="color: #fff" in home.blade.php + rework home page (with graphs).
+- Rework home page (with graphs).
 - Clean _navbar.scss (done 75 %).
 
 # BUGS

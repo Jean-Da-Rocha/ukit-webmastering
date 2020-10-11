@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{HomeController, ProjectController};
 use App\Http\Livewire\Auth\{Login, Register};
 
 use Illuminate\Support\Facades\Route;
@@ -26,7 +26,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('home', HomeController::class)->name('home');
 
-    Route::view('projects', 'projects.index')->name('projects.index');
+    Route::resource('projects', ProjectController::class);
 
     Route::post('logout', LogoutController::class)->name('logout');
 });

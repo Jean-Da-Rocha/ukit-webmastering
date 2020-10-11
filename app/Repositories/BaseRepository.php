@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Contracts\BaseRepositoryInterface;
+
 use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository implements BaseRepositoryInterface
@@ -17,6 +19,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * Constructor to bind the model to the repository.
      *
      * @param  Model  $model
+     * @return void
      */
     public function __construct(Model $model)
     {
@@ -70,7 +73,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * Delete a record from the database.
      *
      * @param  int  $id
-     * @return void
+     * @return int
      */
     public function delete(int $id)
     {
@@ -81,10 +84,21 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * Retrieve the record with the given id.
      *
      * @param  int  $id
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Collection|null
      */
     public function find(int $id)
     {
         return $this->model->findOrFail($id);
+    }
+
+    /**
+     * Bind the current model to its provided relationship.
+     *
+     * @param  string|array  $relation
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function with($relation)
+    {
+        return $this->model->with($relation);
     }
 }

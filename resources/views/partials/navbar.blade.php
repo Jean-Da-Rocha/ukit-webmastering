@@ -9,12 +9,12 @@
                 <li class="uk-nav-header uk-text-uppercase">Authentication</li>
                 <li class="{{ is_route_active('login') }}">
                     <a href="{{ route('login') }}">
-                        <span data-uk-icon="sign-in"></span> Login
+                        <x-heroicon-o-login /> Login
                     </a>
                 </li>
                 <li class="{{ is_route_active('register') }}">
                     <a href="{{ route('register') }}">
-                        <span data-uk-icon="plus-circle"></span> Register
+                        <x-heroicon-o-user-add /> Register
                     </a>
                 </li>
             </ul>
