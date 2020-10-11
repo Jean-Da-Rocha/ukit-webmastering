@@ -14,7 +14,7 @@
     <body>
         <x-partials.navbar></x-partials.navbar>
         <div id="right-col" style="margin-left: 250px;">
-            <div class="uk-container uk-align-center uk-margin-medium-top">
+            <div class="uk-container-large uk-align-center uk-margin-medium-top">
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>
                     @isset($slot)
                         {{ $slot }}
@@ -25,8 +25,7 @@
 
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit-icons.min.js"></script>
     <script src="{{ url(mix('js/app.js')) }}"></script>
-        @livewireScripts
+    @livewireScripts
     </body>
 </html>

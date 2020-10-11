@@ -1,11 +1,12 @@
 # IMPORTANT
 
-- Repository pattern.
-- Uninstall Font Awesome.
-- Remove style="color: #fff" in home.blade.php + rework home page.
+- View share connected user + in controllers.
+- Add button in the table component.
+- https://laravel.com/docs/8.x/mix#vendor-extraction + check alpinejs performance with cdn + uikit.
 
 # OPTIONAL
 
-- Clean _navbar.scss
+- Rework home page (with graphs).
+- Clean _navbar.scss (done 75 %).
 
 # BUGS

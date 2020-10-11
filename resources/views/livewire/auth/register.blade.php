@@ -8,7 +8,7 @@
                 <div class="uk-margin">
                     <label for="username" class="uk-form-label">Username</label>
                     <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" data-uk-icon="user" wire:ignore></span>
+                        <x-heroicon-o-user class="uk-form-icon" />
                         <input
                             type="text"
                             class="uk-input @error('username') uk-form-danger @enderror"
@@ -27,7 +27,7 @@
                 <div class="uk-margin">
                     <label for="email" class="uk-form-label">Email</label>
                     <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" data-uk-icon="mail" wire:ignore></span>
+                        <x-heroicon-o-mail class="uk-form-icon" />
                         <input
                             type="email"
                             class="uk-input @error('email') uk-form-danger @enderror"
@@ -45,7 +45,7 @@
                 <div class="uk-margin">
                     <label for="password" class="uk-form-label">Password</label>
                     <div class="uk-form-controls uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" data-uk-icon="lock" wire:ignore></span>
+                        <x-heroicon-o-lock-closed class="uk-form-icon" />
                         <input
                             type="password"
                             class="uk-input @error('password') uk-form-danger @enderror"
@@ -62,7 +62,7 @@
                 <div class="uk-margin">
                     <label for="password_confirmation" class="uk-form-label">Password confirmation</label>
                     <div class="uk-form-controls uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" data-uk-icon="lock" wire:ignore></span>
+                        <x-heroicon-o-lock-closed class="uk-form-icon" />
                         <input
                             type="password"
                             class="uk-input"

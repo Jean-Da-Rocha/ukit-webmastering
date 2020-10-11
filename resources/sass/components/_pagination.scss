@@ -1,0 +1,10 @@
+.uk-pagination {
+    > .uk-active {
+        > * {
+            color: #fff !important;
+            background-color: $background-primary-background;
+            border-radius: 50%;
+            padding: 0 7px;
+        }
+    }
+}

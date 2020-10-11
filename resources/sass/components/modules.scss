@@ -1,2 +1,8 @@
-@import 'navbar';
+[x-cloak] {
+    display: none;
+}
+
 @import 'icons';
+@import 'navbar';
+@import 'pagination';
+@import 'utilities';

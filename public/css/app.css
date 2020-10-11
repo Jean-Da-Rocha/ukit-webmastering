@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+[x-cloak] {
+  display: none;
+}
+
+svg {
+  max-width: 20px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+form .uk-form-icon {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* -- Sidebar -- */
 
 #left-col {
@@ -141,9 +161,19 @@
   background-color: #faa05a;
 }
 
-form [uk-icon],
-form [data-uk-icon] {
-  max-height: 40px;
+.uk-pagination > .uk-active > * {
+  color: #fff !important;
+  background-color: #1e87f0;
+  border-radius: 50%;
+  padding: 0 7px;
+}
+
+.uk-text-white {
+  color: #fff !important;
+}
+
+.uk-darken {
+  background-color: #373c40;
 }
 
 /* ========================================================================
@@ -3557,7 +3587,7 @@ select.uk-form-width-xsmall {
 
 .uk-card-default {
   background: #fff;
-  color: #ffffff;
+  color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
