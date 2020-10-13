@@ -1,5 +1,5 @@
-@inject('projectRepository', 'App\Repositories\ProjectRepository')
+@inject('project', 'App\Actions\TasksCalculation')
 
 <div>
-    {{ $projectRepository->getTotalTasksTime($model) }}
+    {{ $project->getTotalTasksTime($model) }}
 </div>

@@ -1,3 +1,3 @@
 <x-layouts.app>
-    <livewire:tables.projects.project-table />
+    <livewire:tables.project-table />
 </x-layouts.app>

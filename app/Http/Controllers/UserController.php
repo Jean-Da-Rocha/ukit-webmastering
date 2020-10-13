@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class UserController extends Controller
 {
     /**
-     * Display a listing of the projects.
+     * Display a listing of the users.
      *
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        return view('projects.index');
+        return view('users.index');
     }
 
     /**

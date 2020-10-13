@@ -1,17 +1,21 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
 if (! function_exists('is_active_route')) {
     /**
-     * Check if the current route is active.
+     * Check if the current route contains the given
+     * url param to then return the `uk-active` class.
      *
-     * @param  string  $routeName
+     * @param  string  $urlParam
      * @return string
      */
-    function is_route_active(string $routeName)
+    function is_active(string $urlParam)
     {
-        if (Route::currentRouteName() === $routeName) {
+        $currentRouteName = Route::currentRouteName();
+
+        if (Str::of($currentRouteName)->contains($urlParam)) {
             return 'uk-active';
         }
 
@@ -38,5 +42,23 @@ if (! function_exists('getRoleColor')) {
             default:
                 return '';
         }
+    }
+}
+
+if (! function_exists('formatTime')) {
+    /**
+     * Format a time string for better readability.
+     *
+     * @param  string  $time
+     * @return string
+     */
+    function formatTime(string $time) {
+        if ($time === '00:00:00') {
+            return '00 h 00 min';
+        }
+
+        $collection = Str::of($time)->explode(':');
+
+        return $collection->first() . ' h ' . $collection[1] . ' min';
     }
 }

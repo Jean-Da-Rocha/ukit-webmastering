@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Tables\Projects;
+namespace App\Http\Livewire\Tables;
 
 use App\Models\Project;
 use App\Http\Livewire\Tables\{Column, TableComponent};

@@ -63,7 +63,7 @@
         <div class="left-nav-wrap">
             <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li class="uk-nav-header uk-text-uppercase">Actions</li>
-                <li class="uk-parent">
+                <li class="uk-parent {{ is_active('projects') }}">
                     <a href="#">
                         <x-heroicon-o-view-grid class="uk-margin-small-right" />
                         Projects
@@ -77,7 +77,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="uk-parent">
+                <li class="uk-parent {{ is_active('tasks') }}">
                     <a href="#">
                         <x-heroicon-o-clipboard-list class="uk-margin-small-right" />
                         Tasks
@@ -87,11 +87,11 @@
                             <a href="#">Create a new task</a>
                         </li>
                         <li>
-                            <a href="#">See all tasks</a>
+                            <a href="{{ route('tasks.index') }}">See all tasks</a>
                         </li>
                     </ul>
                 </li>
-                <li class="uk-parent">
+                <li class="uk-parent {{ is_active('users') }}">
                     <a href="#">
                         <x-heroicon-o-user class="uk-margin-small-right" />
                         Users
@@ -101,7 +101,7 @@
                             <a href="#">Create a new user</a>
                         </li>
                         <li>
-                            <a href="#">See all users</a>
+                            <a href="{{ route('users.index') }}">See all users</a>
                         </li>
                     </ul>
                 </li>
