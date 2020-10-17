@@ -6,6 +6,7 @@
 
 # OPTIONAL
 
+- Responsive design + navbar on low size device.
 - Rework home page (with graphs).
 - Clean _navbar.scss (done 75 %).
 

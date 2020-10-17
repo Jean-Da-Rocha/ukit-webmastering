@@ -7,12 +7,12 @@
         <div class="left-nav-wrap">
             <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li class="uk-nav-header uk-text-uppercase">Authentication</li>
-                <li class="{{ is_route_active('login') }}">
+                <li class="{{ is_active('login') }}">
                     <a href="{{ route('login') }}">
                         <x-heroicon-o-login /> Login
                     </a>
                 </li>
-                <li class="{{ is_route_active('register') }}">
+                <li class="{{ is_active('register') }}">
                     <a href="{{ route('register') }}">
                         <x-heroicon-o-user-add /> Register
                     </a>
@@ -115,7 +115,7 @@
                             <a href="#">Create a new customer</a>
                         </li>
                         <li>
-                            <a href="#">See all customers</a>
+                            <a href="{{ route('customers.index') }}">See all customers</a>
                         </li>
                     </ul>
                 </li>

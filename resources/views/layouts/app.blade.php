@@ -14,7 +14,7 @@
     <body>
         <x-partials.navbar></x-partials.navbar>
         <div id="right-col" style="margin-left: 250px;">
-            <div class="uk-container-large uk-align-center uk-margin-medium-top">
+            <div class="uk-container uk-align-center uk-margin-medium-top">
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>
                     @isset($slot)
                         {{ $slot }}

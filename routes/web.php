@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class);
     Route::resource('tasks', TaskController::class);
     Route::resource('users', UserController::class);
+    Route::resource('customers', CustomerController::class);
 
     Route::post('logout', LogoutController::class)->name('logout');
 });
