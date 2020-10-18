@@ -1,6 +1,6 @@
 <div>
     <a
-        href="#"
+        href="{{ has_route($model->getTable() . '.edit', $model->id) }}"
         class="uk-icon-button uk-margin-small-right uk-button-primary"
         title="Edit this {{ Str::singular($model->getTable()) }}"
     >

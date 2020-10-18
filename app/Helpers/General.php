@@ -23,6 +23,24 @@ if (! function_exists('is_active_route')) {
     }
 }
 
+if (! function_exists('has_route')) {
+    /**
+     * Check if the provided route exists and return its URL
+     * or a '#' string otherwise.
+     *
+     * @param  string  $routeName
+     * @param  int|null  $id
+     * @return string|\Illuminate\Http\RedirectResponse
+     */
+    function has_route(string $routeName, int $id = null) {
+        if (Route::has($routeName)) {
+            return route($routeName, $id ?? []);
+        }
+
+        return '#';
+    }
+}
+
 if (! function_exists('getRoleColor')) {
     /**
      * Get the UIKit text color for the corresponding role.

@@ -1,16 +1,16 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\Register;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Livewire\Actions\CreateProject;
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Auth\Register;
+use App\Http\Controllers\CustomerController;
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Actions\CreateProject;
+use App\Http\Livewire\Actions\EditProject;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     // Route::resource('projects', ProjectController::class);
     Route::view('projects', 'livewire.projects.index')->name('projects.index');
     Route::get('projects/create', CreateProject::class)->name('projects.create');
+    Route::get('projects/{id}/edit', EditProject::class)->name('projects.edit');
+
     Route::resource('tasks', TaskController::class);
     Route::resource('users', UserController::class);
     Route::resource('customers', CustomerController::class);
