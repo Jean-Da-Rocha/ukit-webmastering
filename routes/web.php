@@ -6,6 +6,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Livewire\Actions\CreateProject;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 
@@ -30,8 +31,9 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('home', HomeController::class)->name('home');
-
-    Route::resource('projects', ProjectController::class);
+    // Route::resource('projects', ProjectController::class);
+    Route::view('projects', 'livewire.projects.index')->name('projects.index');
+    Route::get('projects/create', CreateProject::class)->name('projects.create');
     Route::resource('tasks', TaskController::class);
     Route::resource('users', UserController::class);
     Route::resource('customers', CustomerController::class);

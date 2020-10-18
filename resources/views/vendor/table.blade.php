@@ -1,4 +1,6 @@
 <div>
+    <x-partials.message></x-partials.message>
+
     <div class="uk-margin">
         <form class="uk-search uk-search-default">
             <span class="uk-search-icon-flip" data-uk-search-icon wire:ignore></span>

@@ -1,12 +1,16 @@
 <div>
     <div class="uk-card uk-card-default">
         <div class="uk-card-header uk-background-primary">
-            <div class="uk-text-center">Login form</div>
+            <div class="uk-text-center">
+                Login form
+            </div>
         </div>
         <div class="uk-card-body">
             <form wire:submit.prevent="authenticate">
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="user_email">Email</label>
+                    <label class="uk-form-label" for="user_email">
+                        Email
+                    </label>
                     <div class="uk-inline uk-width-1-1">
                         <x-heroicon-o-user class="uk-form-icon" />
                         <input
@@ -14,18 +18,21 @@
                             class="uk-input @error('email') uk-form-danger @enderror"
                             name="email"
                             id="email"
-                            value="{{ old('email') }}"
                             wire:model.lazy="email"
                             autofocus
                             required
                         />
                         @error('email')
-                            <span class="uk-text-danger">{{ $message }}</span>
+                            <span class="uk-text-danger">
+                                {{ $message }}
+                            </span>
                         @enderror
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <label for="password" class="uk-form-label">Password</label>
+                    <label for="password" class="uk-form-label">
+                        Password
+                    </label>
                     <div class="uk-inline uk-width-1-1">
                         <x-heroicon-o-lock-closed class="uk-form-icon" />
                         <input

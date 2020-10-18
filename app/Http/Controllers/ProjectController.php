@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Customer;
+
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -13,17 +16,20 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('projects.index');
+        return view('livewire.projects.index');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new project.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('livewire.projects.create', [
+            'projectCategories' => Category::select('id', 'category_type')->get(),
+            'customers' => Customer::select('id', 'designation')->get()
+        ]);
     }
 
     /**

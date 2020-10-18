@@ -1,7 +1,11 @@
 <!-- LEFT BAR -->
 <aside id="left-col" class="uk-light uk-visible@m">
     <div class="left-logo uk-flex uk-flex-middle">
-        <img class="custom-logo" src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/dashboard-logo.svg" alt="">
+        <img
+            class="custom-logo"
+            src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/dashboard-logo.svg"
+            alt=""
+        />
     </div>
     @guest
         <div class="left-nav-wrap">
@@ -22,7 +26,11 @@
     @endguest
     <div class="left-content-box content-box-dark {{ ! auth()->check() ? 'uk-hidden' : '' }}">
         @auth
-            <img src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/avatar.svg" alt="" class="uk-border-circle profile-img">
+            <img
+                src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/avatar.svg"
+                alt=""
+                class="uk-border-circle profile-img"
+            />
             <h4 class="uk-text-center uk-margin-remove-vertical">
                 {{ auth()->user()->username }}
             </h4>
@@ -70,10 +78,14 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new project</a>
+                            <a href="{{ route('projects.create') }}">
+                                Create a new project
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ route('projects.index') }}">See all projects</a>
+                            <a href="{{ route('projects.index') }}">
+                                See all projects
+                            </a>
                         </li>
                     </ul>
                 </li>
