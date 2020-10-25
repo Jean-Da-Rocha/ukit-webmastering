@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Partials;
+namespace App\View\Components\Layouts;
 
 use Illuminate\View\Component;
 
-class Message extends Component
+class Navbar extends Component
 {
     /**
      * Get the view / contents that represent the component.
@@ -13,6 +13,6 @@ class Message extends Component
      */
     public function render()
     {
-        return view('partials.message');
+        return view('layouts.navbar');
     }
 }

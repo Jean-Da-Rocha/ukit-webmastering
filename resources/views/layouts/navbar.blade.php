@@ -37,9 +37,9 @@
             <div class="uk-position-relative uk-text-center uk-display-block">
                 <a
                     href="#"
-                    class="uk-text-small uk-display-block uk-text-center {{ getRoleColor(auth()->user()->role_id) }}"
+                    class="uk-text-small uk-display-block uk-text-center {{ get_role_color(auth()->user()->role_id) }}"
                 >
-                    {{ Str::ucfirst(auth()->user()->role->role_name) }} <x-heroicon-s-chevron-down />
+                    {{ Str::ucfirst(auth()->user()->role->name) }} <x-heroicon-s-chevron-down />
                 </a>
                 <!-- user dropdown -->
                 <div
@@ -96,7 +96,7 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new task</a>
+                            <a href="{{ route('tasks.create') }}">Create a new task</a>
                         </li>
                         <li>
                             <a href="{{ route('tasks.index') }}">See all tasks</a>

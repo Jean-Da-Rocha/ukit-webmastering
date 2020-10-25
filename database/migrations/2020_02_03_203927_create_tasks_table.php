@@ -15,11 +15,10 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('task_name', 255);
-            $table->text('task_description');
-            $table->string('link', 255)->nullable();
-            $table->time('task_duration');
-            $table->date('task_starting_date');
+            $table->string('name', 255);
+            $table->text('description');
+            $table->time('duration');
+            $table->date('starting_date');
             $table->boolean('quoted')->default(0);
             $table->string('quotation_ref', 100)->nullable();
             $table->boolean('billed')->default(0);

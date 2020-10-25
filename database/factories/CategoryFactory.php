@@ -22,6 +22,6 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        return ['category_type' => $this->faker->word];
+        return ['type' => $this->faker->word];
     }
 }

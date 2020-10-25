@@ -29,7 +29,7 @@ class CustomerFactory extends Factory
             'zip_code' => $this->faker->postcode,
             'city' => $this->faker->city,
             'phone_number' => $this->faker->e164PhoneNumber,
-            'customer_email' => $this->faker->safeEmail,
+            'email' => $this->faker->safeEmail,
         ];
     }
 }

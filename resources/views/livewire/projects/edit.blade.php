@@ -3,7 +3,7 @@
         <div class="uk-card uk-card-default">
             <div class="uk-card-header uk-background-primary">
                 <div class="uk-text-center uk-text-white">
-                    Edit <b>{{ $project->project_name }}</b> project info
+                    Edit <b>{{ $project->name }}</b> project info
                 </div>
             </div>
             <div class="uk-card-body">
@@ -20,7 +20,7 @@
                     >
                         @foreach ($projectCategories as $projectCategory)
                             <option value="{{ $projectCategory->id }}">
-                                {{ $projectCategory->category_type }}
+                                {{ $projectCategory->type }}
                             </option>
                         @endforeach
                     </select>
@@ -54,37 +54,37 @@
                     @enderror
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="project.project_name">
+                    <label class="uk-form-label" for="project.name">
                         Project name
                     </label>
                     <input
                         type="text"
-                        class="uk-input @error('project.project_name') uk-form-danger @enderror"
-                        name="project.project_name"
-                        id="project.project_name"
-                        wire:model.lazy="project.project_name"
+                        class="uk-input @error('project.name') uk-form-danger @enderror"
+                        name="project.name"
+                        id="project.name"
+                        wire:model.lazy="project.name"
                         required
                     />
-                    @error('project.project_name')
+                    @error('project.name')
                         <span class="uk-text-danger">
                             {{ $message }}
                         </span>
                     @enderror
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="project.project_starting_date">
+                    <label class="uk-form-label" for="project.starting_date">
                         Project starting date
                     </label>
                     <div class="uk-inline uk-width-1-1">
                         <input
                             type="date"
-                            class="uk-input @error('project.project_starting_date') uk-form-danger @enderror"
-                            name="project.project_starting_date"
-                            id="project.project_starting_date"
-                            wire:model.lazy="project.project_starting_date"
+                            class="uk-input @error('project.starting_date') uk-form-danger @enderror"
+                            name="project.starting_date"
+                            id="project.starting_date"
+                            wire:model.lazy="project.starting_date"
                             required
                         />
-                        @error('project.project_starting_date')
+                        @error('project.starting_date')
                             <span class="uk-text-danger">
                                 {{ $message }}
                             </span>
@@ -92,18 +92,18 @@
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="project.project_description">
+                    <label class="uk-form-label" for="project.description">
                         Project description
                     </label>
                     <textarea
-                        class="uk-textarea @error('project.project_description') uk-form-danger @enderror"
-                        name="project.project_description"
-                        id="project.project_description"
+                        class="uk-textarea @error('project.description') uk-form-danger @enderror"
+                        name="project.description"
+                        id="project.description"
                         cols="30"
                         rows="10"
-                        wire:model.lazy="project.project_description"
+                        wire:model.lazy="project.description"
                     ></textarea>
-                    @error('project.project_description')
+                    @error('project.description')
                         <span class="uk-text-danger">
                             {{ $message }}
                         </span>
@@ -122,7 +122,7 @@
                         class="uk-button uk-button-primary"
                         title="Save modifications for this project"
                     >
-                        Update
+                        Save
                     </button>
                 </div>
             </div>

@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Server;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ServerFactory extends Factory
 {
@@ -22,6 +22,6 @@ class ServerFactory extends Factory
      */
     public function definition()
     {
-        return ['server_name' => $this->faker->domainWord];
+        return ['name' => $this->faker->domainWord];
     }
 }

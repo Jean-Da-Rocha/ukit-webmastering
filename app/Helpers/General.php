@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,8 @@ if (! function_exists('has_route')) {
      * @param  int|null  $id
      * @return string|\Illuminate\Http\RedirectResponse
      */
-    function has_route(string $routeName, int $id = null) {
+    function has_route(string $routeName, int $id = null)
+    {
         if (Route::has($routeName)) {
             return route($routeName, $id ?? []);
         }
@@ -41,14 +43,14 @@ if (! function_exists('has_route')) {
     }
 }
 
-if (! function_exists('getRoleColor')) {
+if (! function_exists('get_role_color')) {
     /**
      * Get the UIKit text color for the corresponding role.
      *
      * @param  int  $roleId
      * @return string
      */
-    function getRoleColor(int $roleId)
+    function get_role_color(int $roleId)
     {
         switch ($roleId) {
             case config('role.admin'):
@@ -63,14 +65,15 @@ if (! function_exists('getRoleColor')) {
     }
 }
 
-if (! function_exists('formatTime')) {
+if (! function_exists('format_time')) {
     /**
      * Format a time string for better readability.
      *
      * @param  string  $time
      * @return string
      */
-    function formatTime(string $time) {
+    function format_time(string $time)
+    {
         if ($time === '00:00:00') {
             return '00 h 00 min';
         }
@@ -78,5 +81,22 @@ if (! function_exists('formatTime')) {
         $collection = Str::of($time)->explode(':');
 
         return $collection->first() . ' h ' . $collection[1] . ' min';
+    }
+}
+
+if (! function_exists('model_name')) {
+    /**
+     * Return the model's name in lowercase and singular format.
+     *
+     * @param  mixed  $model
+     * @return void
+     */
+    function model_name($model)
+    {
+        if ($model instanceof Model) {
+            return Str::singular($model->getTable());
+        }
+
+        return lcfirst($model);
     }
 }

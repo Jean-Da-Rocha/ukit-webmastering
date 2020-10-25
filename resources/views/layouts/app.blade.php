@@ -12,7 +12,7 @@
         <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
     </head>
     <body>
-        <x-partials.navbar></x-partials.navbar>
+        <x-layouts.navbar />
         <div id="right-col" style="margin-left: 250px;">
             <div class="uk-container-large uk-align-center uk-margin-medium-top">
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>

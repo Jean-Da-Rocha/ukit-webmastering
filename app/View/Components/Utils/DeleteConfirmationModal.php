@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Partials;
+namespace App\View\Components\Utils;
 
 use Illuminate\View\Component;
 
-class Navbar extends Component
+class DeleteConfirmationModal extends Component
 {
     /**
      * Get the view / contents that represent the component.
@@ -13,6 +13,6 @@ class Navbar extends Component
      */
     public function render()
     {
-        return view('partials.navbar');
+        return view('utils.delete_confirmation_modal');
     }
 }

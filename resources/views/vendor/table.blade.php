@@ -1,5 +1,5 @@
 <div>
-    <x-partials.message></x-partials.message>
+    <x-utils.message />
 
     <div class="uk-margin">
         <form class="uk-search uk-search-default">
@@ -85,4 +85,6 @@
         </tbody>
     </table>
     {{ $models->links('vendor.pagination') }}
+
+    <x-utils.delete_confirmation_modal />
 </div>

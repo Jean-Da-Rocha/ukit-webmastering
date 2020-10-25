@@ -8,37 +8,37 @@
             </div>
             <div class="uk-card-body">
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="category_id">
+                    <label class="uk-form-label" for="project.category_id">
                         Project type
                     </label>
                     <select
-                        class="uk-select @error('category_id') uk-form-danger @enderror"
-                        name="category_id"
-                        id="category_id"
-                        wire:model.lazy="category_id"
+                        class="uk-select @error('project.category_id') uk-form-danger @enderror"
+                        name="project.category_id"
+                        id="project.category_id"
+                        wire:model.lazy="project.category_id"
                         required
                     >
                         @foreach ($projectCategories as $projectCategory)
                             <option value="{{ $projectCategory->id }}">
-                                {{ $projectCategory->category_type }}
+                                {{ $projectCategory->type }}
                             </option>
                         @endforeach
                     </select>
-                    @error('category_id')
+                    @error('project.category_id')
                         <span class="uk-text-danger">
                             {{ $message }}
                         </span>
                     @enderror
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="customer_id">
+                    <label class="uk-form-label" for="project.customer_id">
                         Customer
                     </label>
                     <select
-                        class="uk-select @error('customer_id') uk-form-danger @enderror"
-                        name="customer_id"
-                        id="customer_id"
-                        wire:model.lazy="customer_id"
+                        class="uk-select @error('project.customer_id') uk-form-danger @enderror"
+                        name="project.customer_id"
+                        id="project.customer_id"
+                        wire:model.lazy="project.customer_id"
                         required
                     >
                         @foreach ($customers as $customer)
@@ -47,44 +47,44 @@
                             </option>
                         @endforeach
                     </select>
-                    @error('customer_id')
+                    @error('project.customer_id')
                         <span class="uk-text-danger">
                             {{ $message }}
                         </span>
                     @enderror
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="project_name">
+                    <label class="uk-form-label" for="project.name">
                         Project name
                     </label>
                     <input
                         type="text"
-                        class="uk-input @error('project_name') uk-form-danger @enderror"
-                        name="project_name"
-                        id="project_name"
-                        wire:model.lazy="project_name"
+                        class="uk-input @error('project.name') uk-form-danger @enderror"
+                        name="project.name"
+                        id="project.name"
+                        wire:model.lazy="project.name"
                         required
                     />
-                    @error('project_name')
+                    @error('project.name')
                         <span class="uk-text-danger">
                             {{ $message }}
                         </span>
                     @enderror
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="project_starting_date">
+                    <label class="uk-form-label" for="project.starting_date">
                         Project starting date
                     </label>
                     <div class="uk-inline uk-width-1-1">
                         <input
                             type="date"
-                            class="uk-input @error('project_starting_date') uk-form-danger @enderror"
-                            name="project_starting_date"
-                            id="project_starting_date"
-                            wire:model.lazy="project_starting_date"
+                            class="uk-input @error('project.starting_date') uk-form-danger @enderror"
+                            name="project.starting_date"
+                            id="project.starting_date"
+                            wire:model.lazy="project.starting_date"
                             required
                         />
-                        @error('project_starting_date')
+                        @error('project.starting_date')
                             <span class="uk-text-danger">
                                 {{ $message }}
                             </span>
@@ -92,18 +92,18 @@
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="project_description">
+                    <label class="uk-form-label" for="project.description">
                         Project description
                     </label>
                     <textarea
-                        class="uk-textarea @error('project_description') uk-form-danger @enderror"
-                        name="project_description"
-                        id="project_description"
+                        class="uk-textarea @error('project.description') uk-form-danger @enderror"
+                        name="project.description"
+                        id="project.description"
                         cols="30"
                         rows="10"
-                        wire:model.lazy="project_description"
+                        wire:model.lazy="project.description"
                     ></textarea>
-                    @error('project_description')
+                    @error('project.description')
                         <span class="uk-text-danger">
                             {{ $message }}
                         </span>
