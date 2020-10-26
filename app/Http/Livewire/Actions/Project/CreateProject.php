@@ -7,7 +7,7 @@ use App\Models\Project;
 class CreateProject extends BaseProject
 {
     /**
-     * Set the initial properties.
+     * Set the initial project properties.
      *
      * @return void
      */

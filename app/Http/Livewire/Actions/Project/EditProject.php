@@ -21,14 +21,14 @@ class EditProject extends BaseProject
     }
 
     /**
-     * Set the initial properties.
+     * Set the initial project properties.
      *
-     * @param  int  $projectId
+     * @param  int  $id
      * @return void
      */
-    public function mount(int $projectId)
+    public function mount(int $id)
     {
         $this->updateMode = true;
-        $this->project = Project::findOrFail($projectId);
+        $this->project = Project::findOrFail($id);
     }
 }
