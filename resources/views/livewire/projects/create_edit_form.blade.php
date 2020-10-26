@@ -1,9 +1,13 @@
 <div>
-    <form wire:submit.prevent="update">
+    <form wire:submit.prevent="{{ $updateMode ? 'update' : 'store' }}">
         <div class="uk-card uk-card-default">
             <div class="uk-card-header uk-background-primary">
                 <div class="uk-text-center uk-text-white">
-                    Edit <b>{{ $project->name }}</b> project info
+                    @if ($updateMode)
+                        Update <b>{{ $project->name }}</b> project info
+                    @else
+                        Create a new project
+                    @endif
                 </div>
             </div>
             <div class="uk-card-body">
@@ -15,7 +19,8 @@
                         class="uk-select @error('project.category_id') uk-form-danger @enderror"
                         name="project.category_id"
                         id="project.category_id"
-                        wire:model.lazy="project.category_id"
+                        wire:ignore
+                        wire:model.defer="project.category_id"
                         required
                     >
                         @foreach ($projectCategories as $projectCategory)
@@ -38,7 +43,7 @@
                         class="uk-select @error('project.customer_id') uk-form-danger @enderror"
                         name="project.customer_id"
                         id="project.customer_id"
-                        wire:model.lazy="project.customer_id"
+                        wire:model.defer="project.customer_id"
                         required
                     >
                         @foreach ($customers as $customer)
@@ -62,7 +67,7 @@
                         class="uk-input @error('project.name') uk-form-danger @enderror"
                         name="project.name"
                         id="project.name"
-                        wire:model.lazy="project.name"
+                        wire:model.defer="project.name"
                         required
                     />
                     @error('project.name')
@@ -81,7 +86,7 @@
                             class="uk-input @error('project.starting_date') uk-form-danger @enderror"
                             name="project.starting_date"
                             id="project.starting_date"
-                            wire:model.lazy="project.starting_date"
+                            wire:model.defer="project.starting_date"
                             required
                         />
                         @error('project.starting_date')
@@ -101,7 +106,7 @@
                         id="project.description"
                         cols="30"
                         rows="10"
-                        wire:model.lazy="project.description"
+                        wire:model.defer="project.description"
                     ></textarea>
                     @error('project.description')
                         <span class="uk-text-danger">
@@ -113,16 +118,14 @@
                     <a
                         href="{{ route('projects.index') }}"
                         class="uk-button uk-button-secondary"
-                        title="Go back to projects list"
                     >
                         Cancel
                     </a>
                     <button
                         type="submit"
                         class="uk-button uk-button-primary"
-                        title="Save modifications for this project"
                     >
-                        Save
+                        {{ $updateMode ? 'Save' : 'Create' }}
                     </button>
                 </div>
             </div>

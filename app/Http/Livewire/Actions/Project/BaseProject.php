@@ -1,18 +1,23 @@
 <?php
 
-namespace App\Http\Livewire\Actions;
+namespace App\Http\Livewire\Actions\Project;
 
-use App\Models\{Category, Customer, Project};
+use App\Models\Project;
 
 use Livewire\Component;
+use App\Models\Category;
+use App\Models\Customer;
 
-class EditProject extends Component
+class BaseProject extends Component
 {
     /** @var Project */
     public Project $project;
 
+    /** @var bool */
+    public bool $updateMode = false;
+
     /** @var array */
-    protected array $rules =  [
+    protected array $rules = [
         'project.category_id' => ['required', 'integer'],
         'project.customer_id' => ['required', 'integer'],
         'project.name' => ['required', 'string', 'max:255'],
@@ -20,23 +25,14 @@ class EditProject extends Component
         'project.description' => ['nullable', 'string', 'max:5000'],
     ];
 
-    public function update()
-    {
-        $this->project->update($this->validate());
-
-        session()->flash('success', 'Project updated successfully.');
-
-        return redirect()->to('/projects');
-    }
-
-    public function mount(int $id)
-    {
-        $this->project = Project::findOrFail($id);
-    }
-
+    /**
+     * Render the component view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function render()
     {
-        return view('livewire.projects.edit', [
+        return view('livewire.projects.create_edit_form', [
             'projectCategories' => Category::select('id', 'type')->orderBy('type', 'asc')->get(),
             'customers' => Customer::select('id', 'designation')->orderBy('designation', 'asc')->get(),
             'project' => $this->project,

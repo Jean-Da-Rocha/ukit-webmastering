@@ -7,8 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
 
-use App\Http\Livewire\Actions\CreateProject;
-use App\Http\Livewire\Actions\EditProject;
+use App\Http\Livewire\Actions\Project\CreateProject;
+use App\Http\Livewire\Actions\Project\EditProject;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Livewire\Actions\CreateTask;
 
