@@ -19,9 +19,9 @@ class CreateTasksTable extends Migration
             $table->text('description');
             $table->time('duration');
             $table->date('starting_date');
-            $table->boolean('quoted')->default(0);
+            $table->boolean('quoted')->default(false);
             $table->string('quotation_ref', 100)->nullable();
-            $table->boolean('billed')->default(0);
+            $table->boolean('billed')->default(false);
             $table->string('bill_num', 100)->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('project_id')->constrained()->cascadeOnDelete();

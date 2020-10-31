@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Actions\Project;
 
-use App\Models\Project;
+use App\Models\{Category, Customer, Project};
 
 class CreateProject extends BaseProject
 {
@@ -14,11 +14,14 @@ class CreateProject extends BaseProject
     public function mount()
     {
         $this->updateMode = false;
+
         $this->project = new Project();
+        $this->project->category_id = Category::orderBy('type')->first()->id;
+        $this->project->customer_id = Customer::orderBy('designation')->first()->id;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created project in storage.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -26,9 +29,10 @@ class CreateProject extends BaseProject
     {
         $this->validate();
 
+        $this->project->user_id = auth()->id();
         $this->project->save();
 
-        session()->flash('success', 'Project created successfully.');
+        session()->flash('success', trans('message.created'));
 
         return redirect()->to('/projects');
     }

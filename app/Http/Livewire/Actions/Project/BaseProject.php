@@ -2,11 +2,9 @@
 
 namespace App\Http\Livewire\Actions\Project;
 
-use App\Models\Project;
+use App\Models\{Category, Customer, Project};
 
 use Livewire\Component;
-use App\Models\Category;
-use App\Models\Customer;
 
 class BaseProject extends Component
 {

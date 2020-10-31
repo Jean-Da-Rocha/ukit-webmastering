@@ -10,7 +10,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Livewire\Actions\Project\CreateProject;
 use App\Http\Livewire\Actions\Project\EditProject;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Livewire\Actions\CreateTask;
+use App\Http\Livewire\Actions\Tasks\CreateTask;
+use App\Http\Livewire\Actions\Tasks\EditTask;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
     Route::view('tasks', 'livewire.tasks.index')->name('tasks.index');
     Route::get('tasks/create', CreateTask::class)->name('tasks.create');
-    Route::get('tasks/{id}/edit', EditProject::class)->name('tasks.edit');
+    Route::get('tasks/{id}/edit', EditTask::class)->name('tasks.edit');
 
     Route::resource('users', UserController::class);
     Route::resource('customers', CustomerController::class);

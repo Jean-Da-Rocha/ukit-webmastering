@@ -10,22 +10,6 @@ class Project extends Model
     use HasFactory;
 
     /**
-     * Instantiate a Project with default values
-     * due to select dropdown not auto selecting the first
-     * value on create.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->category_id = Category::orderBy('type')->first()->id;
-        $this->customer_id = Customer::orderBy('designation')->first()->id;
-        $this->user_id = auth()->id();
-
-        parent::__construct();
-    }
-
-    /**
      * The attributes that aren't mass assignable.
      *
      * @var array

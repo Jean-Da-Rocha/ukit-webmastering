@@ -7,7 +7,7 @@ use App\Models\Project;
 class EditProject extends BaseProject
 {
     /**
-     * Update the specified resource in storage.
+     * Update the specified project in storage.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -15,7 +15,7 @@ class EditProject extends BaseProject
     {
         $this->project->update($this->validate());
 
-        session()->flash('success', 'Project updated successfully.');
+        session()->flash('success', trans('message.updated'));
 
         return redirect()->to('/projects');
     }

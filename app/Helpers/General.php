@@ -69,12 +69,12 @@ if (! function_exists('format_time')) {
     /**
      * Format a time string for better readability.
      *
-     * @param  string  $time
+     * @param  string|null  $time
      * @return string
      */
-    function format_time(string $time)
+    function format_time(?string $time)
     {
-        if ($time === '00:00:00') {
+        if ($time === '00:00:00' || $time === null) {
             return '00 h 00 min';
         }
 

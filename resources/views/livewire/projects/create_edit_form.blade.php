@@ -4,7 +4,7 @@
             <div class="uk-card-header uk-background-primary">
                 <div class="uk-text-center uk-text-white">
                     @if ($updateMode)
-                        Update <b>{{ $project->name }}</b> project info
+                        Edit <b>{{ $project->name }}</b> project info
                     @else
                         Create a new project
                     @endif
@@ -19,7 +19,6 @@
                         class="uk-select @error('project.category_id') uk-form-danger @enderror"
                         name="project.category_id"
                         id="project.category_id"
-                        wire:ignore
                         wire:model.defer="project.category_id"
                         required
                     >

@@ -44,6 +44,6 @@ trait WithDeleteConfirmation
 
         $this->emitSelf('$refresh');
 
-        session()->flash('success', model_name($this->modelClassName) . ' successfully deleted');
+        session()->flash('success', trans('message.deleted'));
     }
 }
