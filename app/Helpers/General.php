@@ -52,16 +52,7 @@ if (! function_exists('get_role_color')) {
      */
     function get_role_color(int $roleId)
     {
-        switch ($roleId) {
-            case config('role.admin'):
-                return 'uk-text-danger';
-            case config('role.webmaster'):
-                return 'uk-text-warning';
-            case config('role.developer'):
-                return 'uk-text-success';
-            default:
-                return '';
-        }
+        return config('color.' . config('role.' . $roleId)) ?? '';
     }
 }
 

@@ -4,10 +4,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Constant for roles
+    | Constant for text colors depending on the user's role.
     |--------------------------------------------------------------------------
     */
-    1 => 'admin',
-    2 => 'webmaster',
-    3 => 'developer',
+    'admin' => 'uk-text-danger',
+    'webmaster' => 'uk-text-warning',
+    'developer' => 'uk-text-success',
 ];

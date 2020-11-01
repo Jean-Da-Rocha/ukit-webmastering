@@ -33,7 +33,7 @@ class CustomerTable extends TableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Phone number', 'phone_number')->searchable()->sortable(),
-            Column::make('Email', 'customer_email')->searchable()->sortable(),
+            Column::make('Email', 'email')->searchable()->sortable(),
             Column::make('Actions')->view('vendor.includes.actions_buttons'),
         ];
     }

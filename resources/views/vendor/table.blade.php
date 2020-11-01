@@ -25,10 +25,19 @@
         </div>
     </div>
 
-    <div class="uk-margin">
-        <p class="uk-text-primary ukt-align-left">
+    <div class="uk-flex uk-flex-between uk-width-1-1">
+        <p class="uk-text-primary">
             Results: {{ $models->count() }} / {{ $models->total() }}
         </p>
+        <div>
+            <a
+                href="{{ has_route($models[0]->getTable() . '.create') }}"
+                class="uk-button uk-button-secondary uk-button-small"
+                title="Add a new entity"
+            >
+                <x-heroicon-s-plus /> Add
+            </a>
+        </div>
     </div>
 
     <table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">

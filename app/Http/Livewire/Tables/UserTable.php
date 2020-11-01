@@ -2,8 +2,7 @@
 
 namespace App\Http\Livewire\Tables;
 
-use App\Http\Livewire\Tables\Column;
-use App\Http\Livewire\Tables\TableComponent;
+use App\Http\Livewire\Tables\{Column, TableComponent};
 use App\Models\User;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -32,7 +31,7 @@ class UserTable extends TableComponent
             Column::make('#', 'id')->sortable(),
             Column::make('Username', 'username')->searchable()->sortable(),
             Column::make('Email', 'email')->searchable()->sortable(),
-            Column::make('Role', 'role.role_name')->searchable()->sortable(),
+            Column::make('Role', 'role.name')->searchable()->sortable(),
             Column::make('Actions')->view('vendor.includes.actions_buttons'),
         ];
     }
