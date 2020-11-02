@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Tables;
 
+use App\Actions\TasksCalculation;
 use App\Http\Livewire\Tables\{Column, TableComponent};
 use App\Models\Project;
 use App\Traits\Livewire\WithDeleteConfirmation;
@@ -42,7 +43,9 @@ class ProjectTable extends TableComponent
             Column::make('Project name', 'name')->searchable()->sortable(),
             Column::make('Starting date', 'starting_date')->searchable()->sortable(),
             Column::make('Customer', 'customer.designation')->searchable()->sortable(),
-            Column::make('Total tasks time')->view('vendor.includes.projects.total_tasks_time'),
+            Column::make('Total task time')->format(
+                fn (Project $model) => (new TasksCalculation())->getTotalTasksTime($model)
+            ),
             Column::make('Authorizations')->view('vendor.includes.projects.authorizations'),
             Column::make('Actions')->view('vendor.includes.actions_buttons'),
         ];

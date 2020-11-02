@@ -43,7 +43,7 @@ class TaskTable extends TableComponent
             Column::make('Project name', 'project.name')->searchable()->sortable(),
             Column::make('Project creator', 'user.username')->searchable()->sortable(),
             Column::make('Task duration', 'duration')
-                ->view('vendor.includes.tasks.time_per_task')
+                ->format(fn (Task $model) => format_time($model->duration))
                 ->searchable()
                 ->sortable(),
             Column::make('Starting date', 'starting_date')->searchable()->sortable(),

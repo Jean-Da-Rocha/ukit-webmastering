@@ -6,6 +6,7 @@ use App\Http\Livewire\Tables\{Column, TableComponent};
 use App\Models\User;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\HtmlString;
 
 class UserTable extends TableComponent
 {

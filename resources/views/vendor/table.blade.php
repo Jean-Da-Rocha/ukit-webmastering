@@ -77,6 +77,12 @@
                             <td>
                                 @if ($column->getViewName())
                                     @include($column->getViewName())
+                                @elseif ($column->isFormatted())
+                                    @if ($column->isRaw())
+                                        {!! $column->formatted($model, $column) !!}
+                                    @else
+                                        {{ $column->formatted($model, $column) }}
+                                    @endif
                                 @elseif ($column->isRaw())
                                     {!! $column->getHtmlContent() !!}
                                 @else
@@ -93,6 +99,7 @@
             @endforelse
         </tbody>
     </table>
+
     {{ $models->links('vendor.pagination') }}
 
     <x-utils.delete_confirmation_modal />

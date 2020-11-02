@@ -29,7 +29,7 @@ class CustomerTable extends TableComponent
             Column::make('#', 'id')->sortable(),
             Column::make('Society name', 'society_name')->searchable()->sortable(),
             Column::make('Full address', 'address')
-                ->view('vendor.includes.customers.full_address')
+                ->format(fn (Customer $model) => $model->full_address)
                 ->searchable()
                 ->sortable(),
             Column::make('Phone number', 'phone_number')->searchable()->sortable(),
