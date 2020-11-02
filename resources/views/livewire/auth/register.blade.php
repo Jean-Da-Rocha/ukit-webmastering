@@ -1,12 +1,16 @@
 <div>
     <div class="uk-card uk-card-default">
         <div class="uk-card-header uk-background-primary">
-            <div class="uk-text-center uk-text-white">Register form</div>
+            <div class="uk-text-center uk-text-white">
+                Register form
+            </div>
         </div>
         <div class="uk-card-body">
             <form wire:submit.prevent="register">
                 <div class="uk-margin">
-                    <label for="username" class="uk-form-label">Username</label>
+                    <label for="username" class="uk-form-label">
+                        Username
+                    </label>
                     <div class="uk-inline uk-width-1-1">
                         <x-heroicon-o-user class="uk-form-icon" />
                         <input
@@ -14,18 +18,21 @@
                             class="uk-input @error('username') uk-form-danger @enderror"
                             name="username"
                             id="username"
-                            value="{{ old('username') }}"
                             wire:model.lazy="username"
                             autofocus
                             required
                         />
                         @error('username')
-                            <span class="uk-text-danger">{{ $message }}</span>
+                            <span class="uk-text-danger">
+                                {{ $message }}
+                            </span>
                         @enderror
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <label for="email" class="uk-form-label">Email</label>
+                    <label for="email" class="uk-form-label">
+                        Email
+                    </label>
                     <div class="uk-inline uk-width-1-1">
                         <x-heroicon-o-mail class="uk-form-icon" />
                         <input
@@ -33,17 +40,20 @@
                             class="uk-input @error('email') uk-form-danger @enderror"
                             name="email"
                             id="email"
-                            value="{{ old('email') }}"
                             wire:model.lazy="email"
                             required
                         />
                     </div>
                     @error('email')
-                        <span class="uk-text-danger">{{ $message }}</span>
+                        <span class="uk-text-danger">
+                            {{ $message }}
+                        </span>
                     @enderror
                 </div>
                 <div class="uk-margin">
-                    <label for="password" class="uk-form-label">Password</label>
+                    <label for="password" class="uk-form-label">
+                        Password
+                    </label>
                     <div class="uk-form-controls uk-inline uk-width-1-1">
                         <x-heroicon-o-lock-closed class="uk-form-icon" />
                         <input
@@ -56,11 +66,15 @@
                         />
                     </div>
                     @error('password')
-                        <span class="uk-text-danger">{{ $message }}</span>
+                        <span class="uk-text-danger">
+                            {{ $message }}
+                        </span>
                     @enderror
                 </div>
                 <div class="uk-margin">
-                    <label for="password_confirmation" class="uk-form-label">Password confirmation</label>
+                    <label for="password_confirmation" class="uk-form-label">
+                        Password confirmation
+                    </label>
                     <div class="uk-form-controls uk-inline uk-width-1-1">
                         <x-heroicon-o-lock-closed class="uk-form-icon" />
                         <input

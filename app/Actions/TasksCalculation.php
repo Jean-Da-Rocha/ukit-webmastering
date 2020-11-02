@@ -1,24 +1,13 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Actions;
 
 use App\Models\Project;
-use App\Repositories\Contracts\ProjectRepositoryInterface;
 
 use Carbon\Carbon;
 
-class ProjectRepository extends BaseRepository implements ProjectRepositoryInterface
+class TasksCalculation
 {
-    /**
-     * Bind the Project model to the repository.
-     *
-     * @param  Project  $project
-     */
-    public function __construct(Project $project)
-    {
-        parent::__construct($project);
-    }
-
     /**
      * Return the total tasks time for the given project.
      *

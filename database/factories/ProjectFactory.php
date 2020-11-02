@@ -23,9 +23,9 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'project_name' => $this->faker->words(5, true),
-            'project_description' => $this->faker->text(200),
-            'project_starting_date' => $this->faker->date(now()),
+            'name' => $this->faker->words(5, true),
+            'description' => $this->faker->text(200),
+            'starting_date' => $this->faker->date(now()),
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
             'customer_id' => Customer::factory(),

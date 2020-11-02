@@ -1,18 +1,22 @@
 <!-- LEFT BAR -->
 <aside id="left-col" class="uk-light uk-visible@m">
     <div class="left-logo uk-flex uk-flex-middle">
-        <img class="custom-logo" src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/dashboard-logo.svg" alt="">
+        <img
+            class="custom-logo"
+            src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/dashboard-logo.svg"
+            alt=""
+        />
     </div>
     @guest
         <div class="left-nav-wrap">
             <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li class="uk-nav-header uk-text-uppercase">Authentication</li>
-                <li class="{{ is_route_active('login') }}">
+                <li class="{{ is_active('login') }}">
                     <a href="{{ route('login') }}">
                         <x-heroicon-o-login /> Login
                     </a>
                 </li>
-                <li class="{{ is_route_active('register') }}">
+                <li class="{{ is_active('register') }}">
                     <a href="{{ route('register') }}">
                         <x-heroicon-o-user-add /> Register
                     </a>
@@ -22,16 +26,20 @@
     @endguest
     <div class="left-content-box content-box-dark {{ ! auth()->check() ? 'uk-hidden' : '' }}">
         @auth
-            <img src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/avatar.svg" alt="" class="uk-border-circle profile-img">
+            <img
+                src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/avatar.svg"
+                alt=""
+                class="uk-border-circle profile-img"
+            />
             <h4 class="uk-text-center uk-margin-remove-vertical">
                 {{ auth()->user()->username }}
             </h4>
             <div class="uk-position-relative uk-text-center uk-display-block">
                 <a
                     href="#"
-                    class="uk-text-small uk-display-block uk-text-center {{ getRoleColor(auth()->user()->role_id) }}"
+                    class="uk-text-small uk-display-block uk-text-center {{ get_role_color(auth()->user()->role_id) }}"
                 >
-                    {{ Str::ucfirst(auth()->user()->role->role_name) }} <x-heroicon-s-chevron-down />
+                    {{ Str::ucfirst(auth()->user()->role->name) }} <x-heroicon-s-chevron-down />
                 </a>
                 <!-- user dropdown -->
                 <div
@@ -63,35 +71,39 @@
         <div class="left-nav-wrap">
             <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li class="uk-nav-header uk-text-uppercase">Actions</li>
-                <li class="uk-parent">
+                <li class="uk-parent {{ is_active('projects') }}">
                     <a href="#">
                         <x-heroicon-o-view-grid class="uk-margin-small-right" />
                         Projects
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new project</a>
+                            <a href="{{ route('projects.create') }}">
+                                Create a new project
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ route('projects.index') }}">See all projects</a>
+                            <a href="{{ route('projects.index') }}">
+                                See all projects
+                            </a>
                         </li>
                     </ul>
                 </li>
-                <li class="uk-parent">
+                <li class="uk-parent {{ is_active('tasks') }}">
                     <a href="#">
                         <x-heroicon-o-clipboard-list class="uk-margin-small-right" />
                         Tasks
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new task</a>
+                            <a href="{{ route('tasks.create') }}">Create a new task</a>
                         </li>
                         <li>
-                            <a href="#">See all tasks</a>
+                            <a href="{{ route('tasks.index') }}">See all tasks</a>
                         </li>
                     </ul>
                 </li>
-                <li class="uk-parent">
+                <li class="uk-parent {{ is_active('users') }}">
                     <a href="#">
                         <x-heroicon-o-user class="uk-margin-small-right" />
                         Users
@@ -101,7 +113,7 @@
                             <a href="#">Create a new user</a>
                         </li>
                         <li>
-                            <a href="#">See all users</a>
+                            <a href="{{ route('users.index') }}">See all users</a>
                         </li>
                     </ul>
                 </li>
@@ -115,7 +127,7 @@
                             <a href="#">Create a new customer</a>
                         </li>
                         <li>
-                            <a href="#">See all customers</a>
+                            <a href="{{ route('customers.index') }}">See all customers</a>
                         </li>
                     </ul>
                 </li>

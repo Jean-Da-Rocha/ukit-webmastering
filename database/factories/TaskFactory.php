@@ -4,8 +4,8 @@ namespace Database\Factories;
 
 use App\Models\{Task, User, Project};
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class TaskFactory extends Factory
 {
@@ -24,11 +24,10 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'task_name' => $this->faker->words(5, true),
-            'task_description' => $this->faker->text(100),
-            'link' => $this->faker->url,
-            'task_duration' => $this->faker->time('H:i'),
-            'task_starting_date' => $this->faker->date(now()),
+            'name' => $this->faker->words(5, true),
+            'description' => $this->faker->text(100),
+            'duration' => $this->faker->time('H:i'),
+            'starting_date' => $this->faker->date(now()),
             'quoted' => $this->faker->boolean,
             'quotation_ref' => Str::random(10),
             'billed' => $this->faker->boolean,

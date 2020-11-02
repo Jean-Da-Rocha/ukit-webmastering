@@ -2,27 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Contracts\ProjectRepositoryInterface;
-
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class CustomerController extends Controller
 {
-    private $projectRepository;
-
-    public function __construct(ProjectRepositoryInterface $projectRepository)
-    {
-        $this->projectRepository = $projectRepository;
-    }
-
     /**
-     * Display a listing of the projects.
+     * Display a listing of the customers.
      *
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        return view('projects.index');
+        return view('livewire.customers.index');
     }
 
     /**

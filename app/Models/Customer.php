@@ -35,4 +35,14 @@ class Customer extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    /**
+     * Get the customer's full address.
+     *
+     * @return string
+     */
+    public function getFullAddressAttribute()
+    {
+        return "{$this->address} {$this->zip_code} {$this->city}";
+    }
 }

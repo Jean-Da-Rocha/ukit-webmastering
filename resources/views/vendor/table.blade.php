@@ -1,4 +1,6 @@
 <div>
+    <x-utils.message />
+
     <div class="uk-margin">
         <form class="uk-search uk-search-default">
             <span class="uk-search-icon-flip" data-uk-search-icon wire:ignore></span>
@@ -23,10 +25,19 @@
         </div>
     </div>
 
-    <div class="uk-margin">
-        <p class="uk-text-primary ukt-align-left">
+    <div class="uk-flex uk-flex-between uk-width-1-1">
+        <p class="uk-text-primary">
             Results: {{ $models->count() }} / {{ $models->total() }}
         </p>
+        <div>
+            <a
+                href="{{ has_route($models[0]->getTable() . '.create') }}"
+                class="uk-button uk-button-secondary uk-button-small"
+                title="Add a new entity"
+            >
+                <x-heroicon-s-plus /> Add
+            </a>
+        </div>
     </div>
 
     <table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">
@@ -66,6 +77,12 @@
                             <td>
                                 @if ($column->getViewName())
                                     @include($column->getViewName())
+                                @elseif ($column->isFormatted())
+                                    @if ($column->isRaw())
+                                        {!! $column->formatted($model, $column) !!}
+                                    @else
+                                        {{ $column->formatted($model, $column) }}
+                                    @endif
                                 @elseif ($column->isRaw())
                                     {!! $column->getHtmlContent() !!}
                                 @else
@@ -82,5 +99,8 @@
             @endforelse
         </tbody>
     </table>
+
     {{ $models->links('vendor.pagination') }}
+
+    <x-utils.delete_confirmation_modal />
 </div>

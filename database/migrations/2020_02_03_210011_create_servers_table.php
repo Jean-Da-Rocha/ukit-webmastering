@@ -15,7 +15,7 @@ class CreateServersTable extends Migration
     {
         Schema::create('servers', function (Blueprint $table) {
             $table->id();
-            $table->string('server_name', 255)->nullable();
+            $table->string('name', 255)->nullable();
             $table->timestamps();
         });
     }

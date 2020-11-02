@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Tables;
 use App\Traits\Livewire\Tables\Hiddenable;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 class Column
 {
@@ -33,7 +34,7 @@ class Column
     /**
      * @var string|null
      */
-    private $viewName;
+    private string $viewName = '';
 
     /**
      * @var bool
@@ -54,6 +55,11 @@ class Column
      * @var callable|null
      */
     private $searchCallback;
+
+    /**
+     * @var callable|null
+     */
+    private $formatCallback;
 
     /**
      * Column constructor.
@@ -184,7 +190,7 @@ class Column
     /**
      * Get the view element.
      *
-     * @return string
+     * @return $this
      */
     public function getViewName()
     {
@@ -198,9 +204,8 @@ class Column
      * @param  string  $htmlContent
      * @return $this
      */
-    public function raw(string $htmlContent)
+    public function raw()
     {
-        $this->htmlContent = $htmlContent;
         $this->raw = true;
 
         return $this;
@@ -210,7 +215,7 @@ class Column
      * Check if the column needs to be output
      * in a raw format.
      *
-     * @return bool
+     * @return $this
      */
     public function isRaw()
     {
@@ -225,5 +230,40 @@ class Column
     public function getHtmlContent()
     {
         return $this->htmlContent;
+    }
+
+    /**
+     * Format a column with specific data.
+     *
+     * @param  callable  $callable
+     * @return $this
+     */
+    public function format(callable $callable)
+    {
+        $this->formatCallback = $callable;
+
+        return $this;
+    }
+
+    /**
+     * Check if the format callback is callable.
+     *
+     * @return bool
+     */
+    public function isFormatted()
+    {
+        return is_callable($this->formatCallback);
+    }
+
+    /**
+     * Call the format callback on the current model and column
+     *
+     * @param  Model  $model
+     * @param  Column  $column
+     * @return mixed
+     */
+    public function formatted(Model $model, Column $column)
+    {
+        return app()->call($this->formatCallback, ['model' => $model, 'column' => $column]);
     }
 }
