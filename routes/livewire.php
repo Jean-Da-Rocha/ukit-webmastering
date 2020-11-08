@@ -1,17 +1,12 @@
 <?php
 
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Auth\Register;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
 
-use App\Http\Livewire\Actions\Project\CreateProject;
-use App\Http\Livewire\Actions\Project\EditProject;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Livewire\Actions\Tasks\CreateTask;
-use App\Http\Livewire\Actions\Tasks\EditTask;
+use App\Http\Livewire\Actions\Projects\{CreateProject, EditProject};
+use App\Http\Livewire\Actions\Tasks\{CreateTask, EditTask};
+use App\Http\Livewire\Actions\Users\{CreateUser, EditUser};
+
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::get('tasks/create', CreateTask::class)->name('tasks.create');
     Route::get('tasks/{id}/edit', EditTask::class)->name('tasks.edit');
 
-    Route::resource('users', UserController::class);
+    Route::view('users', 'livewire.users.index')->name('users.index');
+    Route::get('users/create', CreateUser::class)->name('users.create');
+    Route::get('users/{id}/edit', EditUser::class)->name('users.edit');
+
     Route::resource('customers', CustomerController::class);
 });

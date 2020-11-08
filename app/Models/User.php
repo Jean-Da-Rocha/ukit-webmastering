@@ -18,13 +18,6 @@ class User extends Authenticatable
     protected $guarded = ['id'];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = ['password'];
-
-    /**
      * One To Many (Inverse) relation between User and Role models.
      *
      * @return Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -33,7 +33,6 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('home', HomeController::class)->name('home');
 
-    Route::resource('users', UserController::class);
     Route::resource('customers', CustomerController::class);
 
     Route::post('logout', LogoutController::class)->name('logout');

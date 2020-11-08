@@ -15,6 +15,7 @@ class EditTask extends BaseTask
     public function mount(int $id)
     {
         $this->updateMode = true;
+
         $this->task = Task::findOrFail($id);
     }
 
