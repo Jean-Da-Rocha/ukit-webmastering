@@ -19,6 +19,11 @@ class EditUser extends BaseUser
         $this->user = User::findOrFail($id);
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     /**
      * Update the specified user in storage.
      *
@@ -36,10 +41,11 @@ class EditUser extends BaseUser
     }
 
     /**
-     * Override specific validation rules from the original
-     * so that we don't get the 'same email/username' error during update.
+     * Override specific validation rules from the original $rules array
+     * so that we don't get the 'same email/username' error
+     * or null password error during update.
      *
-     * @return void
+     * @return array
      */
     private function setValidationRules()
     {

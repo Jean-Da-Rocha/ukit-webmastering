@@ -18,7 +18,6 @@ class BaseUser extends Component
     protected array $rules = [
         'user.username' => ['required', 'string', 'max:255', 'unique:users,username'],
         'user.email' => ['required', 'string', 'max:255', 'email:filter', 'unique:users,email'],
-        'user.password' => ['sometimes', 'required', 'string', 'min:8'],
         'user.role_id' => ['required', 'integer'],
     ];
 

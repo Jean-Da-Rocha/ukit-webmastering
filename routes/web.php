@@ -1,17 +1,10 @@
 <?php
 
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Auth\Register;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CustomerController;
-
-use App\Http\Livewire\Actions\Project\CreateProject;
-use App\Http\Livewire\Actions\Project\EditProject;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Livewire\Actions\Tasks\CreateTask;
-use App\Http\Livewire\Actions\Tasks\EditTask;
+use App\Http\Livewire\Auth\{Login, Register};
+
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +25,5 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('home', HomeController::class)->name('home');
-
-    Route::resource('customers', CustomerController::class);
-
     Route::post('logout', LogoutController::class)->name('logout');
 });

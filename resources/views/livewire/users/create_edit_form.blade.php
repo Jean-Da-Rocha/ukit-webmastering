@@ -70,26 +70,6 @@
                         </span>
                     @enderror
                 </div>
-                @if ($updateMode === false)
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="user.password">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            class="uk-input @error('user.password') uk-form-danger @enderror"
-                            name="user.password"
-                            id="user.password"
-                            wire:model.defer="user.password"
-                            required
-                        />
-                        @error('user.password')
-                            <span class="uk-text-danger">
-                                {{ $message }}
-                            </span>
-                        @enderror
-                    </div>
-                @endif
                 <div class="uk-margin uk-align-right">
                     <a
                         href="{{ route('users.index') }}"

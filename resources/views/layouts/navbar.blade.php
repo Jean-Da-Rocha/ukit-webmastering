@@ -110,7 +110,7 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new user</a>
+                            <a href="{{ route('users.create') }}">Create a new user</a>
                         </li>
                         <li>
                             <a href="{{ route('users.index') }}">See all users</a>
@@ -124,7 +124,7 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new customer</a>
+                            <a href="{{ route('customers.create') }}">Create a new customer</a>
                         </li>
                         <li>
                             <a href="{{ route('customers.index') }}">See all customers</a>

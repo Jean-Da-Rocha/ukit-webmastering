@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
 
+use App\Http\Livewire\Actions\Customers\{CreateCustomer, EditCustomer};
 use App\Http\Livewire\Actions\Projects\{CreateProject, EditProject};
 use App\Http\Livewire\Actions\Tasks\{CreateTask, EditTask};
 use App\Http\Livewire\Actions\Users\{CreateUser, EditUser};
@@ -26,5 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('users/create', CreateUser::class)->name('users.create');
     Route::get('users/{id}/edit', EditUser::class)->name('users.edit');
 
-    Route::resource('customers', CustomerController::class);
+    Route::view('customers', 'livewire.customers.index')->name('customers.index');
+    Route::get('customers/create', CreateCustomer::class)->name('customers.create');
+    Route::get('customers/{id}/edit', EditCustomer::class)->name('customers.edit');
 });
