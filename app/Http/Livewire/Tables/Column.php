@@ -256,7 +256,7 @@ class Column
     }
 
     /**
-     * Call the format callback on the current model and column
+     * Call the format callback on the current model and column.
      *
      * @param  Model  $model
      * @param  Column  $column

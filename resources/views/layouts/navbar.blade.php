@@ -138,10 +138,10 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new hosting</a>
+                            <a href="{{ route('hostings.create') }}">Create a new hosting</a>
                         </li>
                         <li>
-                            <a href="#">See all hostings</a>
+                            <a href="{{ route('hostings.index') }}">See all hostings</a>
                         </li>
                     </ul>
                 </li>

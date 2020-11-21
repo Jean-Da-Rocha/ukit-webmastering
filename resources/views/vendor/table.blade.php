@@ -31,7 +31,7 @@
         </p>
         <div>
             <a
-                href="{{ has_route($models[0]->getTable() . '.create') }}"
+                href="@if ($models->count() > 0) {{ has_route($models[0]->getTable() . '.create') }} @endif"
                 class="uk-button uk-button-secondary uk-button-small"
                 title="Add a new entity"
             >
