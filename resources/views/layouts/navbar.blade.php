@@ -152,10 +152,10 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new server</a>
+                            <a href="{{ route('servers.create') }}">Create a new server</a>
                         </li>
                         <li>
-                            <a href="#">See all available servers</a>
+                            <a href="{{ route('servers.index') }}">See all available servers</a>
                         </li>
                     </ul>
                 </li>
