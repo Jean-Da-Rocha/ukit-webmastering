@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Actions\Project;
+namespace App\Http\Livewire\Actions\Projects;
 
 use App\Models\{Category, Customer, Project};
 

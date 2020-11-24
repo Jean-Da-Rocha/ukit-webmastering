@@ -22,6 +22,9 @@ class ServerFactory extends Factory
      */
     public function definition()
     {
-        return ['name' => $this->faker->domainWord];
+        return [
+            'name' => $this->faker->domainWord,
+            'information' => $this->faker->sentence(10),
+        ];
     }
 }

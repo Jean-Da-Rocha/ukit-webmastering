@@ -7,7 +7,7 @@ return [
     | Constant for roles
     |--------------------------------------------------------------------------
     */
-    1 => 'admin',
-    2 => 'webmaster',
-    3 => 'developer',
+    'admin' => 1,
+    'webmaster' => 2,
+    'developer' => 3,
 ];

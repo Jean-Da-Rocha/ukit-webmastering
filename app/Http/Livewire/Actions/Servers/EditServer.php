@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Actions\Tasks;
+namespace App\Http\Livewire\Actions\Servers;
 
-use App\Models\Task;
+use App\Models\Server;
 
-class EditTask extends BaseTask
+class EditServer extends BaseServer
 {
     /**
-     * Set the initial task properties.
+     * Set the initial server properties.
      *
      * @param  int  $id
      * @return void
@@ -16,20 +16,20 @@ class EditTask extends BaseTask
     {
         $this->updateMode = true;
 
-        $this->task = Task::findOrFail($id);
+        $this->server = Server::findOrFail($id);
     }
 
     /**
-     * Update the specified task in storage.
+     * Update the specified server in storage.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update()
     {
-        $this->task->update($this->validate());
+        $this->server->update($this->validate());
 
         session()->flash('success', trans('message.updated'));
 
-        return redirect()->to('/tasks');
+        return redirect()->to('/servers');
     }
 }

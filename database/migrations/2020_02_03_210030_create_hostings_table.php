@@ -19,12 +19,12 @@ class CreateHostingsTable extends Migration
             $table->date('date_renewal');
             $table->boolean('domain_managing');
             $table->string('registrar', 255)->nullable();
-            $table->decimal('price');
+            $table->decimal('pricing');
             $table->text('comment')->nullable();
             $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('project_id')->constrained()->nullable()->cascadeOnDelete();
+            $table->foreignId('project_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('status_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('server_id')->constrained()->nullable()->cascadeOnDelete();
+            $table->foreignId('server_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

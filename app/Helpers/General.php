@@ -52,7 +52,17 @@ if (! function_exists('get_role_color')) {
      */
     function get_role_color(int $roleId)
     {
-        return config('color.' . config('role.' . $roleId)) ?? '';
+        $colorMatches = [
+            config('role.admin') => 'uk-text-danger',
+            config('role.webmaster') => 'uk-text-warning',
+            config('role.developer') => 'uk-text-success',
+        ];
+
+        if (in_array($roleId, config('role'))) {
+            return $colorMatches[$roleId];
+        }
+
+        return '';
     }
 }
 

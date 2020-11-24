@@ -110,7 +110,7 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new user</a>
+                            <a href="{{ route('users.create') }}">Create a new user</a>
                         </li>
                         <li>
                             <a href="{{ route('users.index') }}">See all users</a>
@@ -124,7 +124,7 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new customer</a>
+                            <a href="{{ route('customers.create') }}">Create a new customer</a>
                         </li>
                         <li>
                             <a href="{{ route('customers.index') }}">See all customers</a>
@@ -138,10 +138,10 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new hosting</a>
+                            <a href="{{ route('hostings.create') }}">Create a new hosting</a>
                         </li>
                         <li>
-                            <a href="#">See all hostings</a>
+                            <a href="{{ route('hostings.index') }}">See all hostings</a>
                         </li>
                     </ul>
                 </li>
@@ -152,10 +152,10 @@
                     </a>
                     <ul class="uk-nav-sub">
                         <li>
-                            <a href="#">Create a new server</a>
+                            <a href="{{ route('servers.create') }}">Create a new server</a>
                         </li>
                         <li>
-                            <a href="#">See all available servers</a>
+                            <a href="{{ route('servers.index') }}">See all available servers</a>
                         </li>
                     </ul>
                 </li>
