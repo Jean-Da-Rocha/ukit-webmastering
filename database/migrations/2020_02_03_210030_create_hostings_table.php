@@ -23,7 +23,7 @@ class CreateHostingsTable extends Migration
             $table->text('comment')->nullable();
             $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
             $table->foreignId('project_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('status_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('billing_status_id')->constrained('billing_status')->cascadeOnDelete();
             $table->foreignId('server_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
@@ -37,7 +37,7 @@ class CreateHostingsTable extends Migration
     public function down()
     {
         Schema::table('hostings', function (Blueprint $table) {
-            $table->dropForeign(['status_id']);
+            $table->dropForeign(['billing_status_id']);
             $table->dropForeign(['customer_id']);
             $table->dropForeign(['project_id']);
             $table->dropForeign(['server_id']);

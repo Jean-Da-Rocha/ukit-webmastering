@@ -31,7 +31,7 @@ class HostingFactory extends Factory
             'comment' => $this->faker->text(20),
             'customer_id' => Customer::factory(),
             'project_id' => Project::factory(),
-            'status_id' => $this->faker->numberBetween(1, 6),
+            'billing_status_id' => $this->faker->numberBetween(1, 6),
             'server_id' => Server::factory(),
         ];
     }

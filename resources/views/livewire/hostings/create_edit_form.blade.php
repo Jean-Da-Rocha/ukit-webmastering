@@ -133,23 +133,23 @@
                         @enderror
                     </div>
                     <div class="uk-margin">
-                        <label for="hosting.status_id" class="uk-form-label">
+                        <label for="hosting.billing_status_id" class="uk-form-label">
                             Billing status
                         </label>
                         <select
-                            name="hosting.status_id"
-                            id="hosting.status_id"
-                            class="uk-select @error('hosting.status_id') uk-form-danger @enderror"
-                            wire:model.defer="hosting.status_id"
+                            name="hosting.billing_status_id"
+                            id="hosting.billing_status_id"
+                            class="uk-select @error('hosting.billing_status_id') uk-form-danger @enderror"
+                            wire:model.defer="hosting.billing_status_id"
                             required
                         >
-                            @foreach ($statuses as $status)
+                            @foreach ($billingStatus as $status)
                                 <option value="{{ $status->id }}">
                                     {{ $status->name }}
                                 </option>
                             @endforeach
                         </select>
-                        @error('hosting.status_id')
+                        @error('hosting.billing_status_id')
                             <span class="uk-text-danger">
                                 {{ $message }}
                             </span>

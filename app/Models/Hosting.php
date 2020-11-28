@@ -36,13 +36,13 @@ class Hosting extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Hosting and Status models.
+     * One To Many (Inverse) relation between Hosting and BillingStatus models.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function status()
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(BillingStatus::class);
     }
 
     /**
