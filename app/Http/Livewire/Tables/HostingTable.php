@@ -48,11 +48,11 @@ class HostingTable extends TableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Date renewal', 'date_renewal')->searchable()->sortable(),
-            Column::make('Billing status', 'billing_status.name')
+            Column::make('Billing status', 'billingStatus.name')
                 ->format(function (Hosting $model) {
                     return "
-                        <div class='uk-badge' style='background: {$model->billing_status->color}'>
-                            {$model->billing_status->name}
+                        <div class='uk-badge' style='background: {$model->billingStatus->color}'>
+                            {$model->billingStatus->name}
                         </div>
                     ";
                 })

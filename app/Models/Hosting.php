@@ -40,7 +40,7 @@ class Hosting extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function status()
+    public function billingStatus()
     {
         return $this->belongsTo(BillingStatus::class);
     }
