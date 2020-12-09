@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Actions\Settings\SaveContactEmail;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
@@ -21,5 +22,5 @@ Route::middleware('auth')->group(function () {
             ->name("{$routeName}.edit");
     }
 
-    Route::view('settings', 'livewire.settings.index')->name('settings.index');
+    Route::get('settings', SaveContactEmail::class)->name('settings.index');
 });
