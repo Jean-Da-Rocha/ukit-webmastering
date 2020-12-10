@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class BillingStatus extends Model
 {
     use HasFactory;
 
@@ -17,7 +17,14 @@ class Status extends Model
     protected $guarded = ['id'];
 
     /**
-     * One To Many (Inverse) relation between Status and Hosting models.
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'billing_status';
+
+    /**
+     * One To Many (Inverse) relation between BillingStatus and Hosting models.
      *
      * @return Illuminate\Database\Eloquent\Relations\BelongsTo
      */

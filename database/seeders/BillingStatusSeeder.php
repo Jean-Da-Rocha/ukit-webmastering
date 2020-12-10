@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Status;
+use App\Models\BillingStatus;
 
 use Illuminate\Database\Seeder;
 
-class StatusSeeder extends Seeder
+class BillingStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        $statusesInfo = [
+        $statusInfo = [
             [
                 'name' => 'expired',
                 'color' => '#d65959',
@@ -42,8 +42,8 @@ class StatusSeeder extends Seeder
             ],
         ];
 
-        foreach ($statusesInfo as $info) {
-            Status::insert([
+        foreach ($statusInfo as $info) {
+            BillingStatus::insert([
                 'name' => $info['name'],
                 'color' => $info['color'],
                 'created_at' => now(),

@@ -28,7 +28,7 @@ class HostingTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Hosting::with(['customer', 'project', 'server', 'status'])
+        return Hosting::with(['customer', 'project', 'server', 'billingStatus'])
             ->select('hostings.*');
     }
 
@@ -48,11 +48,11 @@ class HostingTable extends TableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Date renewal', 'date_renewal')->searchable()->sortable(),
-            Column::make('Billing status', 'status.name')
+            Column::make('Billing status', 'billingStatus.name')
                 ->format(function (Hosting $model) {
                     return "
-                        <div class='uk-badge' style='background: {$model->status->color}'>
-                            {$model->status->name}
+                        <div class='uk-badge' style='background: {$model->billingStatus->color}'>
+                            {$model->billingStatus->name}
                         </div>
                     ";
                 })

@@ -101,3 +101,30 @@ if (! function_exists('model_name')) {
         return lcfirst($model);
     }
 }
+
+// TODO: refactor for more clarity.
+if (! function_exists('generate_class_namespace')) {
+    /**
+     * Generate a namespace depending on a route name,
+     * a method (create, edit ...) and a base path.
+     *
+     * @param  string  $routeName
+     * @param  string  $method
+     * @param  string  $basePath
+     * @return string
+     */
+    function generate_class_namespace(
+        string $routeName,
+        string $method = '',
+        string $basePath = 'App\Http\Livewire\Actions\\'
+    )
+    {
+        if (Str::contains($routeName, '_')) {
+            $routeName = Str::camel($routeName);
+        }
+
+        // Generate for instance: App\Livewire\Actions\Projects\CreateProject.
+        return $basePath . ucfirst($routeName) . '\\'
+            . ucfirst($method) . ucfirst(Str::singular($routeName));
+    }
+}

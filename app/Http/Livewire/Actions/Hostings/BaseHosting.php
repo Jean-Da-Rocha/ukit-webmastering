@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Actions\Hostings;
 
-use App\Models\{Customer, Hosting, Project, Server, Status};
+use App\Models\{BillingStatus, Customer, Hosting, Project, Server};
 
 use Livewire\Component;
 
@@ -22,7 +22,7 @@ class BaseHosting extends Component
         'hosting.domain_managing' => ['required', 'boolean'],
         'hosting.project_id' => ['nullable', 'integer'],
         'hosting.registrar' => ['nullable', 'string', 'max:255'],
-        'hosting.status_id' => ['required', 'integer'],
+        'hosting.billing_status_id' => ['required', 'integer'],
         'hosting.pricing' => ['required', 'numeric', 'min:0', 'max:9999'],
         'hosting.server_id' => ['nullable', 'integer'],
         'hosting.comment' => ['nullable', 'string', 'max:1000'],
@@ -39,7 +39,7 @@ class BaseHosting extends Component
             'hosting' => $this->hosting,
             'customers' => Customer::select('id', 'designation')->orderBy('designation', 'asc')->get(),
             'projects' => Project::select('id', 'name')->orderBy('name', 'asc')->get(),
-            'statuses' => Status::select('id', 'name')->orderBy('name', 'asc')->get(),
+            'billingStatus' => BillingStatus::select('id', 'name')->orderBy('name', 'asc')->get(),
             'servers' => Server::select('id', 'name')->orderBy('name', 'asc')->get(),
         ]);
     }

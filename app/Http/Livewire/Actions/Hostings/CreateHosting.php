@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Actions\Hostings;
 
-use App\Models\{Customer, Hosting, Status};
+use App\Models\{BillingStatus, Customer, Hosting};
 
 class CreateHosting extends BaseHosting
 {
@@ -18,7 +18,7 @@ class CreateHosting extends BaseHosting
         $this->hosting = new Hosting();
         $this->hosting->domain_managing = 0;
         $this->hosting->customer_id = Customer::orderBy('designation')->first()->id;
-        $this->hosting->status_id = Status::orderBy('name')->first()->id;
+        $this->hosting->billing_status_id = BillingStatus::orderBy('name')->first()->id;
     }
 
     /**
