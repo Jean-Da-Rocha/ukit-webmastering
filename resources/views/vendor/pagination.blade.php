@@ -1,19 +1,15 @@
 @if ($paginator->hasPages())
     <ul class="uk-pagination">
         {{-- Previous Page Link --}}
-        @if ($paginator->onFirstPage())
-            <li class="uk-disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                <span aria-hidden="true">
-                    <x-heroicon-o-arrow-left />
-                </span>
-            </li>
-        @else
+        @unless ($paginator->onFirstPage())
             <li>
                 <a href="#/" wire:click="previousPage" rel="prev" aria-label="@lang('pagination.previous')">
-                    <span aria-hidden="true"><x-heroicon-o-arrow-left /></span>
+                    <span aria-hidden="true">
+                        <x-heroicon-o-chevron-double-left />
+                    </span>
                 </a>
             </li>
-        @endif
+        @endunless
 
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)
@@ -27,7 +23,7 @@
             {{-- Array Of Links --}}
             @if (is_array($element))
                 @foreach ($element as $page => $url)
-                    @if ($page == $paginator->currentPage())
+                    @if ($page === $paginator->currentPage())
                         <li class="uk-active" aria-current="page">
                             <span>{{ $page }}</span>
                         </li>
@@ -47,15 +43,9 @@
             <li>
                 <a href="#/" wire:click="nextPage" rel="next" aria-label="@lang('pagination.next')">
                     <span aria-hidden="true">
-                        <x-heroicon-o-arrow-right />
+                        <x-heroicon-o-chevron-double-right />
                     </span>
                 </a>
-            </li>
-        @else
-            <li class="uk-disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                <span aria-hidden="true">
-                    <x-heroicon-o-arrow-right />
-                </span>
             </li>
         @endif
     </ul>

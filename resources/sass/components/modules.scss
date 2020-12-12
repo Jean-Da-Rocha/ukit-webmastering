@@ -2,6 +2,10 @@
     display: none;
 }
 
+@import 'card';
 @import 'icons';
 @import 'navbar';
+@import 'pagination';
+@import 'table';
+@import 'theme';
 @import 'utilities';

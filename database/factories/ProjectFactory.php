@@ -23,7 +23,7 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->words(5, true),
+            'name' => $this->faker->words(3, true),
             'description' => $this->faker->text(200),
             'starting_date' => $this->faker->date(now()),
             'user_id' => User::factory(),
