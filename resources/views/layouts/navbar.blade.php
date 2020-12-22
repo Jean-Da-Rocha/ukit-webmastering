@@ -1,5 +1,5 @@
 <!-- LEFT BAR -->
-<aside id="left-col" class="uk-light uk-visible@m">
+<aside id="left-col" class="uk-light uk-visible@m" x-show="windowWidth >= 1024">
     <div class="left-logo uk-flex uk-flex-middle">
         <img
             class="custom-logo"
@@ -29,7 +29,7 @@
     <div class="left-content-box content-box-dark {{ ! auth()->check() ? 'uk-hidden' : '' }}">
         @auth
             <img
-                src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/avatar.svg"
+                src="https://image.freepik.com/vecteurs-libre/fond-degrade-abstrait-demi-teinte_52683-42248.jpg"
                 alt=""
                 class="uk-border-circle profile-img"
             />
