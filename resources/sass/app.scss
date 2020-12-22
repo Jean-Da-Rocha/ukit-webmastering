@@ -1,40 +1,15 @@
 // Custom variables and variable overwrites.
 $global-background: #171941;
-$global-primary-background: #e14eca;
-$global-danger-background: #f5365c;
-$global-success-background: #00f2c3;
-$global-secondary-background: #344675;
 $global-color: #fff;
+$background-default-background: #1d8cf8;
+$global-primary-background: #e14eca;
+$global-secondary-background: #344675;
+$global-success-background: #00f2c3;
+$global-warning-background: #ff8d72;
+$global-danger-background: #f5365c;
 
 $card-default-color: $global-color;
 $global-emphasis-color: $global-color;
-
-// $blue: #5e72e4;
-// $indigo: #5603ad;
-// $purple: #8965e0;
-// $pink: #f3a4b5;
-// $red: #f5365c;
-// $orange: #fb6340;
-// $yellow: #ffd600;
-// $green: #2dce89;
-// $teal: #11cdef;
-// $cyan: #2bffc6;
-// $gray: #6c757d;
-// $gray-dark: #32325d;
-// $light: #ced4da;
-// $lighter: #e9ecef;
-// $primary: #e14eca;
-// $secondary: #f4f5f7;
-// $success: #00f2c3;
-// $info: #1d8cf8;
-// $warning: #ff8d72;
-// $danger: #fd5d93;
-// $light: #adb5bd;
-// $dark: #212529;
-// $default: #344675;
-// $white: #fff;
-// $neutral: #fff;
-// $darker: #000;
 
 // Import default variables and available mixins.
 @import "~uikit/src/scss/variables-theme";

@@ -5,7 +5,7 @@
 	top: 0;
 	bottom: 0;
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: hidden;
     background-color: $global-background;
     border-right: 1px solid $global-primary-background;
 	width: 250px;
@@ -19,17 +19,17 @@
                     border-left: 2px solid transparent;
                     transition: all 0.15s ease-out;
                     &:hover {
-                        border-left: 2px solid #39f;
+                        border-left: 2px solid $background-default-background;
                         padding-left: 30px;
-                        color: white;
+                        color: $global-color;
                         background-color: rgba(0,0,0,0.1);
                     }
                 }
                 &.uk-open {
                     >a {
-                        border-left: 2px solid #39f;
+                        border-left: 2px solid $background-default-background;
                         padding-left: 30px;
-                        color: white;
+                        color: $global-color;
                         background-color: rgba(0,0,0,0.1);
                     }
                 }
@@ -59,40 +59,37 @@
                 position: absolute;
                 pointer-events: none;
                 border-color: rgba(255, 255, 255, 0);
-                border-bottom-color: #fff;
+                border-bottom-color: $global-color;
                 border-width: 4px;
                 margin-left: -4px;
             }
         }
     }
     .left-content-box {
-        padding: 0.75rem 20px;
-        border-top: 1px solid rgba(255,255,255,0.06);
-        margin-bottom: -1px;
-        &.content-box-dark {
-            background-color: rgba(0,0,0,0.09);
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid $global-secondary-background;
+        &.separator-top {
+            border-top: 1px solid $global-secondary-background;
         }
     }
     .left-nav-wrap {
         padding-bottom: 60px;
+        svg {
+            color: $global-warning-background;
+        }
     }
     .bar-bottom {
-        border-top: 1px solid rgba(255,255,255,0.07);
+        border-top: 1px solid $global-secondary-background;
         padding: 15px 0;
-        background-color: #e14eca;
+        background-color: $global-background;
         position: fixed;
         left: 0;
         right: 0;
         z-index: 3;
         bottom: 0;
         width: 250px;
-    }
-    .left-logo {
-        height: 52px;
-        line-height: 52px;
-        padding: 0 20px;
-        .custom-logo {
-            height: 32px;
+        svg {
+            color: $global-warning-background;
         }
     }
     .profile-img {
@@ -102,7 +99,7 @@
         display: block;
     }
     .uk-tooltip {
-        background-color: white;
+        background-color: $global-color;
         color: #242C33;
         box-shadow: 0 2px 12px rgba(50,50,50,0.1);
     }
@@ -111,24 +108,12 @@
         height: 5px !important;
         &.success {
             &::-webkit-progress-value {
-                background-color: #32d296;
-            }
-            &::-moz-progress-bar {
-                background-color: #32d296;
-            }
-            &::-ms-fill {
-                background-color: #32d296;
+                background-color: $global-success-background;
             }
         }
-        &.warning {
+        &.default {
             &::-webkit-progress-value {
-                background-color: #faa05a;
-            }
-            &::-moz-progress-bar {
-                background-color: #faa05a;
-            }
-            &::-ms-fill {
-                background-color: #faa05a;
+                background-color: $background-default-background;
             }
         }
     }
