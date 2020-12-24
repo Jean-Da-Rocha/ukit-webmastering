@@ -1,11 +1,23 @@
 // Custom variables and variable overwrites.
-$card-default-color: #fff;
+$global-background: #171941;
+$global-color: #fff;
+$background-default-background: #1d8cf8;
+$global-primary-background: #e14eca;
+$global-secondary-background: #344675;
+$global-success-background: #00f2c3;
+$global-warning-background: #ff8d72;
+$global-danger-background: #f5365c;
+
+$card-default-color: $global-color;
+$global-emphasis-color: $global-color;
+$form-select-option-color: $global-color;
 
 // Import default variables and available mixins.
 @import "~uikit/src/scss/variables-theme";
 @import "~uikit/src/scss/mixins-theme";
 
 // Custom mixin overwrites.
+@import 'mixins/modules';
 @import 'components/modules';
 
 // Import UIKit.

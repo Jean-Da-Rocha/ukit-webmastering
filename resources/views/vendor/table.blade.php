@@ -42,8 +42,8 @@
         @endif
     </div>
 
-    <table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">
-        <thead class="uk-darken">
+    <table class="uk-table uk-table-middle uk-table-responsive">
+        <thead>
             <tr>
                 @foreach ($columns as $column)
                     @if ($column->hasVisibleColumn())

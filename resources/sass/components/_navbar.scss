@@ -5,129 +5,27 @@
 	top: 0;
 	bottom: 0;
 	overflow-x: hidden;
-	overflow-y: auto;
-	background-color: #222A30;
+	overflow-y: hidden;
+    background-color: $global-background;
+    border-right: 1px solid $global-primary-background;
 	width: 250px;
 	z-index: 2;
 	transition: height 0.3s ease-out;
-    ul {
-        &.uk-nav-default {
-            >li {
-                >a {
-                    padding: 8px 20px;
-                    border-left: 2px solid transparent;
-                    transition: all 0.15s ease-out;
-                    &:hover {
-                        border-left: 2px solid #39f;
-                        padding-left: 30px;
-                        color: white;
-                        background-color: rgba(0,0,0,0.1);
-                    }
-                }
-                &.uk-open {
-                    >a {
-                        border-left: 2px solid #39f;
-                        padding-left: 30px;
-                        color: white;
-                        background-color: rgba(0,0,0,0.1);
-                    }
-                }
-            }
-            li {
-                &.uk-nav-header {
-                    padding: 20px 20px 8px 20px;
-                }
-                &.uk-nav-sub {
-                    padding-left: 34px;
-                }
-            }
-        }
-    }
-    .uk-dropdown {
-        &.user-drop {
-            min-width: 160px;
-            max-width: 160px;
-            padding: 0.75rem;
-            &:after {
-                bottom: 100%;
-                left: 50%;
-                border: solid transparent;
-                content: " ";
-                height: 0;
-                width: 0;
-                position: absolute;
-                pointer-events: none;
-                border-color: rgba(255, 255, 255, 0);
-                border-bottom-color: #fff;
-                border-width: 4px;
-                margin-left: -4px;
-            }
-        }
-    }
-    .left-content-box {
-        padding: 0.75rem 20px;
-        border-top: 1px solid rgba(255,255,255,0.06);
-        margin-bottom: -1px;
-        &.content-box-dark {
-            background-color: rgba(0,0,0,0.09);
-        }
-    }
-    .left-nav-wrap {
-        padding-bottom: 60px;
-    }
+
     .bar-bottom {
-        border-top: 1px solid rgba(255,255,255,0.07);
+        border-top: 1px solid $global-secondary-background;
         padding: 15px 0;
-        background-color: #222A30;
+        background-color: $global-background;
         position: fixed;
         left: 0;
         right: 0;
         z-index: 3;
         bottom: 0;
         width: 250px;
-    }
-    .left-logo {
-        height: 52px;
-        line-height: 52px;
-        padding: 0 20px;
-        .custom-logo {
-            height: 32px;
+        svg {
+            color: $global-warning-background;
         }
     }
-    .profile-img {
-        width: 60px;
-        margin: 0 auto 10px auto;
-        display: block;
-    }
-    .uk-tooltip {
-        background-color: white;
-        color: #242C33;
-        box-shadow: 0 2px 12px rgba(50,50,50,0.1);
-    }
-    .uk-progress {
-        margin-top: 0.25rem;
-        height: 5px !important;
-        &.success {
-            &::-webkit-progress-value {
-                background-color: #32d296;
-            }
-            &::-moz-progress-bar {
-                background-color: #32d296;
-            }
-            &::-ms-fill {
-                background-color: #32d296;
-            }
-        }
-        &.warning {
-            &::-webkit-progress-value {
-                background-color: #faa05a;
-            }
-            &::-moz-progress-bar {
-                background-color: #faa05a;
-            }
-            &::-ms-fill {
-                background-color: #faa05a;
-            }
-        }
-    }
+
+    @include navbar-content;
 }

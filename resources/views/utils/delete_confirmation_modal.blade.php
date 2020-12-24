@@ -6,7 +6,7 @@
             <p>Are you sure you want to delete this item ?</p>
             <p class="uk-text-right">
                 <button
-                    class="uk-button uk-button-default uk-modal-close"
+                    class="uk-button uk-button-secondary uk-modal-close"
                     type="button"
                 >
                     Cancel

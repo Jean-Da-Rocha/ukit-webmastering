@@ -1,12 +1,5 @@
 <!-- LEFT BAR -->
-<aside id="left-col" class="uk-light uk-visible@m">
-    <div class="left-logo uk-flex uk-flex-middle">
-        <img
-            class="custom-logo"
-            src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/dashboard-logo.svg"
-            alt=""
-        />
-    </div>
+<aside id="left-col" class="uk-light uk-visible@m" x-show="windowWidth >= 1024">
     @guest
         <div class="left-nav-wrap">
             <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
@@ -26,22 +19,22 @@
             </ul>
         </div>
     @endguest
-    <div class="left-content-box content-box-dark {{ ! auth()->check() ? 'uk-hidden' : '' }}">
+    <div class="left-content-box {{ ! auth()->check() ? 'uk-hidden' : '' }}">
         @auth
             <img
-                src="https://raw.githubusercontent.com/zzseba78/Kick-Off/master/img/avatar.svg"
-                alt=""
+                src="https://image.freepik.com/vecteurs-libre/fond-degrade-abstrait-demi-teinte_52683-42248.jpg"
+                alt="{{ auth()->user()->username }}'s profile picture"
                 class="uk-border-circle profile-img"
             />
             <h4 class="uk-text-center uk-margin-remove-vertical">
-                {{ auth()->user()->username }}
+                {{ ucfirst(auth()->user()->username) }}
             </h4>
             <div class="uk-position-relative uk-text-center uk-display-block">
                 <a
                     href="#"
                     class="uk-text-small uk-display-block uk-text-center {{ get_role_color(auth()->user()->role_id) }}"
                 >
-                    {{ Str::ucfirst(auth()->user()->role->name) }} <x-heroicon-s-chevron-down />
+                    {{ ucfirst(auth()->user()->role->name) }} <x-heroicon-s-chevron-down />
                 </a>
                 <!-- user dropdown -->
                 <div
@@ -200,13 +193,13 @@
                     </ul>
                 </li>
             </ul>
-            <div class="left-content-box uk-margin-top">
+            <div class="left-content-box uk-margin-top separator-top">
                 <h5>Daily Reports</h5>
                 <div>
                     <span class="uk-text-small">
                         Traffic <small>(+50)</small>
                     </span>
-                    <progress class="uk-progress" value="50" max="100"></progress>
+                    <progress class="uk-progress primary" value="50" max="100"></progress>
                 </div>
                 <div>
                     <span class="uk-text-small">
@@ -218,7 +211,7 @@
                     <span class="uk-text-small">
                         Feedback <small>(-12)</small>
                     </span>
-                    <progress class="uk-progress warning" value="12" max="100"></progress>
+                    <progress class="uk-progress default" value="12" max="100"></progress>
                 </div>
             </div>
         </div>
@@ -252,6 +245,7 @@
                     </form>
                 </li>
             </ul>
+        </div>
         @endauth
     </div>
 </aside>

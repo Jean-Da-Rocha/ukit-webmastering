@@ -2,6 +2,11 @@
     display: none;
 }
 
-@import 'icons';
+@import 'card';
+@import 'icon';
 @import 'navbar';
+@import 'mobile_navbar';
+@import 'pagination';
+@import 'table';
+@import 'theme';
 @import 'utilities';

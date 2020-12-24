@@ -11,10 +11,26 @@
 
         <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
     </head>
-    <body>
+    <body
+        x-data="{ windowWidth: window.innerWidth }"
+        x-init="() => {
+            window.onresize = () => {
+                windowWidth = window.innerWidth
+            }
+        }"
+    >
+
         <x-layouts.navbar />
-        <div id="right-col" style="margin-left: 250px;">
-            <div class="uk-container-large uk-align-center uk-margin-medium-top">
+        <x-layouts.mobile_navbar />
+
+        <div
+            id="right-col"
+            :style="windowWidth >= 1024 ? 'margin-left: 250px;' : 'margin-left: unset;'"
+        >
+            <div
+                class="uk-align-center uk-margin-medium-top"
+                :class="windowWidth <= 1536 ? 'uk-container' : 'uk-container-large' "
+            >
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>
                     @isset($slot)
                         {{ $slot }}

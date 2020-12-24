@@ -102,7 +102,6 @@ if (! function_exists('model_name')) {
     }
 }
 
-// TODO: refactor for more clarity.
 if (! function_exists('generate_class_namespace')) {
     /**
      * Generate a namespace depending on a route name,
@@ -117,8 +116,7 @@ if (! function_exists('generate_class_namespace')) {
         string $routeName,
         string $method = '',
         string $basePath = 'App\Http\Livewire\Actions\\'
-    )
-    {
+    ) {
         if (Str::contains($routeName, '_')) {
             $routeName = Str::camel($routeName);
         }
