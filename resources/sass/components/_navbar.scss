@@ -11,73 +11,7 @@
 	width: 250px;
 	z-index: 2;
 	transition: height 0.3s ease-out;
-    ul {
-        &.uk-nav-default {
-            >li {
-                >a {
-                    padding: 8px 20px;
-                    border-left: 2px solid transparent;
-                    transition: all 0.15s ease-out;
-                    &:hover {
-                        border-left: 2px solid $background-default-background;
-                        padding-left: 30px;
-                        color: $global-color;
-                        background-color: rgba(0,0,0,0.1);
-                    }
-                }
-                &.uk-open {
-                    >a {
-                        border-left: 2px solid $background-default-background;
-                        padding-left: 30px;
-                        color: $global-color;
-                        background-color: rgba(0,0,0,0.1);
-                    }
-                }
-            }
-            li {
-                &.uk-nav-header {
-                    padding: 20px 20px 8px 20px;
-                }
-                &.uk-nav-sub {
-                    padding-left: 34px;
-                }
-            }
-        }
-    }
-    .uk-dropdown {
-        &.user-drop {
-            min-width: 160px;
-            max-width: 160px;
-            padding: 0.75rem;
-            &:after {
-                bottom: 100%;
-                left: 50%;
-                border: solid transparent;
-                content: " ";
-                height: 0;
-                width: 0;
-                position: absolute;
-                pointer-events: none;
-                border-color: rgba(255, 255, 255, 0);
-                border-bottom-color: $global-color;
-                border-width: 4px;
-                margin-left: -4px;
-            }
-        }
-    }
-    .left-content-box {
-        padding: 0.75rem 2rem;
-        border-bottom: 1px solid $global-secondary-background;
-        &.separator-top {
-            border-top: 1px solid $global-secondary-background;
-        }
-    }
-    .left-nav-wrap {
-        padding-bottom: 60px;
-        svg {
-            color: $global-warning-background;
-        }
-    }
+
     .bar-bottom {
         border-top: 1px solid $global-secondary-background;
         padding: 15px 0;
@@ -92,29 +26,6 @@
             color: $global-warning-background;
         }
     }
-    .profile-img {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 10px auto;
-        display: block;
-    }
-    .uk-tooltip {
-        background-color: $global-color;
-        color: #242C33;
-        box-shadow: 0 2px 12px rgba(50,50,50,0.1);
-    }
-    .uk-progress {
-        margin-top: 0.25rem;
-        height: 5px !important;
-        &.success {
-            &::-webkit-progress-value {
-                background-color: $global-success-background;
-            }
-        }
-        &.default {
-            &::-webkit-progress-value {
-                background-color: $background-default-background;
-            }
-        }
-    }
+
+    @include navbar-content;
 }

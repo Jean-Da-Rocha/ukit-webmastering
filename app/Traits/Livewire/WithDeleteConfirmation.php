@@ -28,6 +28,7 @@ trait WithDeleteConfirmation
     public function getModelIdentifiers(int $modelId, string $modelClassName)
     {
         $this->modelId = $modelId;
+
         $this->modelClassName = $modelClassName;
     }
 
@@ -40,6 +41,7 @@ trait WithDeleteConfirmation
     public function delete()
     {
         $entity = app()->make('App\Models\\' . $this->modelClassName)->findOrFail($this->modelId);
+
         $entity->delete();
 
         $this->emitSelf('$refresh');

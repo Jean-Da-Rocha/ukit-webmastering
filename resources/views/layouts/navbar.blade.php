@@ -23,7 +23,7 @@
         @auth
             <img
                 src="https://image.freepik.com/vecteurs-libre/fond-degrade-abstrait-demi-teinte_52683-42248.jpg"
-                alt=""
+                alt="{{ auth()->user()->username }}'s profile picture"
                 class="uk-border-circle profile-img"
             />
             <h4 class="uk-text-center uk-margin-remove-vertical">
@@ -245,6 +245,7 @@
                     </form>
                 </li>
             </ul>
+        </div>
         @endauth
     </div>
 </aside>

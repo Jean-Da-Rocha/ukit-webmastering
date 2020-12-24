@@ -10,12 +10,14 @@ $global-danger-background: #f5365c;
 
 $card-default-color: $global-color;
 $global-emphasis-color: $global-color;
+$form-select-option-color: $global-color;
 
 // Import default variables and available mixins.
 @import "~uikit/src/scss/variables-theme";
 @import "~uikit/src/scss/mixins-theme";
 
 // Custom mixin overwrites.
+@import 'mixins/modules';
 @import 'components/modules';
 
 // Import UIKit.

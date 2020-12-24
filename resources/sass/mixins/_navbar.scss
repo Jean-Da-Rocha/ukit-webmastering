@@ -1,0 +1,114 @@
+@mixin profile-img {
+    .profile-img {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 10px auto;
+        display: block;
+    }
+}
+
+@mixin nav-content-hover {
+    ul {
+        &.uk-nav-default {
+            >li {
+                >a {
+                    padding: 8px 20px;
+                    border-left: 2px solid transparent;
+                    transition: all 0.15s ease-out;
+                    &:hover {
+                        border-left: 2px solid $background-default-background;
+                        padding-left: 30px;
+                        color: $global-color;
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                }
+                &.uk-open {
+                    >a {
+                        border-left: 2px solid $background-default-background;
+                        padding-left: 30px;
+                        color: $global-color;
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                }
+            }
+            li {
+                &.uk-nav-header {
+                    padding: 20px 20px 8px 20px;
+                }
+                &.uk-nav-sub {
+                    padding-left: 34px;
+                }
+            }
+        }
+    }
+}
+
+@mixin uk-dropdown {
+    .uk-dropdown {
+        &.user-drop {
+            .uk-dropdown-nav {
+                .uk-nav-divider {
+                    border-top: 1px solid $global-secondary-background;
+                }
+            }
+            min-width: 160px;
+            max-width: 160px;
+            padding: 0.75rem;
+            &:after {
+                bottom: 100%;
+                left: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(255, 255, 255, 0);
+                border-bottom-color: $global-color;
+                border-width: 4px;
+                margin-left: -4px;
+            }
+        }
+    }
+}
+
+@mixin left-section {
+    .left-content-box {
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid $global-secondary-background;
+        &.separator-top {
+            border-top: 1px solid $global-secondary-background;
+        }
+    }
+
+    .left-nav-wrap {
+        svg {
+            color: $global-warning-background;
+        }
+    }
+}
+
+@mixin uk-progress {
+    .uk-progress {
+        margin-top: 0.25rem;
+        height: 5px !important;
+        &.success {
+            &::-webkit-progress-value {
+                background-color: $global-success-background;
+            }
+        }
+        &.default {
+            &::-webkit-progress-value {
+                background-color: $background-default-background;
+            }
+        }
+    }
+}
+
+@mixin navbar-content {
+    @include nav-content-hover;
+    @include profile-img;
+    @include uk-dropdown;
+    @include uk-progress;
+    @include left-section;
+}
