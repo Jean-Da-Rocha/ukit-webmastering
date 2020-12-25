@@ -11,6 +11,7 @@ $global-danger-background: #f5365c;
 $card-default-color: $global-color;
 $global-emphasis-color: $global-color;
 $form-select-option-color: $global-color;
+$form-select-icon-color: $global-primary-background;
 
 // Import default variables and available mixins.
 @import "~uikit/src/scss/variables-theme";

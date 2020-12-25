@@ -1,5 +1,5 @@
 <!-- LEFT BAR -->
-<aside id="left-col" class="uk-light uk-visible@m" x-show="windowWidth >= 1024">
+<aside id="left-col" class="uk-light uk-visible@m" x-show="windowWidth >= 1024" x-cloak>
     @guest
         <div class="left-nav-wrap">
             <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>

@@ -88,6 +88,9 @@
                             wire:model.defer="project.starting_date"
                             required
                         />
+                        <div class="append-calendar-icon">
+                            <x-heroicon-o-calendar />
+                        </div>
                         @error('project.starting_date')
                             <span class="uk-text-danger">
                                 {{ $message }}

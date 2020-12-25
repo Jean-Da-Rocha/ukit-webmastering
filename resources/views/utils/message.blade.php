@@ -7,3 +7,17 @@
         </div>
     @endif
 </div>
+
+@push('scripts')
+    <script>
+        if (document.getElementById('alert-message')) {
+            window.Livewire.onLoad(() => {
+                setTimeout(() => UIkit.alert('#alert-message').close(), 5000);
+            });
+        }
+
+        window.livewire.hook('element.updated', (component) => {
+            setTimeout(() => UIkit.alert('#alert-message').close(), 5000);
+        });
+    </script>
+@endpush

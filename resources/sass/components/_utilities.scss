@@ -5,6 +5,32 @@ input {
     }
 }
 
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"],
+input[type="time"] {
+    cursor: pointer;
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+        color: transparent;
+        background: transparent;
+        cursor: pointer;
+    }
+}
+
+.append-calendar-icon,
+.append-clock-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: $global-primary-background;
+}
+
 .uk-badge {
     min-height: 25px;
     min-width: 25px;

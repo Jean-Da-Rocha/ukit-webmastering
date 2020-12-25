@@ -16,9 +16,9 @@ Route::middleware('auth')->group(function () {
 
     foreach ($livewireCrudRouteNames as $routeName) {
         Route::view(Str::slug($routeName), "livewire.{$routeName}.index")->name("{$routeName}.index");
-        Route::get("{$routeName}/create", generate_class_namespace($routeName, 'create'))
+        Route::get(Str::slug($routeName) . '/create', generate_class_namespace($routeName, 'create'))
             ->name("{$routeName}.create");
-        Route::get("{$routeName}/{id}/edit", generate_class_namespace($routeName, 'edit'))
+        Route::get(Str::slug($routeName) . '/{id}/edit', generate_class_namespace($routeName, 'edit'))
             ->name("{$routeName}.edit");
     }
 
