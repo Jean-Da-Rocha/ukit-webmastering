@@ -75,190 +75,196 @@
                         <!-- /user dropdown -->
                     </div>
                 </div>
-                <div class="left-nav-wrap">
-                    <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-                        <li class="uk-nav-header uk-text-uppercase">Actions</li>
-                        <li class="uk-parent {{ is_active('projects') }}">
-                            <a href="#">
-                                <x-heroicon-o-view-grid class="uk-margin-small-right" />
-                                Projects
-                            </a>
-                            <ul class="uk-nav-sub">
-                                <li>
-                                    <a href="{{ route('projects.create') }}">
-                                        Create a new project
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('projects.index') }}">
-                                        See all projects
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="uk-parent {{ is_active('tasks') }}">
-                            <a href="#">
-                                <x-heroicon-o-clipboard-list class="uk-margin-small-right" />
-                                Tasks
-                            </a>
-                            <ul class="uk-nav-sub">
-                                <li>
-                                    <a href="{{ route('tasks.create') }}">
-                                        Create a new task
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('tasks.index') }}">
-                                        See all tasks
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="uk-parent {{ is_active('users') }}">
-                            <a href="#">
-                                <x-heroicon-o-user class="uk-margin-small-right" />
-                                Users
-                            </a>
-                            <ul class="uk-nav-sub">
-                                <li>
-                                    <a href="{{ route('users.create') }}">
-                                        Create a new user
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('users.index') }}">
-                                        See all users
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="uk-parent {{ is_active('customers') }}">
-                            <a href="#">
-                                <x-heroicon-o-user-group class="uk-margin-small-right" />
-                                Customers
-                            </a>
-                            <ul class="uk-nav-sub">
-                                <li>
-                                    <a href="{{ route('customers.create') }}">
-                                        Create a new customer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('customers.index') }}">
-                                        See all customers
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="uk-parent {{ is_active('hostings') }}">
-                            <a href="#">
-                                <x-heroicon-o-cloud-upload class="uk-margin-small-right" />
-                                Hostings
-                            </a>
-                            <ul class="uk-nav-sub">
-                                <li>
-                                    <a href="{{ route('hostings.create') }}">
-                                        Create a new hosting
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('hostings.index') }}">
-                                        See all hostings
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="uk-parent {{ is_active('servers') }}">
-                            <a href="#">
-                                <x-heroicon-o-server class="uk-margin-small-right" />
-                                Servers
-                            </a>
-                            <ul class="uk-nav-sub">
-                                <li>
-                                    <a href="{{ route('servers.create') }}">
-                                        Create a new server
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('servers.index') }}">
-                                        See all availables servers
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="uk-parent {{ is_active('billing_status') }}">
-                            <a href="#">
-                                <x-heroicon-o-ticket class="uk-margin-small-right" />
-                                Billing status
-                            </a>
-                            <ul class="uk-nav-sub">
-                                <li>
-                                    <a href="{{ route('billing_status.create') }}">
-                                        Create a new billing status
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('billing_status.index') }}">
-                                        See all available billing status
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="left-content-box uk-margin-top separator-top">
-                        <h5>Daily Reports</h5>
-                        <div>
-                            <span class="uk-text-small">
-                                Traffic <small>(+50)</small>
-                            </span>
-                            <progress class="uk-progress primary" value="50" max="100"></progress>
-                        </div>
-                        <div>
-                            <span class="uk-text-small">
-                                Income <small>(+78)</small>
-                            </span>
-                            <progress class="uk-progress success" value="78" max="100"></progress>
-                        </div>
-                        <div>
-                            <span class="uk-text-small">
-                                Feedback <small>(-12)</small>
-                            </span>
-                            <progress class="uk-progress default" value="12" max="100"></progress>
+                    <div class="left-nav-wrap">
+                        <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                            <li class="uk-nav-header uk-text-uppercase">Actions</li>
+                            <li class="uk-parent {{ is_active('projects') }}">
+                                <a href="#">
+                                    <x-heroicon-o-view-grid class="uk-margin-small-right" />
+                                    Projects
+                                </a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a href="{{ route('projects.create') }}">
+                                            Create a new project
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('projects.index') }}">
+                                            See all projects
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent {{ is_active('tasks') }}">
+                                <a href="#">
+                                    <x-heroicon-o-clipboard-list class="uk-margin-small-right" />
+                                    Tasks
+                                </a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a href="{{ route('tasks.create') }}">
+                                            Create a new task
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('tasks.index') }}">
+                                            See all tasks
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent {{ is_active('users') }}">
+                                <a href="#">
+                                    <x-heroicon-o-user class="uk-margin-small-right" />
+                                    Users
+                                </a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a href="{{ route('users.create') }}">
+                                            Create a new user
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('users.index') }}">
+                                            See all users
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent {{ is_active('customers') }}">
+                                <a href="#">
+                                    <x-heroicon-o-user-group class="uk-margin-small-right" />
+                                    Customers
+                                </a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a href="{{ route('customers.create') }}">
+                                            Create a new customer
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('customers.index') }}">
+                                            See all customers
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent {{ is_active('hostings') }}">
+                                <a href="#">
+                                    <x-heroicon-o-cloud-upload class="uk-margin-small-right" />
+                                    Hostings
+                                </a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a href="{{ route('hostings.create') }}">
+                                            Create a new hosting
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('hostings.index') }}">
+                                            See all hostings
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent {{ is_active('servers') }}">
+                                <a href="#">
+                                    <x-heroicon-o-server class="uk-margin-small-right" />
+                                    Servers
+                                </a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a href="{{ route('servers.create') }}">
+                                            Create a new server
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('servers.index') }}">
+                                            See all availables servers
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent {{ is_active('billing_status') }}">
+                                <a href="#">
+                                    <x-heroicon-o-ticket class="uk-margin-small-right" />
+                                    Billing status
+                                </a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a href="{{ route('billing_status.create') }}">
+                                            Create a new billing status
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('billing_status.index') }}">
+                                            See all available billing status
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="left-content-box uk-margin-top separator-top">
+                            <h5>Daily Reports</h5>
+                            <div>
+                                <span class="uk-text-small">
+                                    Traffic <small>(+50)</small>
+                                </span>
+                                <progress class="uk-progress primary" value="50" max="100"></progress>
+                            </div>
+                            <div>
+                                <span class="uk-text-small">
+                                    Income <small>(+78)</small>
+                                </span>
+                                <progress class="uk-progress success" value="78" max="100"></progress>
+                            </div>
+                            <div>
+                                <span class="uk-text-small">
+                                    Feedback <small>(-12)</small>
+                                </span>
+                                <progress class="uk-progress default" value="12" max="100"></progress>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bar-bottom">
-                    <ul class="uk-subnav uk-flex uk-flex-center uk-child-width-1-5" data-uk-grid>
-                        <li class="{{ is_active('home') }}">
-                            <a href="{{ route('home') }}" title="Home" data-uk-tooltip>
-                                <x-heroicon-o-home />
-                            </a>
-                        </li>
-                        <li class="{{ is_active('settings') }}">
-                            <a href="{{ route('settings.index') }}" title="Settings" data-uk-tooltip>
-                                <x-heroicon-o-cog />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Notifications" data-uk-tooltip>
-                                <x-heroicon-o-bell />
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="{{ route('logout') }}"
-                                data-uk-tooltip="Sign out"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            >
-                                <x-heroicon-o-logout />
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="uk-hidden">
-                                @csrf
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            @endauth
+                    <div class="bar-bottom">
+                        <ul class="uk-subnav uk-flex uk-flex-center uk-child-width-1-5" data-uk-grid>
+                            <li class="{{ is_active('home') }}">
+                                <a href="{{ route('home') }}" title="Home" data-uk-tooltip>
+                                    <x-heroicon-o-home />
+                                </a>
+                            </li>
+                            <li class="{{ is_active('settings') }}">
+                                <a href="{{ route('settings.index') }}" title="Settings" data-uk-tooltip>
+                                    <x-heroicon-o-cog />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Notifications" data-uk-tooltip>
+                                    <x-heroicon-o-bell />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="{{ route('logout') }}"
+                                    data-uk-tooltip="Sign out"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();"
+                                >
+                                    <x-heroicon-o-logout />
+                                </a>
+                                <form
+                                    id="logout-form-mobile"
+                                    action="{{ route('logout') }}"
+                                    method="POST"
+                                    class="uk-hidden"
+                                >
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @endauth
+            </div>
         </div>
     </div>
 </div>
