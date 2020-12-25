@@ -40,9 +40,10 @@
         </div>
 
         <!-- UIkit JS -->
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.5/dist/js/uikit.min.js"></script>
+        <script src="{{ url(mix('js/manifest.js')) }}"></script>
+        <script src="{{ url(mix('js/vendor.js')) }}" defer></script>
         <script src="{{ url(mix('js/app.js')) }}"></script>
         @livewireScripts
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     </body>
 </html>

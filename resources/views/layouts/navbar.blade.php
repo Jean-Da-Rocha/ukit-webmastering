@@ -245,7 +245,6 @@
                     </form>
                 </li>
             </ul>
-        </div>
         @endauth
     </div>
 </aside>

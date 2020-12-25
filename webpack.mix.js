@@ -11,6 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.extract(['alpinejs']);
 
 mix.sourceMaps(true, 'source-map')
     .js('resources/js/app.js', 'public/js')
