@@ -19,22 +19,22 @@
             </ul>
         </div>
     @endguest
-    <div class="left-content-box {{ ! auth()->check() ? 'uk-hidden' : '' }}">
+    <div class="left-content-box {{ ! $currentUser ? 'uk-hidden' : '' }}">
         @auth
             <img
                 src="https://image.freepik.com/vecteurs-libre/fond-degrade-abstrait-demi-teinte_52683-42248.jpg"
-                alt="{{ auth()->user()->username }}'s profile picture"
+                alt="{{ $currentUser->username }}'s profile picture"
                 class="uk-border-circle profile-img"
             />
             <h4 class="uk-text-center uk-margin-remove-vertical">
-                {{ ucfirst(auth()->user()->username) }}
+                {{ ucfirst($currentUser->username) }}
             </h4>
             <div class="uk-position-relative uk-text-center uk-display-block">
                 <a
                     href="#"
-                    class="uk-text-small uk-display-block uk-text-center {{ get_role_color(auth()->user()->role_id) }}"
+                    class="uk-text-small uk-display-block uk-text-center {{ get_role_color($currentUser->role_id) }}"
                 >
-                    {{ ucfirst(auth()->user()->role->name) }} <x-heroicon-s-chevron-down />
+                    {{ ucfirst($currentUser->role->name) }} <x-heroicon-s-chevron-down />
                 </a>
                 <!-- user dropdown -->
                 <div
@@ -43,7 +43,7 @@
                 >
                     <ul class="uk-nav uk-dropdown-nav uk-text-left">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('users.profile', $currentUser->id) }}">
                                 <x-heroicon-o-information-circle /> Summary
                             </a>
                         </li>
@@ -54,7 +54,10 @@
                         </li>
                         <li class="uk-nav-divider"></li>
                         <li>
-                            <a href="#">
+                            <a
+                                href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            >
                                 <x-heroicon-o-logout /> Sign Out
                             </a>
                         </li>

@@ -15,3 +15,10 @@ form {
         align-items: center;
     }
 }
+
+.uk-search {
+    .uk-search-icon {
+        top: 7px !important;
+        color: $global-primary-background !important;
+    }
+}
