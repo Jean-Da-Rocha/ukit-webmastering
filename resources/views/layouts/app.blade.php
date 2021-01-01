@@ -20,8 +20,8 @@
         }"
     >
 
-        <x-layouts.navbar />
-        <x-layouts.mobile_navbar />
+        <x-layouts.desktop_sidebar />
+        <x-layouts.mobile_sidebar />
 
         <div
             id="right-col"

@@ -16,8 +16,10 @@
             });
         }
 
-        window.livewire.hook('element.updated', (component) => {
-            setTimeout(() => UIkit.alert('#alert-message').close(), 5000);
+        window.livewire.hook('message.processed', (component, message) => {
+            if (document.getElementById('alert-message')) {
+                setTimeout(() => UIkit.alert('#alert-message').close(), 5000);
+            }
         });
     </script>
 @endpush

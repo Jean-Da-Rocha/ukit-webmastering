@@ -60,6 +60,10 @@ input[type="color"] {
     border: none !important;
 }
 
+select {
+    cursor: pointer;
+}
+
 form {
     input,
     select,
