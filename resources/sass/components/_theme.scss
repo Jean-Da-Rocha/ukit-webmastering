@@ -71,4 +71,7 @@ form {
         margin-top: 0.5rem !important;
         border: 1px solid $global-secondary-background !important;
     }
+    svg {
+        color: $global-primary-background !important;
+    }
 }

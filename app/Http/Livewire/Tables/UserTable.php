@@ -39,7 +39,20 @@ class UserTable extends TableComponent
     {
         return [
             Column::make('#', 'id')->sortable(),
-            Column::make('Username', 'username')->searchable()->sortable(),
+            Column::make('Username', 'username')->format(function (User $model) {
+                return "
+                    <a
+                        href='" . route('users.profile', $model->id) . "'
+                        title='View {$model->username} user profile'
+                        class='uk-text-primary'
+                    >
+                        {$model->username}
+                    </a>
+                ";
+            })
+            ->raw()
+            ->searchable()
+            ->sortable(),
             Column::make('Email', 'email')->searchable()->sortable(),
             Column::make('Role', 'role.name')->searchable()->sortable(),
             Column::make('Actions')->view('vendor.includes.actions_buttons'),
