@@ -95,8 +95,10 @@
                     @endforeach
                 </tr>
             @empty
-                <tr>
-                    <td>No results to display</td>
+                <tr class="uk-text-center">
+                    <td colspan="{{ count($columns) }}">
+                        No results to display
+                    </td>
                 </tr>
             @endforelse
         </tbody>

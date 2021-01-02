@@ -13,10 +13,10 @@
             >li {
                 >a {
                     padding: 8px 20px;
-                    border-left: 2px solid transparent;
+                    border-left: 3px solid transparent;
                     transition: all 0.15s ease-out;
                     &:hover {
-                        border-left: 2px solid $background-default-background;
+                        border-left: 3px solid $background-default-background;
                         padding-left: 30px;
                         color: $global-color;
                         background-color: rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@
                 }
                 &.uk-open {
                     >a {
-                        border-left: 2px solid $background-default-background;
+                        border-left: 3px solid $background-default-background;
                         padding-left: 30px;
                         color: $global-color;
                         background-color: rgba(0, 0, 0, 0.1);
@@ -96,9 +96,21 @@
             &::-webkit-progress-value {
                 background-color: $global-success-background;
             }
+            &::-moz-progress-bar {
+                background-color: $global-success-background;
+            }
+            &::-ms-fill {
+                background-color: $global-success-background;
+            }
         }
         &.default {
             &::-webkit-progress-value {
+                background-color: $background-default-background;
+            }
+            &::-moz-progress-bar {
+                background-color: $background-default-background;
+            }
+            &::-ms-fill {
                 background-color: $background-default-background;
             }
         }

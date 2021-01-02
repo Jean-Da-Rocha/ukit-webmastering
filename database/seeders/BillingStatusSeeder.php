@@ -18,27 +18,27 @@ class BillingStatusSeeder extends Seeder
         $statusInfo = [
             [
                 'name' => 'expired',
-                'color' => '#d65959',
+                'color' => '#f5365c',
             ],
             [
                 'name' => 'invoice_sent',
-                'color' => '#48a2ca'
+                'color' => '#1d8cf8'
             ],
             [
                 'name' => 'invoice_settled',
-                'color' => '#6a45b8',
+                'color' => '#8965e0',
             ],
             [
                 'name' => 'active',
-                'color' => '#2dba34',
+                'color' => '#00f2c3',
             ],
             [
                 'name' => 'to_renew_soon',
-                'color' => '#e3961e',
+                'color' => '#ff8d72',
             ],
             [
                 'name' => 'deleted',
-                'color' => '#34495e',
+                'color' => '#344675',
             ],
         ];
 

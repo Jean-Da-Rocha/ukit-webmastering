@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+    <div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
         <div>
             <div class="uk-card uk-card-primary uk-card-hover uk-card-body">
                 <h3 class="uk-card-title">Number of projects</h3>

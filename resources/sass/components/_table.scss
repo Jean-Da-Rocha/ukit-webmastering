@@ -3,13 +3,14 @@ table {
         background-color: $global-primary-background;
         th {
             color: $global-color !important;
+            text-align: center !important;
         }
     }
     tbody {
         td {
-            border-right: 1px solid $global-secondary-background;
-            border-bottom: 1px solid $global-secondary-background;
-            padding: 15px 30px;
+            border: 1px solid $global-secondary-background;
+            border-top: none;
+            text-align: center;
         }
     }
 }
