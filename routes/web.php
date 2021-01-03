@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{HomeController, TaskController, UserController};
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\UserController;
 use App\Http\Livewire\Auth\{Login, Register};
 
 use Illuminate\Support\Facades\Route;
@@ -29,4 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)->name('logout');
 
     Route::get('users/{id}/profile', UserController::class)->name('users.profile');
+    Route::get('tasks/{id}/details', TaskController::class)->name('tasks.details');
 });

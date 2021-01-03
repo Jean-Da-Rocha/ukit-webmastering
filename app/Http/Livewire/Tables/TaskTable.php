@@ -21,6 +21,11 @@ class TaskTable extends TableComponent
     protected $listeners = ['getModelIdentifiers'];
 
     /**
+     * @var bool
+     */
+    public $showDetailsRoute = true;
+
+    /**
      * Return an Eloquent model query to be used by the table.
      *
      * @return Builder
@@ -39,7 +44,10 @@ class TaskTable extends TableComponent
     {
         return [
             Column::make('#', 'id')->sortable(),
-            Column::make('Task name', 'name')->searchable()->sortable(),
+            Column::make('Task name', 'name')
+                ->format(fn (Task $model) => generate_html_link(route('tasks.details', $model->id), $model->name))
+                ->searchable()
+                ->sortable(),
             Column::make('Project name', 'project.name')->searchable()->sortable(),
             Column::make('Project creator', 'user.username')->searchable()->sortable(),
             Column::make('Task duration', 'duration')

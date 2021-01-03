@@ -28,7 +28,6 @@ trait WithDeleteConfirmation
     public function getModelIdentifiers(int $modelId, string $modelClassName)
     {
         $this->modelId = $modelId;
-
         $this->modelClassName = $modelClassName;
     }
 
@@ -45,6 +44,9 @@ trait WithDeleteConfirmation
         $entity->delete();
 
         $this->emitSelf('$refresh');
+
+        // Refresh other components that call this event if needed.
+        $this->emit('update-component');
 
         session()->flash('success', trans('message.deleted'));
     }

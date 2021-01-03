@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\{HtmlString, Str};
 
 if (! function_exists('is_active_route')) {
     /**
@@ -124,5 +124,23 @@ if (! function_exists('generate_class_namespace')) {
         // Generate for instance: App\Livewire\Actions\Projects\CreateProject.
         return $basePath . ucfirst($routeName) . '\\'
             . ucfirst($method) . ucfirst(Str::singular($routeName));
+    }
+
+    if (! function_exists('generate_html_link')) {
+        /**
+         * Generate a HTML link for a datatable.
+         *
+         * @param  string  $route
+         * @param  string  $modelAttribute
+         * @return void
+         */
+        function generate_html_link(string $route, string $modelAttribute)
+        {
+            return new HtmlString(
+                "<a href='{$route}' class='uk-text-primary'>
+                    {$modelAttribute}
+                </a>"
+            );
+        }
     }
 }
