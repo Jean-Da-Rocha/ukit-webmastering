@@ -72,4 +72,12 @@ class Project extends Model
     {
         return $this->hasMany(Task::class);
     }
+
+    public function getAuthorizedUsers()
+    {
+        return $this->users
+            ->with('tasks')
+            ->whereIn('users.id', $this->authorizations)
+            ->get();
+    }
 }

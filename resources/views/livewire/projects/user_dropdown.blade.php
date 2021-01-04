@@ -7,7 +7,7 @@
         </div>
         <div class="uk-card-body">
             <ul class="uk-list uk-list-divider uk-list-large">
-                <li class="uk-text-bold">
+                <li>
                     @if ($project->users)
                         Username
                         <div class="uk-align-right">
@@ -35,7 +35,7 @@
                     Tasks
                     <div class="uk-align-right">
                         <span class="uk-badge">
-                            {{ $this->selectedUser ? $this->selectedUser->tasks->count() : '0'}}
+                            {{ $selectedUser ? $selectedUser->tasks->count() : '0'}}
                         </span>
                     </div>
                 </li>
@@ -43,7 +43,7 @@
                     Hours spent
                     <div class="uk-align-right">
                         <span class="uk-badge">
-                            {{ $this->selectedUser ? $this->selectedUser->totalTaskTime : '00 h 00 min' }}
+                            {{ $selectedUserTotalTasksTime ?? '00 h 00 min' }}
                         </span>
                     </div>
                 </li>
@@ -52,7 +52,7 @@
                     <a
                         {{-- href="{{ route('projects.authorizations', $project->id) }}" --}}
                         href="#"
-                        class="uk-button uk-button-success uk-text-capitalize"
+                        class="uk-button uk-button-secondary uk-text-capitalize"
                     >
                         <x-heroicon-o-lock-open /> Manage authorizations
                     </a>
