@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Livewire\Actions\Settings\SaveContactEmail;
 
 use Illuminate\Support\Str;
@@ -22,5 +23,6 @@ Route::middleware('auth')->group(function () {
             ->name("{$routeName}.edit");
     }
 
+    Route::get('projects/{id}/details', ProjectController::class)->name('projects.details');
     Route::get('settings', SaveContactEmail::class)->name('settings.index');
 });

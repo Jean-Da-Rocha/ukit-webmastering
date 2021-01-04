@@ -40,7 +40,10 @@ class ProjectTable extends TableComponent
     {
         return [
             Column::make('#', 'id')->sortable(),
-            Column::make('Project name', 'name')->searchable()->sortable(),
+            Column::make('Project name', 'name')
+                ->format(fn (Project $model) => generate_html_link(route('projects.details', $model->id), $model->name))
+                ->searchable()
+                ->sortable(),
             Column::make('Starting date', 'starting_date')->searchable()->sortable(),
             Column::make('Customer', 'customer.designation')->searchable()->sortable(),
             Column::make('Total task time')->format(

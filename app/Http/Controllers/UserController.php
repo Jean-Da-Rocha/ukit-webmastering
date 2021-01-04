@@ -10,14 +10,14 @@ final class UserController extends Controller
     /**
      * Show an user's profile.
      *
-     * @param  int  $id
+     * @param  int  $userId
      * @return \Illuminate\View\View
      */
-    public function __invoke(int $id)
+    public function __invoke(int $userId)
     {
         $user = User::with([
             'tasks' => fn ($query) => $query->where('duration', '!=', null)
-        ])->findOrFail($id);
+        ])->findOrFail($userId);
 
         return view('users.profile', [
             'user' => $user,

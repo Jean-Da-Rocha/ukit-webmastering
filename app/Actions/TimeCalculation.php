@@ -15,13 +15,18 @@ class TimeCalculation
     /** @var Model */
     private Model $model;
 
-    /** @var array */
+    /**
+     * Authorized models for
+     * total taks time calculation.
+     *
+     * @var array
+     */
     private array $authorized = [
         Project::class,
         User::class,
     ];
 
-    public function __construct($model)
+    public function __construct(Model $model)
     {
         $this->model = $model;
     }
@@ -39,6 +44,7 @@ class TimeCalculation
             return $this->calculateTotalTasksTime();
         }
 
+        // TODO: change exception class.
         throw new InvalidParameterException(
             'The function parameter is not corresponding to a Project or User model'
         );
