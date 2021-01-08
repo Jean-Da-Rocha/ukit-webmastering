@@ -16,7 +16,7 @@
             });
         }
 
-        window.livewire.hook('message.processed', (component, message) => {
+        window.Livewire.hook('element.removed', () => {
             if (document.getElementById('alert-message')) {
                 setTimeout(() => UIkit.alert('#alert-message').close(), 5000);
             }

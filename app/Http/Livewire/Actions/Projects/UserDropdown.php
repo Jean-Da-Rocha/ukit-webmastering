@@ -13,7 +13,7 @@ class UserDropdown extends Component
     public Project $project;
 
     /** @var int */
-    public int $selectedUserId;
+    public int $selectedUserId = 0;
 
     /**
      * Array of event listeners for Livewire.
@@ -24,13 +24,13 @@ class UserDropdown extends Component
 
     /**
      * Computed property to get all the authorized users
-     * for the provided project.
+     * for the given project.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function getProjectUsersProperty()
+    public function getAuthorizedUsersProperty()
     {
-        $this->project->users = $this->project->getAuthorizedUsers();
+        return $this->project->getAuthorizedUsers();
     }
 
     /**
@@ -42,7 +42,7 @@ class UserDropdown extends Component
     {
         return view('livewire.projects.user_dropdown', [
             'project' => $this->project,
-            'selectedUser' => $this->getSelectedUser(),
+            'selectedUser' => $this->getSelectedUser()->first(),
             'selectedUserTotalTasksTime' => $this->getSelectedUserTotalTasksTime(),
         ]);
     }
@@ -55,9 +55,13 @@ class UserDropdown extends Component
      */
     private function getSelectedUser()
     {
-        if ($this->project->users !== null) {
-            return $this->project->users->filter(function ($user) {
-                return $user->id === $this->selectedUserId;
+        if ($this->authorizedUsers) {
+            return $this->authorizedUsers->filter(function ($user) {
+                if ($this->selectedUserId !== 0) {
+                    return $user->id === $this->selectedUserId;
+                }
+
+                return $user->id === $this->authorizedUsers->first()->id;
             });
         }
     }
@@ -69,8 +73,8 @@ class UserDropdown extends Component
      */
     private function getSelectedUserTotalTasksTime()
     {
-        if ($this->getSelectedUser()) {
-            return (new TimeCalculation($this->getSelectedUser()))->getTotalTasksTime();
+        if ($this->getSelectedUser()->first()) {
+            return (new TimeCalculation($this->getSelectedUser()->first()))->getTotalTasksTime();
         }
     }
 }

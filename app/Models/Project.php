@@ -73,11 +73,15 @@ class Project extends Model
         return $this->hasMany(Task::class);
     }
 
+    /**
+     * Get all authorized user for a specific project.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function getAuthorizedUsers()
     {
-        return $this->users
-            ->with('tasks')
-            ->whereIn('users.id', $this->authorizations)
-            ->get();
+        return User::select('id', 'username')->with('tasks:id,name,user_id')->get()->filter(function ($user) {
+            return collect($this->authorizations)->contains($user->id);
+        });
     }
 }

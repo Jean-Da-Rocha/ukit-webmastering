@@ -22,7 +22,7 @@ class ProjectTasksTable extends TableComponent
      *
      * @var array
      */
-    protected $listeners = ['getModelIdentifiers', 'update-component' => '$refresh'];
+    protected $listeners = ['getModelIdentifiers'];
 
     /**
      * Set the initial table properties.
