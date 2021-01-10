@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\Customers;
 
 use App\Models\Customer;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class BaseCustomer extends Component
 {
+    use AuthorizesRequests;
+
     /** @var Customer */
     public Customer $customer;
 

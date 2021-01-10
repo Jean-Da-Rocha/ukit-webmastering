@@ -45,7 +45,9 @@ class UserTable extends TableComponent
                 ->sortable(),
             Column::make('Email', 'email')->searchable()->sortable(),
             Column::make('Role', 'role.name')->searchable()->sortable(),
-            Column::make('Actions')->view('vendor.includes.actions_buttons'),
+            Column::make('Actions')
+                ->view('vendor.includes.actions_buttons')
+                ->hideBoth(auth()->user()->cannot('haveAccess')),
         ];
     }
 }

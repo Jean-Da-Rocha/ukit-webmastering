@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+
+use Illuminate\Auth\Access\Response;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,7 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        //
     ];
 
     /**
@@ -25,6 +28,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('haveAccess', function (User $user) {
+            return $user->isAdmin()
+                ? Response::allow()
+                : Response::deny('You must have administrator role.');
+        });
+
+        Gate::define('performWebmasterAction', function (User $user) {
+            return ($user->isAdmin() || $user->isWebmaster())
+                ? Response::allow()
+                : Response::deny('You must have either administrator or webmaster role.');
+        });
     }
 }

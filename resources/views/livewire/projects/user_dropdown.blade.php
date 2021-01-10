@@ -47,15 +47,17 @@
                         </span>
                     </div>
                 </li>
-                <li>
-                    <div class="uk-margin-small-top"></div>
-                    <a
-                        href="{{ route('projects.authorizations', $project->id) }}"
-                        class="uk-button uk-button-secondary uk-text-capitalize"
-                    >
-                        <x-heroicon-o-lock-open /> Manage authorizations
-                    </a>
-                </li>
+                @can('performWebmasterAction')
+                    <li>
+                        <div class="uk-margin-small-top"></div>
+                        <a
+                            href="{{ route('projects.authorizations', $project->id) }}"
+                            class="uk-button uk-button-secondary uk-text-capitalize"
+                        >
+                            <x-heroicon-o-lock-open /> Manage authorizations
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </div>
     </div>

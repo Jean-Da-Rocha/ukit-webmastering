@@ -55,7 +55,14 @@ class TaskTable extends TableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Starting date', 'starting_date')->searchable()->sortable(),
-            Column::make('Actions')->view('vendor.includes.actions_buttons'),
+            Column::make('Actions')->format(function (Task $model) {
+                if (
+                    auth()->user()->can('update', $model)
+                    || auth()->user()->can('delete', $model)
+                ) {
+                    return view('vendor.includes.actions_buttons', ['model' => $model]);
+                }
+            })
         ];
     }
 }

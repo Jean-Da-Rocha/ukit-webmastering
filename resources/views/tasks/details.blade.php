@@ -23,7 +23,7 @@
                     <li>
                         Task duration
                         <div class="uk-align-right">
-                            <span>{{ $task->duration }}</span>
+                            <span>{{ format_time($task->duration) }}</span>
                         </div>
                     </li>
                     <li>

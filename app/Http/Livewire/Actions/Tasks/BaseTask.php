@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\Tasks;
 
 use App\Models\{Project, Task};
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class BaseTask extends Component
 {
+    use AuthorizesRequests;
+
     /** @var Task */
     public Task $task;
 
@@ -28,14 +32,38 @@ class BaseTask extends Component
     ];
 
     /**
+     * Computed property to get all the projects
+     * where the authenticated user is authorized
+     * to create tasks.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getAvailableProjectsProperty()
+    {
+        return Project::select('id', 'name', 'authorizations')
+            ->get()
+            ->filter(function ($project) {
+                if ($project->authorizations) {
+                    return in_array(auth()->id(), $project->authorizations);
+                }
+            });
+    }
+
+    /**
      * Render the component view.
      *
      * @return \Illuminate\View\View
      */
     public function render()
     {
+        abort_if(
+            $this->availableProjects->count() === 0,
+            403,
+            'You must be granted authorization for a project to be able to create a task.'
+        );
+
         return view('livewire.tasks.create_edit_form', [
-            'projects' => Project::select('id', 'name')->orderBy('name')->get(),
+            'projects' => $this->availableProjects,
             'task' => $this->task,
         ]);
     }

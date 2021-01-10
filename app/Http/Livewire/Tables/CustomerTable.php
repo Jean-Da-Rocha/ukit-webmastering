@@ -45,7 +45,9 @@ class CustomerTable extends TableComponent
                 ->sortable(),
             Column::make('Phone number', 'phone_number')->searchable()->sortable(),
             Column::make('Email', 'email')->searchable()->sortable(),
-            Column::make('Actions')->view('vendor.includes.actions_buttons'),
+            Column::make('Actions')
+                ->view('vendor.includes.actions_buttons')
+                ->hideBoth(auth()->user()->cannot('haveAccess'))
         ];
     }
 }

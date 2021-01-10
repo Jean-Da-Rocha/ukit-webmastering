@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\Tables;
 
-use App\Actions\TimeCalculation;
-use App\Http\Livewire\Tables\{Column, TableComponent};
 use App\Models\Project;
-use App\Traits\Livewire\WithDeleteConfirmation;
+use App\Actions\TimeCalculation;
+use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Database\Eloquent\Builder;
+use App\Traits\Livewire\WithDeleteConfirmation;
+use App\Http\Livewire\Tables\{Column, TableComponent};
 
 class ProjectTable extends TableComponent
 {
@@ -49,8 +50,12 @@ class ProjectTable extends TableComponent
             Column::make('Total task time')->format(
                 fn (Project $model) => (new TimeCalculation($model))->getTotalTasksTime()
             ),
-            Column::make('Authorizations')->view('vendor.includes.projects.authorizations'),
-            Column::make('Actions')->view('vendor.includes.actions_buttons'),
+            Column::make('Authorizations')
+                ->view('vendor.includes.projects.authorizations')
+                ->hideBoth(auth()->user()->cannot('performWebmasterAction')),
+            Column::make('Actions')
+                ->view('vendor.includes.actions_buttons')
+                ->hideBoth(auth()->user()->cannot('haveAccess')),
         ];
     }
 }

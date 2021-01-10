@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\Projects;
 
 use App\Models\{Category, Customer, Project};
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class BaseProject extends Component
 {
+    use AuthorizesRequests;
+
     /** @var Project */
     public Project $project;
 

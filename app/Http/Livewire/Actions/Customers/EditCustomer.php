@@ -14,6 +14,8 @@ class EditCustomer extends BaseCustomer
      */
     public function mount(int $id)
     {
+        $this->authorize('haveAccess');
+
         $this->updateMode = true;
 
         $this->customer = Customer::findOrFail($id);

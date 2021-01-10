@@ -75,11 +75,13 @@
                     Projects
                 </a>
                 <ul class="uk-nav-sub">
-                    <li>
-                        <a href="{{ route('projects.create') }}">
-                            Create a new project
-                        </a>
-                    </li>
+                    @can('performWebmasterAction')
+                        <li>
+                            <a href="{{ route('projects.create') }}">
+                                Create a new project
+                            </a>
+                        </li>
+                    @endcan
                     <li>
                         <a href="{{ route('projects.index') }}">
                             See all projects
@@ -111,11 +113,13 @@
                     Users
                 </a>
                 <ul class="uk-nav-sub">
-                    <li>
-                        <a href="{{ route('users.create') }}">
-                            Create a new user
-                        </a>
-                    </li>
+                    @can('haveAccess')
+                        <li>
+                            <a href="{{ route('users.create') }}">
+                                Create a new user
+                            </a>
+                        </li>
+                    @endcan
                     <li>
                         <a href="{{ route('users.index') }}">
                             See all users
@@ -129,11 +133,13 @@
                     Customers
                 </a>
                 <ul class="uk-nav-sub">
-                    <li>
-                        <a href="{{ route('customers.create') }}">
-                            Create a new customer
-                        </a>
-                    </li>
+                    @can('performWebmasterAction')
+                        <li>
+                            <a href="{{ route('customers.create') }}">
+                                Create a new customer
+                            </a>
+                        </li>
+                    @endcan
                     <li>
                         <a href="{{ route('customers.index') }}">
                             See all customers
@@ -147,11 +153,13 @@
                     Hostings
                 </a>
                 <ul class="uk-nav-sub">
-                    <li>
-                        <a href="{{ route('hostings.create') }}">
-                            Create a new hosting
-                        </a>
-                    </li>
+                    @can('haveAccess')
+                        <li>
+                            <a href="{{ route('hostings.create') }}">
+                                Create a new hosting
+                            </a>
+                        </li>
+                    @endcan
                     <li>
                         <a href="{{ route('hostings.index') }}">
                             See all hostings
@@ -165,11 +173,13 @@
                     Servers
                 </a>
                 <ul class="uk-nav-sub">
+                    @can('haveAccess')
                     <li>
                         <a href="{{ route('servers.create') }}">
                             Create a new server
                         </a>
                     </li>
+                    @endcan
                     <li>
                         <a href="{{ route('servers.index') }}">
                             See all availables servers
@@ -183,11 +193,13 @@
                     Billing status
                 </a>
                 <ul class="uk-nav-sub">
-                    <li>
-                        <a href="{{ route('billing_status.create') }}">
-                            Create a new billing status
-                        </a>
-                    </li>
+                    @can('haveAccess')
+                        <li>
+                            <a href="{{ route('billing_status.create') }}">
+                                Create a new billing status
+                            </a>
+                        </li>
+                    @endcan
                     <li>
                         <a href="{{ route('billing_status.index') }}">
                             See all available billing status
@@ -224,11 +236,13 @@
                         <x-heroicon-o-home />
                     </a>
                 </li>
-                <li class="{{ is_active('settings') }}">
-                    <a href="{{ route('settings.index') }}" title="Settings" data-uk-tooltip>
-                        <x-heroicon-o-cog />
-                    </a>
-                </li>
+                @can('performWebmasterAction')
+                    <li class="{{ is_active('settings') }}">
+                        <a href="{{ route('settings.index') }}" title="Settings" data-uk-tooltip>
+                            <x-heroicon-o-cog />
+                        </a>
+                    </li>
+                @endcan
                 <li>
                     <a href="#" title="Notifications" data-uk-tooltip>
                         <x-heroicon-o-bell />

@@ -8,7 +8,7 @@ use App\Models\{Project, User};
 
 use Illuminate\Database\Eloquent\Model;
 
-use Symfony\Component\Routing\Exception\InvalidParameterException;
+use Exception;
 
 class TimeCalculation
 {
@@ -44,9 +44,8 @@ class TimeCalculation
             return $this->calculateTotalTasksTime();
         }
 
-        // TODO: change exception class.
-        throw new InvalidParameterException(
-            'The function parameter is not corresponding to a Project or User model'
+        throw new Exception(
+            'The provided $model is not corresponding to a Project or User model'
         );
     }
 

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\{HtmlString, Str};
+use Illuminate\Support\Facades\Route;
 
 if (! function_exists('is_active_route')) {
     /**

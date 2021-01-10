@@ -32,7 +32,7 @@
         @if ($models->count() > 0)
             <div>
                 <a
-                    href="{{ has_route($models[0]->getTable() . '.create') }}"
+                    href="{{ has_route($models->first()->getTable() . '.create') }}"
                     class="uk-button uk-button-secondary uk-button-small"
                     title="Add a new entity"
                 >

@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\Projects;
 
 use App\Models\{Project, User};
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class ProjectAuthorizations extends Component
 {
+    use AuthorizesRequests;
+
     /** @var Project */
     public Project $project;
 
@@ -91,6 +95,8 @@ class ProjectAuthorizations extends Component
      */
     public function render()
     {
+        $this->authorize('performWebmasterAction');
+
         return view('livewire.projects.authorizations', [
             'project' => $this->project,
         ]);

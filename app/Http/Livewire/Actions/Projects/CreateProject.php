@@ -13,6 +13,8 @@ class CreateProject extends BaseProject
      */
     public function mount()
     {
+        $this->authorize('performWebmasterAction');
+
         $this->updateMode = false;
 
         $this->project = new Project();

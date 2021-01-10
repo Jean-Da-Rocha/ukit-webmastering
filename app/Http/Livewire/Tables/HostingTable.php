@@ -67,7 +67,9 @@ class HostingTable extends TableComponent
                 ->format(fn (Hosting $model) => $model->pricing . ' €')
                 ->searchable()
                 ->sortable(),
-            Column::make('Actions')->view('vendor.includes.actions_buttons'),
+            Column::make('Actions')
+                ->view('vendor.includes.actions_buttons')
+                ->hideBoth(auth()->user()->cannot('haveAccess')),
         ];
     }
 }

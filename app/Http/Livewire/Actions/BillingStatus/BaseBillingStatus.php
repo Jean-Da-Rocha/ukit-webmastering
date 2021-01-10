@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\BillingStatus;
 
 use App\Models\BillingStatus;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class BaseBillingStatus extends Component
 {
+    use AuthorizesRequests;
+
     /** @var Status */
     public BillingStatus $billing_status;
 
@@ -27,6 +31,8 @@ class BaseBillingStatus extends Component
      */
     public function render()
     {
+        $this->authorize('haveAccess');
+
         return view('livewire.billing_status.create_edit_form', [
             'billing_status' => $this->billing_status,
         ]);

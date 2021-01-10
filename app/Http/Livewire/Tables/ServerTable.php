@@ -41,7 +41,9 @@ class ServerTable extends TableComponent
             Column::make('#', 'id')->sortable(),
             Column::make('Server name', 'name')->searchable()->sortable(),
             Column::make('Server information', 'information')->searchable()->sortable(),
-            Column::make('Actions')->view('vendor.includes.actions_buttons'),
+            Column::make('Actions')
+                ->view('vendor.includes.actions_buttons')
+                ->hideBoth(auth()->user()->cannot('haveAccess'))
         ];
     }
 }
