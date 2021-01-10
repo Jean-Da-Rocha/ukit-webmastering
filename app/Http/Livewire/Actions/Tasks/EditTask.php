@@ -17,6 +17,8 @@ class EditTask extends BaseTask
         $this->updateMode = true;
 
         $this->task = Task::findOrFail($id);
+
+        $this->authorize('update', $this->task);
     }
 
     /**

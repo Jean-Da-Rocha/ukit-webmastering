@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\Hostings;
 
 use App\Models\{BillingStatus, Customer, Hosting, Project, Server};
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class BaseHosting extends Component
 {
+    use AuthorizesRequests;
+
     /** @var Hosting */
     public Hosting $hosting;
 
@@ -35,6 +39,8 @@ class BaseHosting extends Component
      */
     public function render()
     {
+        $this->authorize('haveAccess');
+
         return view('livewire.hostings.create_edit_form', [
             'hosting' => $this->hosting,
             'customers' => Customer::select('id', 'designation')->orderBy('designation', 'asc')->get(),

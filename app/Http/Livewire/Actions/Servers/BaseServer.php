@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\Servers;
 
 use App\Models\Server;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class BaseServer extends Component
 {
+    use AuthorizesRequests;
+
     /** @var Server */
     public Server $server;
 
@@ -27,6 +31,8 @@ class BaseServer extends Component
      */
     public function render()
     {
+        $this->authorize('haveAccess');
+
         return view('livewire.servers.create_edit_form', [
             'server' => $this->server,
         ]);

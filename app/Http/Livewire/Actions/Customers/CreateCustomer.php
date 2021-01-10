@@ -13,6 +13,8 @@ class CreateCustomer extends BaseCustomer
      */
     public function mount()
     {
+        $this->authorize('performWebmasterAction');
+
         $this->updateMode = false;
 
         $this->customer = new Customer();

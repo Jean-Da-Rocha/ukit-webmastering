@@ -8,17 +8,17 @@
         <div class="uk-card-body">
             <ul class="uk-list uk-list-divider uk-list-large">
                 <li>
-                    @if ($project->users)
+                    @if ($this->authorizedUsers->count() > 0)
                         Username
                         <div class="uk-align-right">
                             <label for="users-list"></label>
                             <select
-                                class="uk-select uk-width-small"
+                                class="uk-select"
                                 name="users-list"
                                 id="users-list"
                                 wire:model="selectedUserId"
                             >
-                                @foreach ($project->users as $user)
+                                @foreach ($this->authorizedUsers as $user)
                                     <option value="{{ $user->id }}">
                                         {{ $user->username }}
                                     </option>
@@ -35,7 +35,7 @@
                     Tasks
                     <div class="uk-align-right">
                         <span class="uk-badge">
-                            {{ $selectedUser ? $selectedUser->tasks->count() : '0'}}
+                            {{ isset($selectedUser->tasks) ? $selectedUser->tasks->count() : 0 }}
                         </span>
                     </div>
                 </li>
@@ -47,16 +47,17 @@
                         </span>
                     </div>
                 </li>
-                <li>
-                    <div class="uk-margin-small-top"></div>
-                    <a
-                        {{-- href="{{ route('projects.authorizations', $project->id) }}" --}}
-                        href="#"
-                        class="uk-button uk-button-secondary uk-text-capitalize"
-                    >
-                        <x-heroicon-o-lock-open /> Manage authorizations
-                    </a>
-                </li>
+                @can('performWebmasterAction')
+                    <li>
+                        <div class="uk-margin-small-top"></div>
+                        <a
+                            href="{{ route('projects.authorizations', $project->id) }}"
+                            class="uk-button uk-button-secondary uk-text-capitalize"
+                        >
+                            <x-heroicon-o-lock-open /> Manage authorizations
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </div>
     </div>

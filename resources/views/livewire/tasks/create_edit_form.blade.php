@@ -11,29 +11,31 @@
                 </div>
             </div>
             <div class="uk-card-body">
-                <div class="uk-margin">
-                    <label for="task.project_id" class="uk-form-label">
-                        Project
-                    </label>
-                    <select
-                        class="uk-select @error('task.project_id') uk-form-danger @enderror"
-                        name="task.project_id"
-                        id="task.project_id"
-                        wire:model.defer="task.project_id"
-                        required
-                    >
-                        @foreach ($projects as $project)
-                            <option value="{{ $project->id }}">
-                                {{ $project->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('task.project_id')
-                        <span class="uk-text-danger">
-                            {{ $message }}
-                        </span>
-                    @enderror
-                </div>
+                @if ($projects->count() > 0)
+                    <div class="uk-margin">
+                        <label for="task.project_id" class="uk-form-label">
+                            Project
+                        </label>
+                        <select
+                            class="uk-select @error('task.project_id') uk-form-danger @enderror"
+                            name="task.project_id"
+                            id="task.project_id"
+                            wire:model.defer="task.project_id"
+                            required
+                        >
+                            @foreach ($projects as $project)
+                                <option value="{{ $project->id }}">
+                                    {{ $project->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('task.project_id')
+                            <span class="uk-text-danger">
+                                {{ $message }}
+                            </span>
+                        @enderror
+                    </div>
+                @endif
                 <div class="uk-margin" x-data="{ show: $wire.task.quoted }">
                     <label for="task.quoted" class="uk-form-label">
                         Task quoted

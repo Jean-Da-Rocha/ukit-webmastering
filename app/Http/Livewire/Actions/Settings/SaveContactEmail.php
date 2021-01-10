@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Actions\Settings;
 
 use App\Models\Setting;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Livewire\Component;
 
 class SaveContactEmail extends Component
 {
+    use AuthorizesRequests;
+
     /** @var */
     public Setting $setting;
 
@@ -45,6 +49,8 @@ class SaveContactEmail extends Component
      */
     public function render()
     {
+        $this->authorize('performWebmasterAction');
+
         return view('livewire.settings.index', [
             'setting' => $this->setting,
         ]);

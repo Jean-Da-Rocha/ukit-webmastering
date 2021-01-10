@@ -3,9 +3,12 @@
 namespace App\Http\Livewire\Actions\Projects;
 
 use App\Models\Project;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditProject extends BaseProject
 {
+    use AuthorizesRequests;
+
     /**
      * Set the initial project properties.
      *
@@ -14,6 +17,8 @@ class EditProject extends BaseProject
      */
     public function mount(int $id)
     {
+        $this->authorize('haveAccess');
+
         $this->updateMode = true;
 
         $this->project = Project::findOrFail($id);

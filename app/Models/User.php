@@ -43,4 +43,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+    /**
+     * Check if the authenticated user has the admin role.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role_id === config('role.admin');
+    }
+
+    /**
+     * Check if the authenticated user has the webmaster role.
+     *
+     * @return bool
+     */
+    public function isWebmaster()
+    {
+        return $this->role_id === config('role.webmaster');
+    }
 }

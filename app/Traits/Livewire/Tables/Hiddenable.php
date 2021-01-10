@@ -20,7 +20,7 @@ trait Hiddenable
      * @param  bool  $condition
      * @return $this
      */
-    public function hideColumnIf($condition)
+    public function hideColumnIf(bool $condition)
     {
         $this->columnHidden = $condition;
 
@@ -33,8 +33,23 @@ trait Hiddenable
      * @param  bool  $condition
      * @return $this
      */
-    public function hideRowIf($condition)
+    public function hideRowIf(bool $condition)
     {
+        $this->rowHidden = $condition;
+
+        return $this;
+    }
+
+    /**
+     * Hide both the row and the column
+     * depending on the given condition.
+     *
+     * @param  bool  $condition
+     * @return $this
+     */
+    public function hideBoth(bool $condition)
+    {
+        $this->columnHidden = $condition;
         $this->rowHidden = $condition;
 
         return $this;
@@ -45,7 +60,7 @@ trait Hiddenable
      *
      * @return $this
      */
-    public function hide()
+    public function forceHide()
     {
         $this->columnHidden = true;
         $this->rowHidden = true;
