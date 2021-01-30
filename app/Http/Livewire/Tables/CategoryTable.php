@@ -3,12 +3,12 @@
 namespace App\Http\Livewire\Tables;
 
 use App\Http\Livewire\Tables\{Column, TableComponent};
-use App\Models\User;
+use App\Models\Category;
 use App\Traits\Livewire\WithDeleteConfirmation;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class UserTable extends TableComponent
+class CategoryTable extends TableComponent
 {
     use WithDeleteConfirmation;
 
@@ -27,7 +27,7 @@ class UserTable extends TableComponent
      */
     public function query(): Builder
     {
-        return User::with('role')->select('users.*');
+        return Category::query();
     }
 
     /**
@@ -39,15 +39,10 @@ class UserTable extends TableComponent
     {
         return [
             Column::make('#', 'id')->sortable(),
-            Column::make('Username', 'username')
-                ->format(fn (User $model) => generate_html_link(route('users.profile', $model->id), $model->username))
-                ->searchable()
-                ->sortable(),
-            Column::make('Email', 'email')->searchable()->sortable(),
-            Column::make('Role', 'role.name')->searchable()->sortable(),
+            Column::make('Category type', 'type')->searchable()->sortable(),
             Column::make('Actions')
                 ->view('vendor.includes.actions_buttons')
-                ->hideBoth(auth()->user()->cannot('performAdminAction')),
+                ->hideBoth(auth()->user()->cannot('performAdminAction'))
         ];
     }
 }

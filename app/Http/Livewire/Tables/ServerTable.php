@@ -43,7 +43,7 @@ class ServerTable extends TableComponent
             Column::make('Server information', 'information')->searchable()->sortable(),
             Column::make('Actions')
                 ->view('vendor.includes.actions_buttons')
-                ->hideBoth(auth()->user()->cannot('haveAccess'))
+                ->hideBoth(auth()->user()->cannot('performAdminAction'))
         ];
     }
 }

@@ -11,9 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.extract(['alpinejs']);
+mix.extract(['alpinejs', 'uikit']);
 
-mix.sourceMaps(true, 'source-map')
-    .js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .version();
+
+mix.webpackConfig({
+    optimization: {
+        providedExports: false,
+        sideEffects: false,
+        usedExports: false
+    }
+});

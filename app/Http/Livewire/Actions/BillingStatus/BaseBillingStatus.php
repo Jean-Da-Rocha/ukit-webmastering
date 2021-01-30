@@ -31,7 +31,7 @@ class BaseBillingStatus extends Component
      */
     public function render()
     {
-        $this->authorize('haveAccess');
+        $this->authorize('performAdminAction');
 
         return view('livewire.billing_status.create_edit_form', [
             'billing_status' => $this->billing_status,

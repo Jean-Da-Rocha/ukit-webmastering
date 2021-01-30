@@ -17,7 +17,7 @@ class EditProject extends BaseProject
      */
     public function mount(int $id)
     {
-        $this->authorize('haveAccess');
+        $this->authorize('performAdminAction');
 
         $this->updateMode = true;
 

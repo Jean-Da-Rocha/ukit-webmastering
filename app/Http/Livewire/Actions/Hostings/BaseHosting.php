@@ -39,7 +39,7 @@ class BaseHosting extends Component
      */
     public function render()
     {
-        $this->authorize('haveAccess');
+        $this->authorize('performAdminAction');
 
         return view('livewire.hostings.create_edit_form', [
             'hosting' => $this->hosting,

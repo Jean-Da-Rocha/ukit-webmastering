@@ -55,7 +55,7 @@ class ProjectTable extends TableComponent
                 ->hideBoth(auth()->user()->cannot('performWebmasterAction')),
             Column::make('Actions')
                 ->view('vendor.includes.actions_buttons')
-                ->hideBoth(auth()->user()->cannot('haveAccess')),
+                ->hideBoth(auth()->user()->cannot('performAdminAction')),
         ];
     }
 }

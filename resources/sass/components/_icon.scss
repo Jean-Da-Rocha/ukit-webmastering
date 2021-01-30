@@ -1,3 +1,5 @@
+$search-icon-color: $global-primary-background;
+
 svg {
     max-width: 20px !important;
     width: 100% !important;
@@ -19,6 +21,5 @@ form {
 .uk-search {
     .uk-search-icon {
         top: 7px !important;
-        color: $global-primary-background !important;
     }
 }

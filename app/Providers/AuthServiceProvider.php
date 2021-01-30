@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('haveAccess', function (User $user) {
+        Gate::define('performAdminAction', function (User $user) {
             return $user->isAdmin()
                 ? Response::allow()
                 : Response::deny('You must have administrator role.');

@@ -32,7 +32,7 @@ class BaseUser extends Component
      */
     public function render()
     {
-        $this->authorize('haveAccess');
+        $this->authorize('performAdminAction');
 
         return view('livewire.users.create_edit_form', [
             'roles' => Role::select('id', 'name')->orderBy('id', 'desc')->get(),

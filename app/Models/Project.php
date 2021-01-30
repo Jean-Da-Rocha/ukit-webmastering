@@ -29,20 +29,16 @@ class Project extends Model
      *
      * @return void
      */
-    protected static function boot()
+    protected static function booted()
     {
-        parent::boot();
-
         $adminUsers = User::select('id', 'role_id')
             ->where('role_id', config('role.admin'))
             ->pluck('id')
             ->values();
 
-        Project::created(fn ($project) =>
+        static::created(fn ($project) =>
             $project->update(['authorizations' => $adminUsers])
         );
-
-        // $project->update(['authorizations' => $adminUsers->values()]
     }
 
     /**
@@ -88,7 +84,7 @@ class Project extends Model
     /**
      * One To Many relation between Project and Task models.
      *
-     * @return HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tasks()
     {
@@ -102,8 +98,11 @@ class Project extends Model
      */
     public function getAuthorizedUsers()
     {
-        return User::select('id', 'username')->with('tasks:id,name,user_id')->get()->filter(function ($user) {
-            return collect($this->authorizations)->contains($user->id);
-        });
+        return User::select('id', 'username')
+            ->with('tasks:id,name,user_id')
+            ->get()
+            ->filter(fn ($user) =>
+                collect($this->authorizations)->contains($user->id)
+            );
     }
 }

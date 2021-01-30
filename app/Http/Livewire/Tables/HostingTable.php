@@ -69,7 +69,7 @@ class HostingTable extends TableComponent
                 ->sortable(),
             Column::make('Actions')
                 ->view('vendor.includes.actions_buttons')
-                ->hideBoth(auth()->user()->cannot('haveAccess')),
+                ->hideBoth(auth()->user()->cannot('performAdminAction')),
         ];
     }
 }

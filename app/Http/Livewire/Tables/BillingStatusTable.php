@@ -53,7 +53,7 @@ class BillingStatusTable extends TableComponent
             Column::make('Hexadecimal color', 'color')->searchable()->sortable(),
             Column::make('Actions')
                 ->view('vendor.includes.actions_buttons')
-                ->hideBoth(auth()->user()->cannot('haveAccess')),
+                ->hideBoth(auth()->user()->cannot('performAdminAction')),
         ];
     }
 }

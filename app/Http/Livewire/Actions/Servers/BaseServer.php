@@ -31,7 +31,7 @@ class BaseServer extends Component
      */
     public function render()
     {
-        $this->authorize('haveAccess');
+        $this->authorize('performAdminAction');
 
         return view('livewire.servers.create_edit_form', [
             'server' => $this->server,

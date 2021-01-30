@@ -82,6 +82,13 @@
                             </a>
                         </li>
                     @endcan
+                    @can('performAdminAction')
+                        <li>
+                            <a href="{{ route('categories.index') }}">
+                                Manage project categories
+                            </a>
+                        </li>
+                    @endcan
                     <li>
                         <a href="{{ route('projects.index') }}">
                             See all projects
@@ -113,7 +120,7 @@
                     Users
                 </a>
                 <ul class="uk-nav-sub">
-                    @can('haveAccess')
+                    @can('performAdminAction')
                         <li>
                             <a href="{{ route('users.create') }}">
                                 Create a new user
@@ -153,7 +160,7 @@
                     Hostings
                 </a>
                 <ul class="uk-nav-sub">
-                    @can('haveAccess')
+                    @can('performAdminAction')
                         <li>
                             <a href="{{ route('hostings.create') }}">
                                 Create a new hosting
@@ -173,7 +180,7 @@
                     Servers
                 </a>
                 <ul class="uk-nav-sub">
-                    @can('haveAccess')
+                    @can('performAdminAction')
                     <li>
                         <a href="{{ route('servers.create') }}">
                             Create a new server
@@ -193,7 +200,7 @@
                     Billing status
                 </a>
                 <ul class="uk-nav-sub">
-                    @can('haveAccess')
+                    @can('performAdminAction')
                         <li>
                             <a href="{{ route('billing_status.create') }}">
                                 Create a new billing status
