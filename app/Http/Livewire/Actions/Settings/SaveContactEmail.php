@@ -33,7 +33,7 @@ class SaveContactEmail extends Component
     /**
      * Save the contact email to storage.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return void
      */
     public function save()
     {

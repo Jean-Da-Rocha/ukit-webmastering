@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('profile.edit.self') }}">
                             <x-heroicon-o-pencil-alt /> Edit
                         </a>
                     </li>

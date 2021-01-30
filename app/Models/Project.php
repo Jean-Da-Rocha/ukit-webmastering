@@ -31,14 +31,14 @@ class Project extends Model
      */
     protected static function booted()
     {
-        $adminUsers = User::select('id', 'role_id')
-            ->where('role_id', config('role.admin'))
-            ->pluck('id')
-            ->values();
+        self::created(function ($project) {
+            $adminUsers = User::select('id', 'role_id')
+                ->where('role_id', config('role.admin'))
+                ->pluck('id')
+                ->values();
 
-        static::created(fn ($project) =>
-            $project->update(['authorizations' => $adminUsers])
-        );
+            $project->update(['authorizations' => $adminUsers]);
+        });
     }
 
     /**

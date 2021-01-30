@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProjectController;
 use App\Http\Livewire\Actions\Projects\ProjectAuthorizations;
 use App\Http\Livewire\Actions\Settings\SaveContactEmail;
-
+use App\Http\Livewire\Actions\Users\EditSelfProfile;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('projects/{id}/details', ProjectController::class)->name('projects.details');
     Route::get('projects/{id}/authorizations', ProjectAuthorizations::class)->name('projects.authorizations');
+
+    Route::get('profile/me', EditSelfProfile::class)->name('profile.edit.self');
 
     Route::get('settings', SaveContactEmail::class)->name('settings.index');
 });

@@ -19,11 +19,6 @@ class EditUser extends BaseUser
         $this->user = User::findOrFail($id);
     }
 
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
-
     /**
      * Update the specified user in storage.
      *
