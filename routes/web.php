@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{HomeController, TaskController, UserController};
+use App\Http\Controllers\{TaskController, UserController};
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Livewire\Auth\{Login, Register};
 
@@ -24,7 +24,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('home', HomeController::class)->name('home');
+    Route::view('home', 'home')->name('home');
     Route::post('logout', LogoutController::class)->name('logout');
 
     Route::get('users/{id}/profile', UserController::class)->name('users.profile');

@@ -42,7 +42,8 @@
 
         <!-- UIkit JS -->
         <script src="{{ url(mix('js/manifest.js')) }}"></script>
-        <script src="{{ url(mix('js/vendor.js')) }}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+        <script src="{{ url(mix('js/vendor/alpine.js')) }}" defer></script>
         <script src="{{ url(mix('js/app.js')) }}"></script>
         @livewireScripts
         @stack('scripts')
