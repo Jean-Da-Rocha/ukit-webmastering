@@ -39,7 +39,7 @@ trait WithDeleteConfirmation
      */
     public function delete()
     {
-        $entity = app()->make('App\Models\\' . $this->modelClassName)->findOrFail($this->modelId);
+        $entity = get_model($this->modelClassName)->findOrFail($this->modelId);
 
         $entity->delete();
 

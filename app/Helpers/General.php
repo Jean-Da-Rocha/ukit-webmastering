@@ -90,7 +90,7 @@ if (! function_exists('model_name')) {
      * Return the model's name in lowercase and singular format.
      *
      * @param  mixed  $model
-     * @return void
+     * @return string
      */
     function model_name($model)
     {
@@ -99,6 +99,26 @@ if (! function_exists('model_name')) {
         }
 
         return lcfirst($model);
+    }
+}
+
+if (! function_exists('get_model')) {
+    /**
+     * Get a model instance according to
+     * the provided model's name as string.
+     *
+     * @param  string  $modelName
+     * @return Model
+     */
+    function get_model(string $modelName)
+    {
+        $modelName = Str::singular($modelName);
+
+        if (ctype_lower($modelName)) {
+            $modelName = ucfirst($modelName);
+        }
+
+        return app()->make('App\Models\\' . $modelName);
     }
 }
 
@@ -132,7 +152,7 @@ if (! function_exists('generate_class_namespace')) {
          *
          * @param  string  $route
          * @param  string  $modelAttribute
-         * @return void
+         * @return HtmlString
          */
         function generate_html_link(string $route, string $modelAttribute)
         {

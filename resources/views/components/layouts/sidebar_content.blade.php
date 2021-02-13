@@ -219,21 +219,36 @@
             <h5>Monthly Reports</h5>
             <div>
                 <span class="uk-text-small">
-                    Projects <small>(+50)</small>
+                    Projects <small>(+{{ cache('newProjects') }})</small>
                 </span>
-                <progress class="uk-progress primary" value="50" max="100"></progress>
+                <progress
+                    class="uk-progress primary"
+                    value="{{ cache('newProjectsPercentage') }}"
+                    max="100"
+                >
+                </progress>
             </div>
             <div>
                 <span class="uk-text-small">
-                    Tasks <small>(+78)</small>
+                    Tasks <small>(+{{ cache('newTasks') }})</small>
                 </span>
-                <progress class="uk-progress success" value="78" max="100"></progress>
+                <progress
+                    class="uk-progress success"
+                    value="{{ cache('newTasksPercentage') }}"
+                    max="100"
+                >
+                </progress>
             </div>
             <div>
                 <span class="uk-text-small">
-                    Hostings <small>(+12)</small>
+                    Hostings <small>(+{{ cache('newHostings') }})</small>
                 </span>
-                <progress class="uk-progress default" value="12" max="100"></progress>
+                <progress
+                    class="uk-progress default"
+                    value="{{ cache('newHostingsPercentage') }}}"
+                    max="100"
+                >
+                </progress>
             </div>
         </div>
         <div class="bar-bottom">
