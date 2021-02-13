@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Customer, Project, Task, User};
+use App\Actions\HomeCharts;
 
 final class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
+     * Show the home page with charts to display
+     * some stats within the current application.
      *
-     * @return void
+     * @return \Illuminate\View\View
      */
     public function __invoke()
     {
-        return view('home', [
-            'totalProjects' => Project::count(),
-            'totalTasks' => Task::count(),
-            'totalCustomers' => Customer::count(),
-            'totalUsers' => User::count(),
-        ]);
+        return view('home', (new HomeCharts())->build());
     }
 }

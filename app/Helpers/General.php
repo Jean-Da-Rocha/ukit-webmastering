@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\{HtmlString, Str};
 use Illuminate\Support\Facades\Route;
 
-if (! function_exists('is_active_route')) {
+if (! function_exists('is_active')) {
     /**
      * Check if the current route contains the given
      * url param to then return the `uk-active` class.

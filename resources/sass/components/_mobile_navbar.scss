@@ -10,18 +10,10 @@
     background: $global-background !important;
     border-right: 1px solid $global-primary-background !important;
     padding: unset !important;
-    overflow-y: hidden !important;
+    width: 250px !important;
 
     .uk-nav-header {
         padding: 15px 10px;
-    }
-
-    .bar-bottom {
-        padding: 15px 0;
-        background-color: $global-background;
-        svg {
-            color: $global-warning-background;
-        }
     }
 
     @include navbar-content;

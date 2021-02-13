@@ -216,22 +216,22 @@
             </li>
         </ul>
         <div class="left-content-box uk-margin-top separator-top">
-            <h5>Daily Reports</h5>
+            <h5>Monthly Reports</h5>
             <div>
                 <span class="uk-text-small">
-                    Traffic <small>(+50)</small>
+                    Projects <small>(+50)</small>
                 </span>
                 <progress class="uk-progress primary" value="50" max="100"></progress>
             </div>
             <div>
                 <span class="uk-text-small">
-                    Income <small>(+78)</small>
+                    Tasks <small>(+78)</small>
                 </span>
                 <progress class="uk-progress success" value="78" max="100"></progress>
             </div>
             <div>
                 <span class="uk-text-small">
-                    Feedback <small>(-12)</small>
+                    Hostings <small>(+12)</small>
                 </span>
                 <progress class="uk-progress default" value="12" max="100"></progress>
             </div>

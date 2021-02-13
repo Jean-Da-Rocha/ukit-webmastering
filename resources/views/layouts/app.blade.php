@@ -30,7 +30,7 @@
         >
             <div
                 class="uk-align-center uk-margin-medium-top"
-                :class="windowWidth <= 1536 ? 'uk-container' : 'uk-container-large' "
+                :class="windowWidth <= 1536 ? 'uk-container' : 'uk-container-large'"
             >
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>
                     @isset($slot)
@@ -42,7 +42,8 @@
 
         <!-- UIkit JS -->
         <script src="{{ url(mix('js/manifest.js')) }}"></script>
-        <script src="{{ url(mix('js/vendor.js')) }}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+        <script src="{{ url(mix('js/vendor/alpine.js')) }}" defer></script>
         <script src="{{ url(mix('js/app.js')) }}"></script>
         @livewireScripts
         @stack('scripts')

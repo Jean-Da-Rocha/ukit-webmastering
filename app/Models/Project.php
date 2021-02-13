@@ -100,9 +100,7 @@ class Project extends Model
     {
         return User::select('id', 'username')
             ->with('tasks:id,name,user_id')
-            ->get()
-            ->filter(fn ($user) =>
-                collect($this->authorizations)->contains($user->id)
-            );
+            ->whereIn('id', $this->authorizations)
+            ->get();
     }
 }

@@ -10,8 +10,8 @@
 @mixin nav-content-hover {
     ul {
         &.uk-nav-default {
-            >li {
-                >a {
+            > li {
+                > a {
                     padding: 8px 20px;
                     border-left: 3px solid transparent;
                     transition: all 0.15s ease-out;
@@ -23,7 +23,7 @@
                     }
                 }
                 &.uk-open {
-                    >a {
+                    > a {
                         border-left: 3px solid $background-default-background;
                         padding-left: 30px;
                         color: $global-color;
@@ -75,9 +75,9 @@
 @mixin left-section {
     .left-content-box {
         padding: 0.75rem 2rem;
-        border-bottom: 1px solid $global-secondary-background;
         &.separator-top {
             border-top: 1px solid $global-secondary-background;
+            padding-bottom: 60px;
         }
     }
 
@@ -117,10 +117,28 @@
     }
 }
 
+@mixin bar-bottom {
+    .bar-bottom {
+        border-top: 1px solid $global-secondary-background;
+        padding: 15px 0;
+        background-color: $global-background;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        bottom: 0;
+        width: 250px;
+        svg {
+            color: $global-warning-background;
+        }
+    }
+}
+
 @mixin navbar-content {
-    @include nav-content-hover;
     @include profile-img;
+    @include nav-content-hover;
     @include uk-dropdown;
-    @include uk-progress;
     @include left-section;
+    @include uk-progress;
+    @include bar-bottom;
 }
