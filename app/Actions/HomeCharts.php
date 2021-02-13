@@ -3,9 +3,18 @@
 namespace App\Actions;
 
 use App\Models\{Customer, Project, Task, User};
+use App\Services\HomeChartsData;
 
 class HomeCharts
 {
+    /** @var HomeChartsData */
+    private HomeChartsData $homeCharts;
+
+    public function __construct()
+    {
+        $this->homeCharts = new HomeChartsData();
+    }
+
     /**
      * Build several charts which will be
      * displayed in the home page.
@@ -17,7 +26,6 @@ class HomeCharts
         $globalStatsChart = app()->chartjs
             ->name('globalStats')
             ->type('bar')
-            ->size(['width' => 400, 'height' => 200])
             ->labels(['Total Projects', 'Total Tasks', 'Total Users', 'Total Customers'])
             ->datasets([
                 [
@@ -51,11 +59,10 @@ class HomeCharts
         $userRoleChart = app()->chartjs
             ->name('userRole')
             ->type('doughnut')
-            ->size(['width' => 400, 'height' => 200])
             ->labels(['Admins', 'Webmasters', 'Developers'])
             ->datasets([
                 [
-                    'backgroundColor' => ['#f5365c', '#ff8d72', '#00f2c3'],
+                    'backgroundColor' => ['#fd5d93', '#ff8d72', '#00f2c3'],
                     'data' => [
                         User::where('role_id', config('role.admin'))->count(),
                         User::where('role_id', config('role.webmaster'))->count(),
@@ -69,6 +76,63 @@ class HomeCharts
                 ],
             ]);
 
-        return compact('globalStatsChart', 'userRoleChart');
+            $expensiveHostingsChart = app()->chartjs
+            ->name('expensiveHostings')
+            ->type('horizontalBar')
+            ->labels(collect($this->homeCharts->getMostExpensiveHostings('domain_name'))->all())
+            ->datasets([
+                [
+                    'backgroundColor' => ['#1d8cf8', '#e14eca', '#00f2c3', '#ff8d72', '#8965e0'],
+                    'data' => collect($this->homeCharts->getMostExpensiveHostings())->all(),
+                ],
+            ])
+            ->optionsRaw([
+                'legend' => [
+                    'labels' => ['fontColor' => '#fff'],
+                    'display' => false,
+                ],
+                'scales' => [
+                    'yAxes' => [
+                        [
+                            'ticks' => [
+                                'beginAtZero' => true,
+                                'fontColor' => '#fff',
+                            ],
+                        ],
+                    ],
+                    'xAxes' => [
+                        [
+                            'ticks' => [
+                                'fontColor' => '#fff',
+                                'beginAtZero' => true,
+                            ],
+                        ],
+                    ],
+                ],
+            ]);
+
+        $userTasksChart = app()->chartjs
+            ->name('userTasks')
+            ->type('pie')
+            ->labels($this->homeCharts->getUsersWithMostTasks()->all())
+            ->datasets([
+                [
+                    'backgroundColor' => ['#1d8cf8', '#e14eca', '#00f2c3', '#ff8d72', '#8965e0'],
+                    'data' => $this->homeCharts->getUsersWithMostTasks('tasks_count')->all(),
+                ],
+            ])
+            ->optionsRaw([
+                'legend' => [
+                    'labels' => ['fontColor' => '#fff'],
+                    'display' => true,
+                ],
+            ]);
+
+        return compact(
+            'globalStatsChart',
+            'userRoleChart',
+            'expensiveHostingsChart',
+            'userTasksChart',
+        );
     }
 }

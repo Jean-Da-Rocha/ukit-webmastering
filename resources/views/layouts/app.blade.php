@@ -30,7 +30,7 @@
         >
             <div
                 class="uk-align-center uk-margin-medium-top"
-                :class="windowWidth <= 1536 ? 'uk-container' : 'uk-container-large' "
+                :class="windowWidth <= 1536 ? 'uk-container' : 'uk-container-large'"
             >
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>
                     @isset($slot)
