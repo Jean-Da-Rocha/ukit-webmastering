@@ -245,7 +245,7 @@
                 </span>
                 <progress
                     class="uk-progress default"
-                    value="{{ cache('newHostingsPercentage') }}}"
+                    value="{{ cache('newHostingsPercentage') }}"
                     max="100"
                 >
                 </progress>
