@@ -3,9 +3,7 @@
 namespace App\Http\Livewire\Actions\BillingStatus;
 
 use App\Models\BillingStatus;
-
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class BaseBillingStatus extends Component

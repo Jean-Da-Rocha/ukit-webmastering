@@ -17,9 +17,12 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             BillingStatusSeeder::class,
             ServerSeeder::class,
-            HostingSeeder::class,
+            CategorySeeder::class,
+            CustomerSeeder::class,
             UserSeeder::class,
             ProjectSeeder::class,
+            HostingSeeder::class,
+            TaskSeeder::class,
         ]);
     }
 }
