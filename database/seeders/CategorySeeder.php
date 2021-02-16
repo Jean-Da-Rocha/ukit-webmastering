@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Server;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
-class ServerSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ServerSeeder extends Seeder
      */
     public function run()
     {
-        Server::factory(5)->create();
+        Category::factory(50)->create();
     }
 }

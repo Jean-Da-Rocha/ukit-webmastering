@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\{Hosting, Server, Project, Customer};
-
+use App\Models\Customer;
+use App\Models\Hosting;
+use App\Models\Project;
+use App\Models\Server;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class HostingFactory extends Factory
@@ -29,10 +31,10 @@ class HostingFactory extends Factory
             'registrar' => $this->faker->numberBetween(1, 100),
             'pricing' => $this->faker->randomNumber(2),
             'comment' => $this->faker->text(20),
-            'customer_id' => Customer::factory(),
-            'project_id' => Project::factory(),
+            'customer_id' => Customer::inRandomOrder()->first()->id,
+            'project_id' => Project::inRandomOrder()->first()->id,
             'billing_status_id' => $this->faker->numberBetween(1, 6),
-            'server_id' => Server::factory(),
+            'server_id' => Server::inRandomOrder()->first()->id,
         ];
     }
 }

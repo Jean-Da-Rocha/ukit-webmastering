@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\{User, Project, Category, Customer};
-
+use App\Models\Category;
+use App\Models\Customer;
+use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProjectFactory extends Factory
@@ -26,9 +28,9 @@ class ProjectFactory extends Factory
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->text(200),
             'starting_date' => $this->faker->date(now()),
-            'user_id' => User::factory(),
-            'category_id' => Category::factory(),
-            'customer_id' => Customer::factory(),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'category_id' => Category::inRandomOrder()->first()->id,
+            'customer_id' => Customer::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Server;
+use App\Models\Task;
 use Illuminate\Database\Seeder;
 
-class ServerSeeder extends Seeder
+class TaskSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ServerSeeder extends Seeder
      */
     public function run()
     {
-        Server::factory(5)->create();
+        Task::factory(50)->create();
     }
 }
