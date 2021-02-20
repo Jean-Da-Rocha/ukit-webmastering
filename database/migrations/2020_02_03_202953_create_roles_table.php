@@ -15,11 +15,11 @@ class CreateRolesTable extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
 
-        Schema::table('users', static function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table
                 ->foreignId('role_id')
                 ->default(config('role.developer'))

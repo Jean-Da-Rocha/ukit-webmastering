@@ -6,8 +6,8 @@ use App\Http\Livewire\Tables\Column;
 use App\Http\Livewire\Tables\TableComponent;
 use App\Models\Hosting;
 use App\Traits\Livewire\WithDeleteConfirmation;
-
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 
 class HostingTable extends TableComponent
 {
@@ -64,7 +64,7 @@ class HostingTable extends TableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Pricing', 'pricing')
-                ->format(fn (Hosting $model) => $model->pricing . ' €')
+                ->format(fn (Hosting $model) => $model->pricing.' €')
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')

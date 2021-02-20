@@ -15,7 +15,7 @@ class CreateBillingStatusTable extends Migration
     {
         Schema::create('billing_status', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('name');
             $table->string('color', 7)->nullable()->default('#000000');
             $table->timestamps();
         });

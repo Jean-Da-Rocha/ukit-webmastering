@@ -13,12 +13,12 @@ class CreateHostingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hostings', static function (Blueprint $table) {
+        Schema::create('hostings', function (Blueprint $table) {
             $table->id();
-            $table->string('domain_name', 255);
-            $table->date('date_renewal');
+            $table->string('domain_name');
+            $table->date('renewal_date');
             $table->boolean('domain_managing');
-            $table->string('registrar', 255)->nullable();
+            $table->string('registrar')->nullable();
             $table->decimal('pricing');
             $table->text('comment')->nullable();
             $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
