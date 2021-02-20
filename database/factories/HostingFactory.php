@@ -26,7 +26,7 @@ class HostingFactory extends Factory
     {
         return [
             'domain_name' => $this->faker->domainName,
-            'date_renewal' => $this->faker->dateTimeBetween('01/01/2020', '01/01/2030'),
+            'renewal_date' => $this->faker->dateTimeBetween('01/01/2021', '01/01/2022'),
             'domain_managing' => $this->faker->boolean,
             'registrar' => $this->faker->numberBetween(1, 100),
             'pricing' => $this->faker->randomNumber(2),

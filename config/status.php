@@ -3,11 +3,14 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Constant for text colors depending on the user's role.
+    | Constant for billing status
     |--------------------------------------------------------------------------
     */
 
-    'admin' => 'uk-text-danger',
-    'webmaster' => 'uk-text-warning',
-    'developer' => 'uk-text-success',
+    'expired' => 1,
+    'invoice_sent' => 2,
+    'invoice_settled' => 3,
+    'active' => 4,
+    'to_renew_soon' => 5,
+    'deleted' => 6,
 ];

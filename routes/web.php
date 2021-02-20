@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\{HomeController, TaskController, UserController};
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Livewire\Auth\{Login, Register};
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
 
 /*

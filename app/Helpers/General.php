@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\{HtmlString, Str};
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\HtmlString;
+use Illuminate\Support\Str;
 
 if (! function_exists('is_active')) {
     /**
@@ -58,11 +60,9 @@ if (! function_exists('get_role_color')) {
             config('role.developer') => 'uk-text-success',
         ];
 
-        if (in_array($roleId, config('role'))) {
-            return $colorMatches[$roleId];
-        }
-
-        return '';
+        return in_array($roleId, config('role'))
+            ? $colorMatches[$roleId]
+            : '';
     }
 }
 
@@ -81,7 +81,7 @@ if (! function_exists('format_time')) {
 
         $collection = Str::of($time)->explode(':');
 
-        return $collection->first() . ' h ' . $collection[1] . ' min';
+        return $collection->first().' h '.$collection[1].' min';
     }
 }
 
@@ -118,7 +118,7 @@ if (! function_exists('get_model')) {
             $modelName = ucfirst($modelName);
         }
 
-        return app()->make('App\Models\\' . $modelName);
+        return app()->make('App\Models\\'.$modelName);
     }
 }
 
@@ -142,8 +142,8 @@ if (! function_exists('generate_class_namespace')) {
         }
 
         // Generate for instance: App\Livewire\Actions\Projects\CreateProject.
-        return $basePath . ucfirst($routeName) . '\\'
-            . ucfirst($method) . ucfirst(Str::singular($routeName));
+        return $basePath.ucfirst($routeName).'\\'
+            .ucfirst($method).ucfirst(Str::singular($routeName));
     }
 
     if (! function_exists('generate_html_link')) {
@@ -161,6 +161,24 @@ if (! function_exists('generate_class_namespace')) {
                     {$modelAttribute}
                 </a>"
             );
+        }
+    }
+
+    if (! function_exists('diff_in_days')) {
+        /**
+         * Check if the date is in the past and returns
+         * the difference from current date in days.
+         *
+         * @param  string  $date
+         * @return int
+         */
+        function diff_in_days(string $date)
+        {
+            $date = Carbon::parse($date);
+
+            return $date->isPast()
+                ? -$date->diffInDays(now())
+                : $date->diffInDays(now());
         }
     }
 }
