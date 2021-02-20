@@ -2,5 +2,5 @@ $card-default-header-border-width: 0;
 $card-default-header-border: none;
 
 .uk-card-default {
-    box-shadow: 0 30px 15px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: global-medium-box-shadow;
 }

@@ -8,11 +8,34 @@ $global-success-background: #00f2c3;
 $global-warning-background: #ff8d72;
 $global-danger-background: #fd5d93;
 
+// Cards.
 $card-default-color: $global-color;
+$global-medium-box-shadow: 0 30px 15px rgba(0, 0, 0, 0.2);
+
+// Forms.
 $form-select-icon-color: $global-primary-background;
 $form-select-option-color: $global-color;
+
+// Navbar / Sidebar.
+$offcanvas-bar-width: 250px;
+$offcanvas-bar-padding-vertical: 0;
+$offcanvas-bar-padding-horizontal: 0;
+$offcanvas-bar-background: $global-background;
+$navbar-background: $global-background;
+
+// Progress bars.
+$progress-height: 5px;
+
+// Tables.
+$table-header-cell-color: $global-color;
+
+// Badges.
+$badge-padding-horizontal: 10px;
+
+// Others.
 $global-border: $global-secondary-background;
 $global-emphasis-color: $global-color;
+$search-icon-color: $global-primary-background;
 
 // Import default variables and available mixins.
 @import "~uikit/src/scss/variables-theme";

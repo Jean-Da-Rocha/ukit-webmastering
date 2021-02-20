@@ -5,7 +5,9 @@ input {
     }
 }
 
-/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+/* Make the native arrow invisible and stretch it over
+ * the whole field so you can click anywhere in the input field to trigger the native datepicker.
+ */
 input[type="date"],
 input[type="time"] {
     cursor: pointer;
@@ -34,5 +36,5 @@ input[type="time"] {
 .uk-badge {
     min-height: 25px;
     min-width: 25px;
-    padding: 0 10px !important;
+    padding: $badge-padding-vertical $badge-padding-horizontal;
 }

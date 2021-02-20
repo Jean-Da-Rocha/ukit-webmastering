@@ -18,7 +18,7 @@
                             class="uk-input @error('username') uk-form-danger @enderror"
                             name="username"
                             id="username"
-                            wire:model.lazy="username"
+                            wire:model.defer="username"
                             autofocus
                             required
                         />
@@ -40,7 +40,7 @@
                             class="uk-input @error('email') uk-form-danger @enderror"
                             name="email"
                             id="email"
-                            wire:model.lazy="email"
+                            wire:model.defer="email"
                             required
                         />
                     </div>
@@ -61,7 +61,7 @@
                             class="uk-input @error('password') uk-form-danger @enderror"
                             name="password"
                             id="password"
-                            wire:model.lazy="password"
+                            wire:model.defer="password"
                             required
                         />
                     </div>
@@ -82,7 +82,7 @@
                             class="uk-input"
                             name="password_confirmation"
                             id="password_confirmation"
-                            wire:model.lazy="passwordConfirmation"
+                            wire:model.defer="passwordConfirmation"
                             required
                         />
                     </div>
