@@ -27,7 +27,7 @@ class User extends Authenticatable
     /**
      * One To Many (Inverse) relation between User and Role models.
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function role()
     {
@@ -37,7 +37,7 @@ class User extends Authenticatable
     /**
      * One To Many relation between User and Task models.
      *
-     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tasks()
     {
@@ -62,5 +62,15 @@ class User extends Authenticatable
     public function isWebmaster()
     {
         return $this->role_id === config('role.webmaster');
+    }
+
+    /**
+     * Check if the authenticated user created a task.
+     *
+     * @return bool
+     */
+    public static function hasTasks()
+    {
+        return in_array(auth()->id(), Task::pluck('user_id')->toArray());
     }
 }

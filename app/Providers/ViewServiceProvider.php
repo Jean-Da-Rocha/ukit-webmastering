@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\ServiceProvider;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -42,7 +42,6 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('newHostingsPercentage', Cache::remember('newHostingsPercentage', 60, function () {
                 return app(\App\Actions\ProgressBar::class)->getPercentage('hosting');
             }));
-
         });
     }
 }

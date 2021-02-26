@@ -40,16 +40,16 @@ class SendRenewalEmail extends Command
      */
     public function handle()
     {
-        $affectedHostings = app(HostingService::class)->getAffectedHostings();
+        $affectedHostings = (new HostingService)->getAffectedHostings();
 
         if (Setting::count()) {
             Mail::to(Setting::first()->contact_email)->send(
                 new \App\Mail\SendRenewalRemail($affectedHostings)
             );
 
-            return $this->info('The email has been successfully sent');
+            $this->info('The email has been successfully sent');
+        } else {
+            $this->error('No contact email has been found');
         }
-
-        return $this->error('No contact email has been found');
     }
 }

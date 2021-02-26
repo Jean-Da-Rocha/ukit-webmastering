@@ -1,27 +1,45 @@
-// Prevent Firefox from displaying a weird border color on required inputs.
-input {
-    &:required {
-        box-shadow: none;
+form {
+    input,
+    select,
+    textarea {
+        margin-top: 0.5rem !important;
     }
-}
+    input {
+        // Prevent Firefox from displaying a weird border color on required inputs.
+        &:required {
+            box-shadow: none;
+        }
+    }
+    input[type="color"] {
+        border: none !important;
+    }
 
-/* Make the native arrow invisible and stretch it over
- * the whole field so you can click anywhere in the input field to trigger the native datepicker.
- */
-input[type="date"],
-input[type="time"] {
-    cursor: pointer;
-    &::-webkit-calendar-picker-indicator {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: auto;
-        height: auto;
-        color: transparent;
-        background: transparent;
+    // Make the native arrow invisible and stretch it over the whole field
+    // so you can click anywhere in the input field to trigger the native datepicker.
+    input[type="date"],
+    input[type="time"] {
         cursor: pointer;
+        &::-webkit-calendar-picker-indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: auto;
+            color: transparent;
+            background: transparent;
+            cursor: pointer;
+        }
+    }
+    select {
+        &:disabled {
+            opacity: 1;
+        }
+        cursor: pointer;
+    }
+    svg {
+        color: $global-primary-background !important;
     }
 }
 

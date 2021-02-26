@@ -4,6 +4,9 @@ namespace App\Actions;
 
 use Illuminate\Support\Str;
 
+/**
+ * @see \App\Providers\ViewServiceProviders.
+ */
 class ProgressBar
 {
     /**
@@ -16,7 +19,7 @@ class ProgressBar
     public function getCount(string $modelName)
     {
         return get_model($modelName)::whereBetween('created_at', [
-            now()->startOfMonth(), now()->endOfMonth()
+            now()->startOfMonth(), now()->endOfMonth(),
         ])->count();
     }
 
@@ -24,13 +27,13 @@ class ProgressBar
      * Get the progress bar percentage as integer.
      *
      * @param  string  $modelName
-     * @return int
+     * @return float
      */
     public function getPercentage(string $modelName)
     {
         $model = get_model($modelName);
 
-        $cacheKey = 'new' . ucfirst(Str::plural($modelName));
+        $cacheKey = 'new'.ucfirst(Str::plural($modelName));
 
         return ceil(
             (cache($cacheKey) * $model::count()) / 100

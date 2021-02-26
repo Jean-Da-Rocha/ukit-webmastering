@@ -13,7 +13,7 @@ class HostingService
     /**
      * Get all hostings that need to be renewed soon.
      *
-     * @return array
+     * @return \Illuminate\Support\Collection
      */
     public function getAffectedHostings()
     {
@@ -32,7 +32,7 @@ class HostingService
      * Get all hostings sorted by their billing status.
      *
      * @param  string  $billingStatus
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     private function getHostingsByBillingStatus(string $billingStatus = 'to_renew_soon')
     {

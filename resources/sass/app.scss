@@ -15,6 +15,10 @@ $global-medium-box-shadow: 0 30px 15px rgba(0, 0, 0, 0.2);
 // Forms.
 $form-select-icon-color: $global-primary-background;
 $form-select-option-color: $global-color;
+$form-disabled-background: $global-background;
+$form-disabled-border: $global-secondary-background;
+$form-disabled-color: $global-color;
+$form-select-disabled-icon-color: $global-primary-background;
 
 // Navbar / Sidebar.
 $offcanvas-bar-width: 250px;

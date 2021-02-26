@@ -21,7 +21,16 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    $livewireCrudRouteNames = ['projects', 'categories', 'tasks', 'users', 'customers', 'hostings', 'servers', 'billing_status'];
+    $livewireCrudRouteNames = [
+        'projects',
+        'categories',
+        'tasks',
+        'users',
+        'customers',
+        'hostings',
+        'servers',
+        'billing_status',
+    ];
 
     foreach ($livewireCrudRouteNames as $routeName) {
         Route::view(Str::slug($routeName), "livewire.{$routeName}.index")->name("{$routeName}.index");

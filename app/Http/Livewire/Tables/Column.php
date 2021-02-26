@@ -3,9 +3,8 @@
 namespace App\Http\Livewire\Tables;
 
 use App\Traits\Livewire\Tables\Hiddenable;
-
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Column
 {
@@ -190,7 +189,7 @@ class Column
     /**
      * Get the view element.
      *
-     * @return $this
+     * @return string
      */
     public function getViewName()
     {
@@ -215,7 +214,7 @@ class Column
      * Check if the column needs to be output
      * in a raw format.
      *
-     * @return $this
+     * @return bool
      */
     public function isRaw()
     {
@@ -262,7 +261,7 @@ class Column
      * @param  Column  $column
      * @return mixed
      */
-    public function formatted(Model $model, Column $column)
+    public function formatted(Model $model, self $column)
     {
         return app()->call($this->formatCallback, ['model' => $model, 'column' => $column]);
     }

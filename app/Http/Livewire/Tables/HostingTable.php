@@ -47,7 +47,7 @@ class HostingTable extends TableComponent
                 ->format(fn (Hosting $model) => $model->server->name ?? '-')
                 ->searchable()
                 ->sortable(),
-            Column::make('Date renewal', 'date_renewal')->searchable()->sortable(),
+            Column::make('Date renewal', 'renewal_date')->searchable()->sortable(),
             Column::make('Billing status', 'billingStatus.name')
                 ->format(function (Hosting $model) {
                     return "

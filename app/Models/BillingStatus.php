@@ -26,7 +26,7 @@ class BillingStatus extends Model
     /**
      * One To Many (Inverse) relation between BillingStatus and Hosting models.
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function hosting()
     {

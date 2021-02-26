@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Tables;
 
-use App\Http\Livewire\Tables\{Column, TableComponent};
+use App\Http\Livewire\Tables\Column;
+use App\Http\Livewire\Tables\TableComponent;
 use App\Models\Task;
+use App\Models\User;
 use App\Traits\Livewire\WithDeleteConfirmation;
-
 use Illuminate\Database\Eloquent\Builder;
 
 class TaskTable extends TableComponent
@@ -20,10 +21,8 @@ class TaskTable extends TableComponent
      */
     protected $listeners = ['getModelIdentifiers'];
 
-    /**
-     * @var bool
-     */
-    public $showDetailsRoute = true;
+    /** @var bool */
+    public bool $showDetailsRoute = true;
 
     /**
      * Return an Eloquent model query to be used by the table.
@@ -63,6 +62,7 @@ class TaskTable extends TableComponent
                     return view('vendor.includes.actions_buttons', ['model' => $model]);
                 }
             })
+            ->hideBoth(! User::hasTasks()),
         ];
     }
 }
