@@ -23,6 +23,7 @@ class CreateRolesTable extends Migration
             $table
                 ->foreignId('role_id')
                 ->default(config('role.developer'))
+                ->after('password')
                 ->constrained()
                 ->cascadeOnDelete();
         });

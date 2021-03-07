@@ -36,7 +36,7 @@ class SendRenewalEmail extends Command
     /**
      * Execute the console command.
      *
-     * @return int
+     * @return void
      */
     public function handle()
     {
@@ -47,9 +47,9 @@ class SendRenewalEmail extends Command
                 new \App\Mail\SendRenewalRemail($affectedHostings)
             );
 
-            $this->info('The email has been successfully sent');
+            $this->info('The email has been successfully sent.');
         } else {
-            $this->error('No contact email has been found');
+            $this->error('No contact email has been found.');
         }
     }
 }

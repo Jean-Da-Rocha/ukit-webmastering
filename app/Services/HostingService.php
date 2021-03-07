@@ -3,12 +3,20 @@
 namespace App\Services;
 
 use App\Models\Hosting;
-use Illuminate\Database\Eloquent\Collection;
 
 class HostingService
 {
-    /** @var Collection */
-    private Collection $hostings;
+    /**
+     * Hosting DB columns we want to select.
+     *
+     * @var array
+     */
+    private $selectColumns = [
+        'id',
+        'domain_name',
+        'renewal_date',
+        'billing_status_id',
+    ];
 
     /**
      * Get all hostings that need to be renewed soon.
@@ -17,15 +25,53 @@ class HostingService
      */
     public function getAffectedHostings()
     {
-        $this->hostings = $this->getHostingsByBillingStatus();
+        return $this->getHostingsByBillingStatus()
+            ->map(function ($hosting) {
+                return [
+                    'id' => $hosting->id,
+                    'domain' => $hosting->domain_name,
+                    'daysBeforeRenewal' => diff_in_days($hosting->renewal_date),
+                ];
+            });
+    }
 
-        return $this->hostings->map(function ($hosting) {
-            return [
-                'id' => $hosting->id,
-                'domain' => $hosting->domain_name,
-                'daysBeforeRenewal' => diff_in_days($hosting->renewal_date),
-            ];
-        });
+    /**
+     * Update the hosting's billing status depending on
+     * the days remaining / passed for renewal.
+     *
+     * @return void
+     */
+    public function updateBillingStatus()
+    {
+        $hostings = Hosting::select($this->selectColumns)->get();
+
+        foreach ($hostings as $hosting) {
+            if ($this->hasToBeRenewedSoon($hosting)) {
+                $hosting->billing_status_id = config('status.to_renew_soon');
+                $hosting->save();
+            }
+
+            if (
+                diff_in_days($hosting->renewal_date) <= 0
+                && $hosting->billing_status_id === config('status.to_renew_soon')
+            ) {
+                $hosting->billing_status_id = config('status.expired');
+                $hosting->save();
+            }
+        }
+    }
+
+    /**
+     * Check if the provided hosting has to be renew soon.
+     *
+     * @param  Hosting  $hosting
+     * @return bool
+     */
+    private function hasToBeRenewedSoon(Hosting $hosting)
+    {
+        return diff_in_days($hosting->renewal_date) >= 1
+            && diff_in_days($hosting->renewal_date) <= 60
+            && $hosting->billing_status_id === config('status.active');
     }
 
     /**
@@ -36,7 +82,7 @@ class HostingService
      */
     private function getHostingsByBillingStatus(string $billingStatus = 'to_renew_soon')
     {
-        return Hosting::select('id', 'domain_name', 'renewal_date', 'billing_status_id')
+        return Hosting::select($this->selectColumns)
             ->where('billing_status_id', config("status.{$billingStatus}"))
             ->get();
     }
