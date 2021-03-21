@@ -2,13 +2,12 @@
 
 namespace App\Http\Livewire\Tables;
 
-use App\Models\Project;
 use App\Actions\TimeCalculation;
-use Illuminate\Support\Facades\Gate;
-
-use Illuminate\Database\Eloquent\Builder;
+use App\Http\Livewire\Tables\Column;
+use App\Http\Livewire\Tables\TableComponent;
+use App\Models\Project;
 use App\Traits\Livewire\WithDeleteConfirmation;
-use App\Http\Livewire\Tables\{Column, TableComponent};
+use Illuminate\Database\Eloquent\Builder;
 
 class ProjectTable extends TableComponent
 {
