@@ -121,9 +121,6 @@
                             id="task.duration"
                             wire:model.defer="task.duration"
                         />
-                        <div class="append-clock-icon">
-                            <x-heroicon-o-clock />
-                        </div>
                         @error('task.duration')
                             <span class="uk-text-danger">
                                 {{ $message }}
@@ -144,9 +141,6 @@
                             wire:model.defer="task.starting_date"
                             required
                         />
-                        <div class="append-calendar-icon">
-                            <x-heroicon-o-calendar />
-                        </div>
                         @error('task.starting_date')
                             <span class="uk-text-danger">
                                 {{ $message }}

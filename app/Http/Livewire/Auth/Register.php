@@ -3,11 +3,9 @@
 namespace App\Http\Livewire\Auth;
 
 use App\Models\User;
-
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
 use Livewire\Component;
 
 class Register extends Component
@@ -31,6 +29,12 @@ class Register extends Component
         'password' => ['required', 'min:8', 'string', 'same:passwordConfirmation'],
     ];
 
+    /**
+     * Add a new user in storage and redirect him
+     * to the intended route.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function register()
     {
         $this->validate();
@@ -45,9 +49,14 @@ class Register extends Component
 
         Auth::login($user);
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended();
     }
 
+    /**
+     * Render the component view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function render()
     {
         return view('livewire.auth.register');

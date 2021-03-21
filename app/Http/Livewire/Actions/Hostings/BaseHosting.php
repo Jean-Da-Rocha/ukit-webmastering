@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Actions\Hostings;
 
-use App\Models\{BillingStatus, Customer, Hosting, Project, Server};
-
+use App\Models\BillingStatus;
+use App\Models\Customer;
+use App\Models\Hosting;
+use App\Models\Project;
+use App\Models\Server;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class BaseHosting extends Component
@@ -21,7 +23,7 @@ class BaseHosting extends Component
     /** @var array */
     protected array $rules = [
         'hosting.domain_name' => ['required', 'string', 'max:255'],
-        'hosting.date_renewal' => ['required', 'date', 'date_format:Y-m-d', 'after:today'],
+        'hosting.renewal_date' => ['required', 'date', 'date_format:Y-m-d', 'after:today'],
         'hosting.customer_id' => ['required', 'integer'],
         'hosting.domain_managing' => ['required', 'boolean'],
         'hosting.project_id' => ['nullable', 'integer'],

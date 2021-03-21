@@ -3,16 +3,16 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Collection;
 
 class SendRenewalRemail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /** @var Collection */
-    private Collection $affectedHostings;
+    private array $affectedHostings;
 
     /**
      * Create a new message instance.

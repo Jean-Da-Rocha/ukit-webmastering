@@ -2,13 +2,11 @@
 
 namespace App\Actions;
 
+use App\Models\Project;
+use App\Models\User;
 use Carbon\Carbon;
-
-use App\Models\{Project, User};
-
-use Illuminate\Database\Eloquent\Model;
-
 use Exception;
+use Illuminate\Database\Eloquent\Model;
 
 class TimeCalculation
 {
@@ -36,7 +34,9 @@ class TimeCalculation
      * for the given model.
      *
      * @param  Project|User  $model
-     * @return string|\Illuminate\Http\RedirectResponse
+     * @return string
+     *
+     * @throws Exception
      */
     public function getTotalTasksTime()
     {
@@ -45,7 +45,7 @@ class TimeCalculation
         }
 
         throw new Exception(
-            'The provided $model is not corresponding to a Project or User model'
+            'The provided $model does nott correspond to a Project or User model'
         );
     }
 
@@ -76,7 +76,7 @@ class TimeCalculation
      */
     private function setTimeFormat(int $totalTimeInSeconds)
     {
-        return floor($totalTimeInSeconds / 3600) . ' h '
-            . floor(($totalTimeInSeconds % 3600) / 60) . ' min';
+        return floor($totalTimeInSeconds / 3600).' h '
+            .floor(($totalTimeInSeconds % 3600) / 60).' min';
     }
 }

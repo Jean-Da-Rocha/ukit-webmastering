@@ -34,7 +34,7 @@ class EditHosting extends BaseHosting
      * Runs after any update to the Livewire component's data
      * and check if some attributes need to bet set to `null`.
      *
-     * @return Hosting
+     * @return \Illuminate\Support\Collection
      */
     public function updated()
     {

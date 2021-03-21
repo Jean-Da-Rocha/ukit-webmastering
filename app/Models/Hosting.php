@@ -28,7 +28,7 @@ class Hosting extends Model
     /**
      * One To Many (Inverse) relation between Hosting and Project models.
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function project()
     {

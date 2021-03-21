@@ -31,18 +31,18 @@
                         @enderror
                     </div>
                     <div class="uk-margin">
-                        <label for="hosting.date_renewal" class="uk-form-label">
+                        <label for="hosting.renewal_date" class="uk-form-label">
                             Date renewal
                         </label>
                         <input
                             type="date"
-                            name="hosting.date_renewal"
-                            id="hosting.date_renewal"
-                            class="uk-input @error('hosting.date_renewal') uk-form-danger @enderror"
-                            wire:model.defer="hosting.date_renewal"
+                            name="hosting.renewal_date"
+                            id="hosting.renewal_date"
+                            class="uk-input @error('hosting.renewal_date') uk-form-danger @enderror"
+                            wire:model.defer="hosting.renewal_date"
                             required
                         />
-                        @error('hosting.date_renewal')
+                        @error('hosting.renewal_date')
                             <span class="uk-text-danger">
                                 {{ $message }}
                             </span>
