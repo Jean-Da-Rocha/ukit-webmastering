@@ -1,7 +1,7 @@
 <div>
     <x-utils.message />
 
-    <form wire:submit.prevent="authorizeUsers">
+    <form wire:submit.prevent="saveAuthorizations">
         <div class="uk-card uk-card-default uk-height-1-1">
             <div class="uk-card-header uk-background-primary">
                 <div class="uk-text-center uk-text-white">
@@ -9,22 +9,18 @@
                 </div>
             </div>
             <div class="uk-card-body">
-                <div class="uk-flex uk-flex-between">
-                    @if ($this->users->count() > 10)
-                        <button type="button" class="uk-button uk-button-secondary" wire:click="loadLess">
-                            Load less users
-                        </button>
-                    @endif
-
-                    @if ($this->users->count() < $totalUsers)
-                        <button type="button" class="uk-button uk-button-secondary" wire:click="loadMore">
-                            Load more users
-                        </button>
-                    @endif
+                <div class="uk-search uk-search-default">
+                    <span class="uk-search-icon-flip" data-uk-search-icon wire:ignore></span>
+                    <input
+                        class="uk-search-input"
+                        type="search"
+                        placeholder="Search..."
+                        wire:model="searchTerms"
+                    />
                 </div>
                 <ul class="uk-list uk-list-divider">
-                    @foreach ($this->users as $user)
-                        <li :key="{{ $loop->index }}">
+                    @foreach ($this->users as $key => $user)
+                        <li>
                             {{ $user->username }}
                             <div class="uk-align-right">
                                 <label for="authorizations-{{ $user->id }}"></label>
@@ -33,9 +29,8 @@
                                     name="authorizations-{{ $user->id }}"
                                     id="authorizations-{{ $user->id }}"
                                     class="uk-checkbox"
-                                    wire:model.defer="authorizations"
+                                    wire:model.defer="authorizations.{{ $key }}"
                                     value="{{ $user->id }}"
-                                    {{ $project->authorizations && in_array($user->id, $project->authorizations) ? 'checked' : '' }}
                                 />
                             </div>
                         </li>
@@ -49,7 +44,7 @@
                         Cancel
                     </a>
                     <button type="submit" class="uk-button uk-button-primary">
-                        Save
+                        Save authorizations
                     </button>
                 </div>
             </div>

@@ -19,6 +19,10 @@ $form-disabled-background: $global-background;
 $form-disabled-border: $global-secondary-background;
 $form-disabled-color: $global-color;
 $form-select-disabled-icon-color: $global-primary-background;
+$form-radio-border: $global-primary-background;
+$form-radio-disabled-background: transparent;
+$form-radio-disabled-border: $global-primary-background;
+$button-disabled-color: $global-color;
 
 // Navbar / Sidebar.
 $offcanvas-bar-width: 250px;
