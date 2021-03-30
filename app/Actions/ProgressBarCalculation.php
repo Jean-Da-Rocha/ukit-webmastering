@@ -10,7 +10,7 @@ class ProgressBarCalculation
     private Model $model;
 
     /**
-     * Instantiate the ProgressBarCalculation service class.
+     * Instantiate the ProgressBarCalculation Action class.
      *
      * @param  Model  $model
      * @return void
