@@ -32,15 +32,19 @@
                     @endif
                 </li>
                 <li>
-                    Tasks
+                    Tasks created for this project
                     <div class="uk-align-right">
                         <span class="uk-badge">
-                            {{ isset($selectedUser->tasks) ? $selectedUser->tasks->count() : 0 }}
+                            @isset($selectedUser->tasks)
+                                {{ $selectedUser->tasks->count() }}
+                            @else
+                                0
+                            @endisset
                         </span>
                     </div>
                 </li>
                 <li>
-                    Hours spent
+                    Hours spent on this project
                     <div class="uk-align-right">
                         <span class="uk-badge">
                             {{ $selectedUserTotalTasksTime ?? '00 h 00 min' }}

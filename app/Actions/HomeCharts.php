@@ -2,7 +2,10 @@
 
 namespace App\Actions;
 
-use App\Models\{Customer, Project, Task, User};
+use App\Models\Customer;
+use App\Models\Project;
+use App\Models\Task;
+use App\Models\User;
 use App\Services\HomeChartsData;
 
 class HomeCharts
@@ -10,6 +13,11 @@ class HomeCharts
     /** @var HomeChartsData */
     private HomeChartsData $homeCharts;
 
+    /**
+     * Instantiate the HomeChart service to get datasets.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->homeCharts = new HomeChartsData();
@@ -66,7 +74,7 @@ class HomeCharts
                     'data' => [
                         User::where('role_id', config('role.admin'))->count(),
                         User::where('role_id', config('role.webmaster'))->count(),
-                        User::where('role_id', config('role.developer'))->count()
+                        User::where('role_id', config('role.developer'))->count(),
                     ],
                 ],
             ])
@@ -76,7 +84,7 @@ class HomeCharts
                 ],
             ]);
 
-            $expensiveHostingsChart = app()->chartjs
+        $expensiveHostingsChart = app()->chartjs
             ->name('expensiveHostings')
             ->type('horizontalBar')
             ->labels(collect($this->homeCharts->getMostExpensiveHostings('domain_name'))->all())

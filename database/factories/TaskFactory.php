@@ -33,7 +33,13 @@ class TaskFactory extends Factory
             'quotation_ref' => Str::random(10),
             'billed' => $this->faker->boolean,
             'bill_num' => Str::random(10),
-            'user_id' => User::inRandomOrder()->first()->id,
+            // We only assign authorized users for the project.
+            // Authorized users are specified in App\Models\Project file
+            // during the `created` model event.
+            'user_id' => User::inRandomOrder()
+                ->whereIn('id', Project::inRandomOrder()->first()->authorizations)
+                ->first()
+                ->id,
             'project_id' => Project::inRandomOrder()->first()->id,
         ];
     }

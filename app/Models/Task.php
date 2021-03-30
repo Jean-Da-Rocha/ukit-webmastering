@@ -19,7 +19,7 @@ class Task extends Model
     /**
      * One To Many (Inverse) relation between Task and User models.
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
@@ -29,7 +29,7 @@ class Task extends Model
     /**
      * One To Many (Inverse) relation between Task and Project models.
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function project()
     {

@@ -91,7 +91,7 @@
 @mixin uk-progress {
     .uk-progress {
         margin-top: 0.25rem;
-        height: 5px !important;
+        height: $progress-height;
         &.success {
             &::-webkit-progress-value {
                 background-color: $global-success-background;

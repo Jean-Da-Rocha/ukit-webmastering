@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Actions\Projects;
 
 use App\Actions\TimeCalculation;
 use App\Models\Project;
-
+use App\Models\User;
 use Livewire\Component;
 
 class UserDropdown extends Component
@@ -40,9 +40,11 @@ class UserDropdown extends Component
      */
     public function render()
     {
+        // dd($this->selectedUserId, $this->getSelectedUser());
+
         return view('livewire.projects.user_dropdown', [
             'project' => $this->project,
-            'selectedUser' => $this->getSelectedUser()->first(),
+            'selectedUser' => $this->getSelectedUser(),
             'selectedUserTotalTasksTime' => $this->getSelectedUserTotalTasksTime(),
         ]);
     }
@@ -55,15 +57,9 @@ class UserDropdown extends Component
      */
     private function getSelectedUser()
     {
-        if ($this->authorizedUsers) {
-            return $this->authorizedUsers->filter(function ($user) {
-                if ($this->selectedUserId !== 0) {
-                    return $user->id === $this->selectedUserId;
-                }
-
-                return $user->id === $this->authorizedUsers->first()->id;
-            });
-        }
+        return $this->authorizedUsers
+            ? $this->authorizedUsers->where('id', $this->selectedUserId)->first()
+            : null;
     }
 
     /**
@@ -73,8 +69,8 @@ class UserDropdown extends Component
      */
     private function getSelectedUserTotalTasksTime()
     {
-        if ($this->getSelectedUser()->first()) {
-            return (new TimeCalculation($this->getSelectedUser()->first()))->getTotalTasksTime();
+        if ($this->getSelectedUser()) {
+            return (new TimeCalculation($this->getSelectedUser()))->getTotalTasksTime();
         }
     }
 }

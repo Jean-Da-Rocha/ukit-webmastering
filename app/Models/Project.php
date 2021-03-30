@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
@@ -44,7 +44,7 @@ class Project extends Model
     /**
      * One To Many (Inverse) relation between Project and Hosting models.
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function hosting()
     {
@@ -99,8 +99,22 @@ class Project extends Model
     public function getAuthorizedUsers()
     {
         return User::select('id', 'username')
-            ->with('tasks:id,name,user_id')
+            ->with($this->joinTasks())
             ->whereIn('id', $this->authorizations)
             ->get();
+    }
+
+    /**
+     * Join all user tasks for the current project.
+     *
+     * @return array
+     */
+    private function joinTasks()
+    {
+        return [
+            'tasks' => fn ($query) => $query
+                ->select('id', 'name', 'user_id', 'project_id', 'duration')
+                ->where('project_id', $this->id),
+        ];
     }
 }

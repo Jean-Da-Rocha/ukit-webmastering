@@ -1,16 +1,16 @@
 .uk-navbar {
-    background: $global-background !important;
-    border-bottom: 1px solid $global-primary-background !important;
+    background: $navbar-background;
+    border-bottom: 1px solid $global-primary-background;
     .uk-navbar-toggle {
         color: $global-warning-background;
     }
 }
 
 .uk-offcanvas-bar {
-    background: $global-background !important;
-    border-right: 1px solid $global-primary-background !important;
-    padding: unset !important;
-    width: 250px !important;
+    background: offcanvas-bar-background;
+    border-right: 1px solid $global-primary-background;
+    padding: $offcanvas-bar-padding-vertical;
+    width: $offcanvas-bar-width;
 
     .uk-nav-header {
         padding: 15px 10px;
