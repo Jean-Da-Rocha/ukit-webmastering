@@ -9,7 +9,7 @@ use Illuminate\View\View;
 abstract class ProgressBarComposer
 {
     /**
-     * ProgressBarCalculation action class.
+     * ProgressBarCalculation Action class.
      *
      * @var ProgressBarCalculation
      */

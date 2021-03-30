@@ -122,63 +122,38 @@ if (! function_exists('get_model')) {
     }
 }
 
-if (! function_exists('generate_class_namespace')) {
+if (! function_exists('generate_html_link')) {
     /**
-     * Generate a namespace depending on a route name,
-     * a method (create, edit ...) and a base path.
+     * Generate a HTML link for a datatable.
      *
-     * @param  string  $routeName
-     * @param  string  $method
-     * @param  string  $basePath
-     * @return string
+     * @param  string  $route
+     * @param  string  $modelAttribute
+     * @return HtmlString
      */
-    function generate_class_namespace(
-        string $routeName,
-        string $method = '',
-        string $basePath = 'App\Http\Livewire\Actions\\'
-    ) {
-        if (Str::contains($routeName, '_')) {
-            $routeName = Str::camel($routeName);
-        }
-
-        // Generate for instance: App\Livewire\Actions\Projects\CreateProject.
-        return $basePath.ucfirst($routeName).'\\'
-            .ucfirst($method).ucfirst(Str::singular($routeName));
+    function generate_html_link(string $route, string $modelAttribute)
+    {
+        return new HtmlString(
+            "<a href='{$route}' class='uk-text-primary'>
+                {$modelAttribute}
+            </a>"
+        );
     }
+}
 
-    if (! function_exists('generate_html_link')) {
-        /**
-         * Generate a HTML link for a datatable.
-         *
-         * @param  string  $route
-         * @param  string  $modelAttribute
-         * @return HtmlString
-         */
-        function generate_html_link(string $route, string $modelAttribute)
-        {
-            return new HtmlString(
-                "<a href='{$route}' class='uk-text-primary'>
-                    {$modelAttribute}
-                </a>"
-            );
-        }
-    }
+if (! function_exists('diff_in_days')) {
+    /**
+     * Check if the date is in the past and returns
+     * the difference from current date in days.
+     *
+     * @param  string  $date
+     * @return int
+     */
+    function diff_in_days(string $date)
+    {
+        $date = Carbon::parse($date);
 
-    if (! function_exists('diff_in_days')) {
-        /**
-         * Check if the date is in the past and returns
-         * the difference from current date in days.
-         *
-         * @param  string  $date
-         * @return int
-         */
-        function diff_in_days(string $date)
-        {
-            $date = Carbon::parse($date);
-
-            return $date->isPast()
-                ? -$date->diffInDays(now())
-                : $date->diffInDays(now());
-        }
+        return $date->isPast()
+            ? -$date->diffInDays(now())
+            : $date->diffInDays(now());
     }
 }
