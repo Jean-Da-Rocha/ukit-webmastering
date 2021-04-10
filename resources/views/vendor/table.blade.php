@@ -29,7 +29,7 @@
         <p class="uk-text-primary">
             Results: {{ $models->count() }} / {{ $models->total() }}
         </p>
-        @if ($models->count() > 0)
+        @if ($models->count())
             <div>
                 <a
                     href="{{ has_route($models->first()->getTable() . '.create') }}"
@@ -41,6 +41,18 @@
             </div>
         @endif
     </div>
+
+    @if ($models->count() && isset($exportRouteName) && Route::has($exportRouteName))
+        <div class="uk-margin">
+            <a
+                href="{{ route($exportRouteName, $exportRouteParam ?? []) }}"
+                class="uk-button uk-button-primary"
+                title="Export {{ $models->first()->getTable() }} data to .xlsx (excel) format"
+            >
+                <x-heroicon-o-document-download />
+            </a>
+        </div>
+    @endif
 
     <table class="uk-table uk-table-middle uk-table-responsive">
         <thead>

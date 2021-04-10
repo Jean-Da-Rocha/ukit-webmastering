@@ -21,6 +21,14 @@ class UserTable extends TableComponent
     protected $listeners = ['getModelIdentifiers'];
 
     /**
+     * Route name used to export
+     * users data in .xlsx format.
+     *
+     * @var string
+     */
+    public $exportRouteName = 'users.export';
+
+    /**
      * Return an Eloquent model query to be used by the table.
      *
      * @return Builder

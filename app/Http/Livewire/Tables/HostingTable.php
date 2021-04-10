@@ -22,6 +22,14 @@ class HostingTable extends TableComponent
     protected $listeners = ['getModelIdentifiers'];
 
     /**
+     * Route name used to export
+     * hostings data in .xlsx format.
+     *
+     * @var string
+     */
+    public $exportRouteName = 'hostings.export';
+
+    /**
      * Return an Eloquent model query to be used by the table.
      *
      * @return Builder
