@@ -1,4 +1,4 @@
-<div x-show="windowWidth < 1024" x-cloak>
+<div x-show="$screen('xs') && !$screen('lg')" x-cloak x-data>
     <nav class="uk-navbar uk-navbar-container uk-margin">
         <div class="uk-navbar-left">
             <button
