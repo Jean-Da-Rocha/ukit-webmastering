@@ -14,6 +14,14 @@ class ProjectTable extends TableComponent
     use WithDeleteConfirmation;
 
     /**
+     * Route name used to export
+     * projects data in .xlsx format.
+     *
+     * @var string
+     */
+    public $exportRouteName = 'projects.export';
+
+    /**
      * Emit an event to access model identifiers
      * in the delete confirmation modal.
      *

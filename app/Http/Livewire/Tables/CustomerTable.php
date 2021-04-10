@@ -20,6 +20,14 @@ class CustomerTable extends TableComponent
     protected $listeners = ['getModelIdentifiers'];
 
     /**
+     * Route name used to export
+     * customers data in .xlsx format.
+     *
+     * @var string
+     */
+    public $exportRouteName = 'customers.export';
+
+    /**
      * Return an Eloquent model query to be used by the table.
      *
      * @return Builder

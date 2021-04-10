@@ -21,6 +21,14 @@ class TaskTable extends TableComponent
      */
     protected $listeners = ['getModelIdentifiers'];
 
+    /**
+     * Route name used to export
+     * tasks data in .xlsx format.
+     *
+     * @var string
+     */
+    public $exportRouteName = 'tasks.export';
+
     /** @var bool */
     public bool $showDetailsRoute = true;
 

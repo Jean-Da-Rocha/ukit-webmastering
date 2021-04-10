@@ -16,6 +16,13 @@ class Hosting extends Model
     protected $guarded = ['id'];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = ['domain_managing' => 'boolean'];
+
+    /**
      * One To Many (Inverse) relation between Hosting and Customer models.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -24,7 +24,7 @@
         >
             <div
                 class="uk-align-center uk-margin-medium-top"
-                :class="$screen('2xl') >= 1536 ? 'uk-container-large' : 'uk-container'"
+                :class="$screen('2xl') ? 'uk-container-large' : 'uk-container'"
             >
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>
                     @isset($slot)

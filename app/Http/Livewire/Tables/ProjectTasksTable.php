@@ -25,6 +25,22 @@ class ProjectTasksTable extends TableComponent
     protected $listeners = ['getModelIdentifiers'];
 
     /**
+     * Route name used to export
+     * project tasks data in .xlsx format.
+     *
+     * @var string
+     */
+    public $exportRouteName = 'project_tasks.export';
+
+    /**
+     * The project's id will be used
+     * as the excel export route parameter.
+     *
+     * @var int
+     */
+    public int $exportRouteParam = 0;
+
+    /**
      * Set the initial table properties.
      *
      * @param  int  $id
@@ -33,6 +49,7 @@ class ProjectTasksTable extends TableComponent
     public function mount(int $id)
     {
         $this->projectId = $id;
+        $this->exportRouteParam = $this->projectId;
     }
 
     /**

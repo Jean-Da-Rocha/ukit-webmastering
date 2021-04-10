@@ -11,7 +11,7 @@ class HostingService
      *
      * @var array
      */
-    private $selectColumns = [
+    private array $selectColumns = [
         'id',
         'domain_name',
         'renewal_date',
