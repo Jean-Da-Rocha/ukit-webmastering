@@ -11,26 +11,20 @@
 
         <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
     </head>
-    <body
-        x-data="{ windowWidth: window.innerWidth }"
-        x-init="() => {
-            window.onresize = () => {
-                windowWidth = window.innerWidth
-            }
-        }"
-    >
+    <body>
 
         <x-layouts.desktop_sidebar />
         <x-layouts.mobile_sidebar />
 
         <div
             id="right-col"
-            :style="windowWidth >= 1024 ? 'margin-left: 250px;' : 'margin-left: unset;'"
+            :style="$screen('lg') ? 'margin-left: 250px;' : 'margin-left: unset;'"
             x-cloak
+            x-data
         >
             <div
                 class="uk-align-center uk-margin-medium-top"
-                :class="windowWidth <= 1536 ? 'uk-container' : 'uk-container-large'"
+                :class="$screen('2xl') >= 1536 ? 'uk-container-large' : 'uk-container'"
             >
                 <div class="uk-grid-large uk-child-width-3-4" data-uk-grid>
                     @isset($slot)
@@ -43,6 +37,7 @@
         <!-- UIkit JS -->
         <script src="{{ url(mix('js/manifest.js')) }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@1.1.x/dist/screen.min.js" defer></script>
         <script src="{{ url(mix('js/vendor/alpine.js')) }}" defer></script>
         <script src="{{ url(mix('js/app.js')) }}"></script>
         @livewireScripts
