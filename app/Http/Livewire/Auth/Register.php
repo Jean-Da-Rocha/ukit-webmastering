@@ -10,19 +10,29 @@ use Livewire\Component;
 
 class Register extends Component
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     public string $username = '';
 
-    /** @var string */
+    /**
+     * @var string
+     */
     public string $email = '';
 
-    /** @var string */
+    /**
+     * @var string
+     */
     public string $password = '';
 
-    /** @var string */
+    /**
+     * @var string
+     */
     public string $passwordConfirmation = '';
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'username' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'max:255', 'email', 'unique:users'],

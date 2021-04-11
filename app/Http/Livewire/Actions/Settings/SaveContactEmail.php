@@ -3,19 +3,21 @@
 namespace App\Http\Livewire\Actions\Settings;
 
 use App\Models\Setting;
-
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class SaveContactEmail extends Component
 {
     use AuthorizesRequests;
 
-    /** @var */
+    /**
+     * @var Setting
+     */
     public Setting $setting;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'setting.contact_email' => ['nullable', 'email', 'email:filter', 'max:255'],
     ];

@@ -17,7 +17,7 @@ class Task extends Model
     protected $guarded = ['id'];
 
     /**
-     * One To Many (Inverse) relation between Task and User models.
+     * Get the user that created the task.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -27,7 +27,7 @@ class Task extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Task and Project models.
+     * Get the project linked to the task.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

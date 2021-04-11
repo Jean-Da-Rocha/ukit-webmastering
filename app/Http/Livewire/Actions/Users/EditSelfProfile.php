@@ -2,10 +2,8 @@
 
 namespace App\Http\Livewire\Actions\Users;
 
+use App\Models\User;
 use Livewire\Component;
-
-use App\Models\{Role, User};
-
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -13,13 +11,19 @@ class EditSelfProfile extends Component
 {
     use AuthorizesRequests;
 
-    /** @var User */
+    /**
+     * @var User
+     */
     public User $user;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     public string $oldPassword;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'user.username' => ['required', 'string', 'max:255', 'unique:users,username'],
         'user.email' => ['required', 'string', 'max:255', 'email:filter', 'unique:users,email'],

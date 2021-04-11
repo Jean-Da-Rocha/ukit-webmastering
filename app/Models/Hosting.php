@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hosting extends Model
 {
     use HasFactory;
+
     /**
      * The attributes that aren't mass assignable.
      *
@@ -16,14 +17,7 @@ class Hosting extends Model
     protected $guarded = ['id'];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = ['domain_managing' => 'boolean'];
-
-    /**
-     * One To Many (Inverse) relation between Hosting and Customer models.
+     * Get the customer that owns the hosting.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -33,7 +27,7 @@ class Hosting extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Hosting and Project models.
+     * Get the project related to the hosting.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -43,7 +37,7 @@ class Hosting extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Hosting and BillingStatus models.
+     * Get the billing status related to the hosting.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -53,7 +47,7 @@ class Hosting extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Hosting and Server models.
+     * Get the server related to the hosting.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

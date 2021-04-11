@@ -27,7 +27,7 @@ class CategoryTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Category::query();
+        return Category::select('id', 'type');
     }
 
     /**

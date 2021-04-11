@@ -2,23 +2,29 @@
 
 namespace App\Http\Livewire\Actions\Projects;
 
-use App\Models\{Category, Customer, Project};
-
+use App\Models\Category;
+use App\Models\Customer;
+use App\Models\Project;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class BaseProject extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Project */
+    /**
+     * @var Project
+     */
     public Project $project;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'project.category_id' => ['required', 'integer'],
         'project.customer_id' => ['required', 'integer'],

@@ -3,22 +3,26 @@
 namespace App\Http\Livewire\Actions\Servers;
 
 use App\Models\Server;
-
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class BaseServer extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Server */
+    /**
+     * @var Server
+     */
     public Server $server;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'server.name' => ['required', 'string', 'max:255'],
         'server.information' => ['nullable', 'string', 'max:500'],

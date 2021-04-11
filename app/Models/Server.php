@@ -17,7 +17,7 @@ class Server extends Model
     protected $guarded = ['id'];
 
     /**
-     * One To Many (Inverse) relation between Server and Hosting models.
+     * Get the hosting related to the server.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

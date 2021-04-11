@@ -3,22 +3,26 @@
 namespace App\Http\Livewire\Actions\Customers;
 
 use App\Models\Customer;
-
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class BaseCustomer extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Customer */
+    /**
+     * @var Customer
+     */
     public Customer $customer;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'customer.society_name' => ['required', 'string', 'max:255'],
         'customer.designation' => ['nullable', 'string', 'max:255'],

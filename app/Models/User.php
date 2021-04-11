@@ -25,7 +25,7 @@ class User extends Authenticatable
     protected $hidden = ['password'];
 
     /**
-     * One To Many (Inverse) relation between User and Role models.
+     * Get the role linked to the user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -35,7 +35,7 @@ class User extends Authenticatable
     }
 
     /**
-     * One To Many relation between User and Task models.
+     * Get all tasks for the user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
