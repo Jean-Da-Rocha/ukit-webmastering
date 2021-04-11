@@ -11,7 +11,9 @@ class ProjectAuthorizations extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Project */
+    /**
+     * @var Project
+     */
     public Project $project;
 
     /**

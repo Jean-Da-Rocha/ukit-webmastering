@@ -4,15 +4,18 @@ namespace App\Http\Livewire\Actions\Projects;
 
 use App\Actions\TimeCalculation;
 use App\Models\Project;
-use App\Models\User;
 use Livewire\Component;
 
 class UserDropdown extends Component
 {
-    /** @var Project */
+    /**
+     * @var Project
+     */
     public Project $project;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     public int $selectedUserId = 0;
 
     /**

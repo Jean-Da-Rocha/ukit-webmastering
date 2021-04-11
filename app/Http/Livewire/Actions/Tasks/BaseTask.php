@@ -2,23 +2,28 @@
 
 namespace App\Http\Livewire\Actions\Tasks;
 
-use App\Models\{Project, Task};
-
+use App\Models\Project;
+use App\Models\Task;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class BaseTask extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Task */
+    /**
+     * @var Task
+     */
     public Task $task;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'task.project_id' => ['required', 'integer'],
         'task.quoted' => ['required', 'boolean'],

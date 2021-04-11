@@ -42,7 +42,7 @@ class Project extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Project and Hosting models.
+     * Get the hosting that owns the project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -52,17 +52,17 @@ class Project extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Project and User models.
+     * Get all users for the project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 
     /**
-     * One To Many (Inverse) relation between Project and Customer models.
+     * Get the customer related to the project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -72,7 +72,7 @@ class Project extends Model
     }
 
     /**
-     * One To Many (Inverse) relation between Project and Category models.
+     * Get the category related to the project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -82,7 +82,7 @@ class Project extends Model
     }
 
     /**
-     * One To Many relation between Project and Task models.
+     * Get all task for the project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

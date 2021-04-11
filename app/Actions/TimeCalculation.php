@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class TimeCalculation
 {
-    /** @var Model */
+    /**
+     * @var Model
+     */
     private Model $model;
 
     /**

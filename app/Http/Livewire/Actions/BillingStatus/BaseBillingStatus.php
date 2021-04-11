@@ -10,13 +10,19 @@ class BaseBillingStatus extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Status */
+    /**
+     * @var Status
+     */
     public BillingStatus $billing_status;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'billing_status.name' => ['required', 'string', 'max:255'],
         'billing_status.color' => ['nullable', 'string', 'max:7'],

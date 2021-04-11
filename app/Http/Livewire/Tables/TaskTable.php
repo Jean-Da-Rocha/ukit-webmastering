@@ -29,7 +29,9 @@ class TaskTable extends TableComponent
      */
     public $exportRouteName = 'tasks.export';
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $showDetailsRoute = true;
 
     /**

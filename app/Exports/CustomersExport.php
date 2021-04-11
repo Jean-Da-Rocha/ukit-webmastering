@@ -12,7 +12,9 @@ use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 
 class CustomersExport implements FromCollection, WithMapping, WithHeadings, ShouldAutoSize, WithColumnFormatting
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     private array $selectAttributes = [
         'id',
         'society_name',
