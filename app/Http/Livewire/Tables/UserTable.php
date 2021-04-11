@@ -35,7 +35,7 @@ class UserTable extends TableComponent
      */
     public function query(): Builder
     {
-        return User::with('role')->select('users.*');
+        return User::select('users.*')->with('role:id,name');
     }
 
     /**

@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\Tables;
 
-use App\Http\Livewire\Tables\Column;
-use App\Http\Livewire\Tables\TableComponent;
 use App\Models\Hosting;
-use App\Traits\Livewire\WithDeleteConfirmation;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use App\Http\Livewire\Tables\Column;
+use Illuminate\Database\Eloquent\Builder;
+use App\Http\Livewire\Tables\TableComponent;
+use App\Traits\Livewire\WithDeleteConfirmation;
 
 class HostingTable extends TableComponent
 {
@@ -36,8 +37,11 @@ class HostingTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Hosting::with(['customer', 'project', 'server', 'billingStatus'])
-            ->select('hostings.*');
+        return Hosting::select('hostings.*')
+            ->with('customer:id,designation')
+            ->with('project:id,name')
+            ->with('server:id,name')
+            ->with('billingStatus:id,name,color');
     }
 
     /**
@@ -68,7 +72,7 @@ class HostingTable extends TableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Domain managing', 'domain_managing')
-                ->format(fn (Hosting $model) => $model->domain_managing === 1 ? 'Yes' : 'No')
+                ->format(fn (Hosting $model) => $model->domain_managing == 1 ? 'Yes' : 'No')
                 ->searchable()
                 ->sortable(),
             Column::make('Pricing', 'pricing')

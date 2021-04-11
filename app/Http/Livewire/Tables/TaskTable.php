@@ -41,7 +41,9 @@ class TaskTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Task::with(['project', 'user'])->select('tasks.*');
+        return Task::select('tasks.*')
+            ->with('project:id,name')
+            ->with('user:id,username');
     }
 
     /**

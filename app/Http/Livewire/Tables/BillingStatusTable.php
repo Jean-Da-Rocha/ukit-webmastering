@@ -27,7 +27,7 @@ class BillingStatusTable extends TableComponent
      */
     public function query(): Builder
     {
-        return BillingStatus::query();
+        return BillingStatus::select('id', 'name', 'color');
     }
 
     /**
