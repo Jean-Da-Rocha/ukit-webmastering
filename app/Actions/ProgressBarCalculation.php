@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProgressBarCalculation
 {
-    /** @var Model */
+    /**
+     * @var Model
+     */
     private Model $model;
 
     /**

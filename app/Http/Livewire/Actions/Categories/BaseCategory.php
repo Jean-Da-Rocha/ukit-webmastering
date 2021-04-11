@@ -3,22 +3,26 @@
 namespace App\Http\Livewire\Actions\Categories;
 
 use App\Models\Category;
-
 use Livewire\Component;
-
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class BaseCategory extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Category */
+    /**
+     * @var Category
+     */
     public Category $category;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'category.type' => ['required', 'string', 'max:255'],
     ];

@@ -17,7 +17,7 @@ class Customer extends Model
     protected $guarded = ['id'];
 
     /**
-     * One To Many (Inverse) relation between Customer and Hosting models.
+     * Get all the hostings for the customer.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -27,7 +27,7 @@ class Customer extends Model
     }
 
     /**
-     * One To Many relation between Customer and Project models.
+     * Get all the projects for the customer.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

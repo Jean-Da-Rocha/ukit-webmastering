@@ -27,7 +27,7 @@ class ServerTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Server::query();
+        return Server::select('id', 'name');
     }
 
     /**

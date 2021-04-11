@@ -2,23 +2,28 @@
 
 namespace App\Http\Livewire\Actions\Users;
 
-use App\Models\{Role, User};
-
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use Livewire\Component;
 
 class BaseUser extends Component
 {
     use AuthorizesRequests;
 
-    /** @var User */
+    /**
+     * @var User
+     */
     public User $user;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'user.username' => ['required', 'string', 'max:255', 'unique:users,username'],
         'user.email' => ['required', 'string', 'max:255', 'email:filter', 'unique:users,email'],

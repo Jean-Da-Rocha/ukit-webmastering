@@ -34,7 +34,15 @@ class CustomerTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Customer::query();
+        return Customer::select([
+            'id',
+            'society_name',
+            'address',
+            'zip_code',
+            'city',
+            'phone_number',
+            'email'
+        ]);
     }
 
     /**

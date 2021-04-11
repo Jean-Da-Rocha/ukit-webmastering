@@ -36,7 +36,9 @@ class ProjectTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Project::with(['customer', 'tasks'])->select('projects.*');
+        return Project::select('projects.*')
+            ->with('customer:id,designation')
+            ->with('tasks:id,duration,project_id');
     }
 
     /**

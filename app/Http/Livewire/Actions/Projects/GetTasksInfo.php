@@ -9,7 +9,9 @@ use Livewire\Component;
 
 class GetTasksInfo extends Component
 {
-    /** @var Project */
+    /**
+     * @var Project
+     */
     public Project $project;
 
     /**

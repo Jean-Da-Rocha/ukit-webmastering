@@ -10,7 +10,9 @@ use App\Services\HomeChartsData;
 
 class HomeCharts
 {
-    /** @var HomeChartsData */
+    /**
+     * @var HomeChartsData
+     */
     private HomeChartsData $homeCharts;
 
     /**

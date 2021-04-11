@@ -14,13 +14,19 @@ class BaseHosting extends Component
 {
     use AuthorizesRequests;
 
-    /** @var Hosting */
+    /**
+     * @var Hosting
+     */
     public Hosting $hosting;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public bool $updateMode = false;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected array $rules = [
         'hosting.domain_name' => ['required', 'string', 'max:255'],
         'hosting.renewal_date' => ['required', 'date', 'date_format:Y-m-d', 'after:today'],

@@ -24,7 +24,7 @@ class BillingStatus extends Model
     protected $table = 'billing_status';
 
     /**
-     * One To Many (Inverse) relation between BillingStatus and Hosting models.
+     * Get the hosting that owns the billing status.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
