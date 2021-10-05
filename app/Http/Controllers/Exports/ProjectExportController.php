@@ -6,7 +6,7 @@ use App\Exports\ProjectsExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
-class ProjectExportController extends Controller
+final class ProjectExportController extends Controller
 {
     /**
      * Export projects data in .xsls format.
@@ -16,7 +16,8 @@ class ProjectExportController extends Controller
     public function __invoke()
     {
         return Excel::download(
-            new ProjectsExport(), now()->format('Y-m-d') . '-projects.xlsx'
+            new ProjectsExport(),
+            now()->format('Y-m-d') . '-projects.xlsx'
         );
     }
 }

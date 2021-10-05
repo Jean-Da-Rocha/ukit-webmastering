@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.extract(['alpinejs'], 'js/vendor/alpine.js');
+mix.extract(['uikit'], 'js/vendor/uikit.js');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');

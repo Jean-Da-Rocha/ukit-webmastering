@@ -6,7 +6,7 @@ use App\Exports\CustomersExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
-class CustomerExportController extends Controller
+final class CustomerExportController extends Controller
 {
     /**
      * Export customers data in .xsls format.
@@ -16,7 +16,8 @@ class CustomerExportController extends Controller
     public function __invoke()
     {
         return Excel::download(
-            new CustomersExport(), now()->format('Y-m-d') . '-customers.xlsx'
+            new CustomersExport(),
+            now()->format('Y-m-d') . '-customers.xlsx'
         );
     }
 }
