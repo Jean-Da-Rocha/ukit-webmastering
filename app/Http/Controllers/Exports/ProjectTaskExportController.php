@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Maatwebsite\Excel\Facades\Excel;
 
-class ProjectTaskExportController extends Controller
+final class ProjectTaskExportController extends Controller
 {
     /**
      * Export projects data in .xsls format.

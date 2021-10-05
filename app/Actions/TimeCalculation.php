@@ -47,7 +47,7 @@ class TimeCalculation
         }
 
         throw new Exception(
-            'The provided $model does nott correspond to a Project or User model'
+            'The provided $model does not correspond to a Project or User model'
         );
     }
 
@@ -78,7 +78,7 @@ class TimeCalculation
      */
     private function setTimeFormat(int $totalTimeInSeconds)
     {
-        return floor($totalTimeInSeconds / 3600).' h '
-            .floor(($totalTimeInSeconds % 3600) / 60).' min';
+        return floor($totalTimeInSeconds / 3600) . ' h '
+            . floor(($totalTimeInSeconds % 3600) / 60) . ' min';
     }
 }

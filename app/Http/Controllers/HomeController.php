@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\HomeCharts;
+use App\Actions\Charts\BuildExpensiveHostingsChart;
+use App\Actions\Charts\BuildGlobalStatsChart;
+use App\Actions\Charts\BuildUserRoleChart;
+use App\Actions\Charts\BuildUserTasksChart;
 
 final class HomeController extends Controller
 {
@@ -14,6 +17,11 @@ final class HomeController extends Controller
      */
     public function __invoke()
     {
-        return view('home', (new HomeCharts())->build());
+        return view('home', [
+            'globalStatsChart' => (new BuildGlobalStatsChart())->execute(),
+            'userRoleChart' => (new BuildUserRoleChart())->execute(),
+            'expensiveHostingsChart' => (new BuildExpensiveHostingsChart())->execute(),
+            'userTasksChart' => (new BuildUserTasksChart())->execute(),
+        ]);
     }
 }
