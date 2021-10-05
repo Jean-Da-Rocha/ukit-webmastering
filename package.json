@@ -17,7 +17,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "alpinejs": "^2.8.0",
-        "uikit": "^3.6.15"
+        "@alpine-collective/toolkit-screen": "^1.0.0",
+        "alpinejs": "^3.4.2",
+        "uikit": "^3.7.5"
     }
 }

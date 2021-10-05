@@ -34,10 +34,8 @@
             </div>
         </div>
 
-        <!-- UIkit JS -->
         <script src="{{ url(mix('js/manifest.js')) }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@1.1.x/dist/screen.min.js" defer></script>
+        <script src="{{ url(mix('js/vendor/uikit.js')) }}"></script>
         <script src="{{ url(mix('js/vendor/alpine.js')) }}" defer></script>
         <script src="{{ url(mix('js/app.js')) }}"></script>
         @livewireScripts
